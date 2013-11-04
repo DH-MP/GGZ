@@ -7,6 +7,8 @@
     </div>
 
     <div class="collapse navbar-collapse">
+      <span class="glyphicon glyphicon-shopping-cart">   </span>
+
       <form class="navbar-form navbar-right form-inline" action="/login.do"
             method="post" role="login">
         <div class="form-group">
