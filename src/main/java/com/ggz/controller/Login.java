@@ -12,13 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created with IntelliJ IDEA.
- * User: momoking
- * Date: 10/25/2013
- * Time: 3:35 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //doGet(request, response);

@@ -12,13 +12,7 @@ import com.sunnyd.database.Manager;
 
 import java.util.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: momoking
- * Date: 11/2/2013
- * Time: 3:25 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class HunkTest extends HttpServlet
 {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

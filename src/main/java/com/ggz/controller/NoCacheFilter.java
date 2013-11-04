@@ -4,13 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: momoking
- * Date: 10/26/2013
- * Time: 4:17 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class NoCacheFilter implements Filter {
 
     FilterConfig filterConfig = null;
