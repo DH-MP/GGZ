@@ -29,12 +29,9 @@
       <div class="row">
         <div class="col-md-7" id="hero-1"></div>
         <div class="col-md-5">
-          <h3>Work Collaboratively</h3>
+          <h3>Grand Theft Auto V</h3>
           <p>
-            Collaboratively administrate empowered markets via plug-and-play
-            networks. Dynamically procrastinate B2C users after installed base
-            benefits. Dramatically visualize customer directed convergence
-            without revolutionary ROI.
+            Nine years after a botched robbery in Ludendorff, North Yankton that left two of his accomplices dead and forced a third into hiding, former bank robber Michael Townley has been placed under witness protection with his family in Los Santos, San Andreas, using the pseudonym Michael De Santa. Franklin Clinton, who works as a repo man for a car dealership alongside his friend Lamar Davis, is asked to reclaim a car from Michael's teenage son, Jimmy, who is overdue on his loan payment.
           </p>
           <a class="btn btn-success btn-lg" href="/register">Sign Up</a>
         </div>
