@@ -3,7 +3,7 @@
 <%@ page language="java" %>
 <head>
   <meta charset="utf-8">
-  <title>Gravity GAme Zone - A Project for SOEN 387</title>
+  <title>Gravity Game Zone - A Project for SOEN 387</title>
 
   <link rel="stylesheet" href="/assets/css/lib/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="/assets/css/lib/flat-ui.min.css" type="text/css">

@@ -3,12 +3,10 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand">Gravity Game Zone</a>
+      <a href="/" class="navbar-brand">Gravity Game Zone</a>
     </div>
 
     <div class="collapse navbar-collapse">
-      <span class="glyphicon glyphicon-shopping-cart">   </span>
-
       <form class="navbar-form navbar-right form-inline" action="/login.do"
             method="post" role="login">
         <div class="form-group">
@@ -32,7 +30,6 @@
         <div class="col-md-7" id="hero-1"></div>
         <div class="col-md-5">
           <h3>Work Collaboratively</h3>
-
           <p>
             Collaboratively administrate empowered markets via plug-and-play
             networks. Dynamically procrastinate B2C users after installed base
@@ -44,6 +41,7 @@
       </div>
     </div>
   </div>
+
   <div class="section two" data-stellar-background-ratio="0.5"></div>
   <div class="section three" data-stellar-background-ratio="0.5">
     <div class="container">
@@ -57,7 +55,6 @@
             benefits. Dramatically visualize customer directed convergence
             without revolutionary ROI.
           </p>
-
           <p>
             Efficiently unleash cross-media information without cross-media
             value. Quickly maximize timely deliverables for real-time schemas.
@@ -71,8 +68,10 @@
   </div>
   <div class="section four" data-stellar-background-ratio="0.5"></div>
 
-  <div class="section five">
-    <div class="container">
+
+
+  <footer>
+    <div class="container useful-link">
       <div class="row">
         <div class="col-md-3">
           <h3>Sunny Delight</h3>
@@ -116,12 +115,7 @@
           </p>
         </div>
       </div>
-
-
     </div>
-  </div>
-
-  <footer>
     2013 Sunny Delight
   </footer>
 
