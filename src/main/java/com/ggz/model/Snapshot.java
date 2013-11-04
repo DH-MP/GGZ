@@ -1,8 +1,8 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import com.sunnyd.Base;
 import com.sunnyd.IModel;
-import com.sunnyd.annotations.*;
+
 import java.util.HashMap;
 
 public class Snapshot extends Base implements IModel {

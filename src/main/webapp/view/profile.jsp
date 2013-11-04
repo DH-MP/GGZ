@@ -1,4 +1,4 @@
-<%@ page import="com.peerpen.model.Peer" %>
+<%@ page import="com.ggz.model.Peer" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 
 <script type="text/javascript">

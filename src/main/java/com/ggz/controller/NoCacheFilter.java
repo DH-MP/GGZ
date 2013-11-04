@@ -1,4 +1,4 @@
-package com.peerpen.controller;
+package com.ggz.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;

@@ -1,35 +1,34 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import com.sunnyd.Base;
 import com.sunnyd.IModel;
 import com.sunnyd.annotations.*;
 import java.util.HashMap;
 
-@ActiveRecordModel
-public class Category extends Base implements IModel {
+public class Group extends Base implements IModel {
 
-    public static final String tableName = "categories";
+    public static final String tableName = "comments";
 
     @ActiveRecordField
-    private String categoryName;
+    private String groupName;
 
     @ActiveRecordField
     private String description;
 
-    public Category() {
+    public Group() {
         super();
     }
 
-    public Category(HashMap<String, Object> HM) {
+    public Group(HashMap<String, Object> HM) {
         super(HM);
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
         setUpdateFlag(true);
     }
 

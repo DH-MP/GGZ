@@ -1,11 +1,8 @@
-package com.peerpen.controller;
+package com.ggz.controller;
 
-import com.peerpen.model.Peer;
+import com.ggz.model.Peer;
 import com.sunnyd.database.Manager;
 
-import javax.servlet.FilterChain;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

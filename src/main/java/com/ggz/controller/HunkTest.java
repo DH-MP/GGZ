@@ -1,4 +1,4 @@
-package com.peerpen.controller;
+package com.ggz.controller;
 
 
 import javax.servlet.ServletException;
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.google.gson.*;
-import com.peerpen.model.*;
 import com.sunnyd.database.Manager;
 
 import java.util.*;

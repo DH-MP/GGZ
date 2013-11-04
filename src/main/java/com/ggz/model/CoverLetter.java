@@ -1,8 +1,7 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import java.util.HashMap;
 import com.sunnyd.annotations.ActiveRecordInheritFrom;
-import com.sunnyd.annotations.ActiveRecordField;
 
 @ActiveRecordInheritFrom(childClassof = "Document")
 public class CoverLetter extends Document {

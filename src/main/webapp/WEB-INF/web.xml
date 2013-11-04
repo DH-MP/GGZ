@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>login.do</servlet-name>
-        <servlet-class>com.peerpen.controller.Login</servlet-class>
+        <servlet-class>com.ggz.controller.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login.do</servlet-name>
@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>logout.do</servlet-name>
-        <servlet-class>com.peerpen.controller.Logout</servlet-class>
+        <servlet-class>com.ggz.controller.Logout</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logout.do</servlet-name>
@@ -46,7 +46,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>register.do</servlet-name>
-        <servlet-class>com.peerpen.controller.Register</servlet-class>
+        <servlet-class>com.ggz.controller.Register</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>register.do</servlet-name>
@@ -65,7 +65,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>profile.do</servlet-name>
-        <servlet-class>com.peerpen.controller.Profile</servlet-class>
+        <servlet-class>com.ggz.controller.Profile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>profile.do</servlet-name>
@@ -88,7 +88,7 @@
 
     <filter>
         <filter-name>noCacheFilter</filter-name>
-        <filter-class>com.peerpen.controller.NoCacheFilter</filter-class>
+        <filter-class>com.ggz.controller.NoCacheFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>noCacheFilter</filter-name>
@@ -107,7 +107,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>hunk.do</servlet-name>
-        <servlet-class>com.peerpen.controller.HunkTest</servlet-class>
+        <servlet-class>com.ggz.controller.HunkTest</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>hunk.do</servlet-name>

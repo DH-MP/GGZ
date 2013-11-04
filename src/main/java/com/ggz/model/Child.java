@@ -1,4 +1,4 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import com.sunnyd.Base;
 import com.sunnyd.annotations.ActiveRecordField;
@@ -6,7 +6,6 @@ import com.sunnyd.annotations.ActiveRelationHasMany;
 import com.sunnyd.database.Manager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Peer extends Base

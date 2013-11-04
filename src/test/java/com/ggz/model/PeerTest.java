@@ -1,9 +1,8 @@
-package com.peerpen.model;
+package com.ggz.model;
 
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class PeerTest
 {
