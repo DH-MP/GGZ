@@ -68,6 +68,11 @@
       <version>3.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.javalite</groupId>
+      <artifactId>activejdbc</artifactId>
+      <version>1.4.7</version>
+    </dependency>
   </dependencies>
 
   <build>
