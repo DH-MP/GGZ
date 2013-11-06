@@ -6,6 +6,6 @@ $(function() {
   });
   return $('.flippable h2').on("click", function() {
     var back;
-    return back = flippant.flip($(this).parents('.flippable').get(0), "I am the back content");
+    return back = flippant.flip($(this).parents('.flippable').get(0), "I am the back content", "modal");
   });
 });

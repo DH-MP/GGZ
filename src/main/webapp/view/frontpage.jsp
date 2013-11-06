@@ -17,21 +17,22 @@
         </ul>
 
         <%--<div class="collapse navbar-collapse">--%>
-          <%--<form class="navbar-form navbar-right form-inline" action="/search.do"--%>
-                <%--method="post" role="search">--%>
-            <%--<div class="form-group">--%>
-              <%--<input type="text" class="form-control" id="q" name="q"--%>
-                     <%--placeholder="Search..."/>--%>
-            <%--</div>--%>
-            <%--<button id="search" class="btn btn-warning" type="submit"><span--%>
-                <%--class="glyphicon glyphicon-search"></span></button>--%>
-          <%--</form>--%>
+        <%--<form class="navbar-form navbar-right form-inline" action="/search.do"--%>
+        <%--method="post" role="search">--%>
+        <%--<div class="form-group">--%>
+        <%--<input type="text" class="form-control" id="q" name="q"--%>
+        <%--placeholder="Search..."/>--%>
+        <%--</div>--%>
+        <%--<button id="search" class="btn btn-warning" type="submit"><span--%>
+        <%--class="glyphicon glyphicon-search"></span></button>--%>
+        <%--</form>--%>
         <%--</div>--%>
       </nav>
     </div>
     <div class="col-md-5">
       <div id="primary-search" class="input-group input-group-lg">
         <input type="text" class="form-control"/>
+
         <div class="input-group-btn">
           <button type="button" class="btn btn-default btn-lg btn-warning">
             Search
@@ -114,52 +115,44 @@
 
 <div class="container">
   <div class="row row-offcanvas row-offcanvas-right">
-    <div class="col-xs-12 col-sm-9">
+    <div class="col-xs-12 col-sm-7">
       <div class="row">
+        <% for (int i = 0; i < 6; i++)
+        { %>
         <div class="col-6 col-sm-6 col-lg-4 flippable">
           <h2>Heading</h2>
           <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
+
+          <div>
+            <span class="label label-primary">PC</span>
+            <span class="label label-warning">PlayStation</span>
+          </div>
         </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
-        </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
-        </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
-        </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
-        </div>
-        <div class="col-6 col-sm-6 col-lg-4">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
-        </div>
+        <% } %>
       </div>
     </div>
 
-    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
+    <div class="col-xs-6 col-sm-5 sidebar-offcanvas" id="sidebar"
          role="navigation">
       <div class="list-group">
-        <a href="#" class="list-group-item active">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
-        <a href="#" class="list-group-item">Link</a>
+        <% for (int i = 0; i < 5; i++)
+        { %>
+        <a href="#" class="list-group-item">
+          <div class="pull-left">
+            <img src="holder.js/60x85/vine" alt=""/>
+          </div>
+          <h4>Game Category Heading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
+            eget risus varius blandit.</p>
+        </a>
+        <% } %>
       </div>
     </div>
   </div>
 </div>
 
+<footer>
+  2013 Sunny Delight
+</footer>
 
 <%@ include file="/view/includes/static/footer.jsp" %>

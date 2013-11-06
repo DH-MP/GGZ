@@ -17,6 +17,6 @@
   <script src="/assets/js/lib/jquery.stellar.min.js"></script>
   <script src="/assets/js/lib/flippant.min.js"></script>
   <script src="/assets/js/lib/holder.js"></script>
-  <script src="/assets/js/custom/script.js"></script>
+  <script src="/assets/js/custom/script.min.js"></script>
 </head>
 <body>
