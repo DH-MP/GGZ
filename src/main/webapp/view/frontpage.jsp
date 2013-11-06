@@ -116,29 +116,29 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-9">
       <div class="row">
-        <div class="col-6 col-sm-6 col-lg-4">
+        <div class="col-6 col-sm-6 col-lg-4 flippable">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
         <div class="col-6 col-sm-6 col-lg-4">
           <h2>Heading</h2>
-          <img src="holder.js/150x200/industrial" class="img-rounded box-art"/>
+          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
         </div>
       </div>
     </div>
