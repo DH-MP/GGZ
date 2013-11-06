@@ -67,3 +67,6 @@ footer {
     position: relative;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px #2c3e50; }
+
+#primary-search {
+  margin-bottom: 50px; }

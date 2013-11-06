@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="/assets/css/lib/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="/assets/css/lib/flat-ui.min.css" type="text/css">
-  <link rel="stylesheet" href="/assets/css/custom/peerpen.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/custom/gravity.min.css" type="text/css">
   <link rel="stylesheet" href="/assets/css/custom/style.min.css" type="text/css">
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>

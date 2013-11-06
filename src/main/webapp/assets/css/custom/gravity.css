@@ -4,7 +4,7 @@ body#registration{
     background-repeat: no-repeat;
     display: block;
 }
-div.registerContainer{
+div.register-container {
     margin-top: 5px;
     margin-left:10%;
     display:block;
@@ -17,13 +17,13 @@ div.registerContainer{
     box-shadow: 3px #f5f5f5;
 }
 
-div#registerHeader{
+div#register-header {
     padding: 2px 0px 5px 0px;
     border-bottom-radius: 10px;
     border-bottom-color:black;
 }
 
-div#registerBody{
+div#register-body {
     padding: 0px 15px 15px 10px;
 }
 
@@ -34,7 +34,7 @@ form#register{
     display:block;
 }
 
-div#registrationImage{
+div#registration-image {
     margin-top:10px;
     margin-left:30px;
     display:block;
