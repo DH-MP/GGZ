@@ -83,7 +83,9 @@ footer {
   color: #ecf0f1; }
 
 .flippant-back {
-  border-radius: 4px; }
+  border-radius: 4px;
+  box-shadow: none;
+  background: black; }
 
 .list-group img {
   border-radius: 2px;
