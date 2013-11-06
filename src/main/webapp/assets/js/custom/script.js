@@ -4,8 +4,8 @@ $(function() {
     horizontalScrolling: false,
     verticalOffset: 40
   });
-  return $('.flippable h2').on("click", function() {
+  return $('.flippable img').on("click", function() {
     var back;
-    return back = flippant.flip($(this).parents('.flippable').get(0), "I am the back content", "modal");
+    return back = flippant.flip($(this).get(0), "I am the back content", "modal");
   });
 });

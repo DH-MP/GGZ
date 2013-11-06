@@ -117,7 +117,7 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-        <% for (int i = 0; i < 6; i++)
+        <% for (int i = 0; i < 9; i++)
         { %>
         <div class="col-6 col-sm-6 col-lg-4 flippable">
           <h2>Heading</h2>
@@ -134,14 +134,19 @@
 
     <div class="col-xs-6 col-sm-5 sidebar-offcanvas" id="sidebar"
          role="navigation">
+      <h2>Top Game of the Week</h2>
       <div class="list-group">
         <% for (int i = 0; i < 5; i++)
         { %>
         <a href="#" class="list-group-item">
           <div class="pull-left">
-            <img src="holder.js/60x85/vine" alt=""/>
+            <img src="holder.js/80x110/vine" alt=""/>
           </div>
           <h4>Game Category Heading</h4>
+          <h6>
+            <span class="label label-primary">PC</span>
+            <span class="label label-warning">PlayStation</span>
+          </h6>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
             eget risus varius blandit.</p>
         </a>

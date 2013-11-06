@@ -77,6 +77,8 @@ footer {
 #primary-search button {
   height: 50px; }
 
+.flippable img:hover {
+  cursor: pointer; }
 .flippable h2 {
   color: #ecf0f1; }
 
@@ -86,3 +88,6 @@ footer {
 .list-group img {
   border-radius: 2px;
   margin-right: 11px; }
+
+#sidebar h2 {
+  color: #ecf0f1; }
