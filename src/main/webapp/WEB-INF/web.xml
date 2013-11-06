@@ -14,6 +14,14 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet>
+      <servlet-name>front</servlet-name>
+      <jsp-file>/view/frontpage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>front</servlet-name>
+      <url-pattern>/front</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>login.do</servlet-name>
         <servlet-class>com.ggz.controller.Login</servlet-class>
     </servlet>
