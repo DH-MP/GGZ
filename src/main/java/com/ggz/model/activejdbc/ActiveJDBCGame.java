@@ -3,7 +3,6 @@ package com.ggz.model.activejdbc;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,10 +25,11 @@ public class ActiveJDBCGame extends Model
   private String description; // very large html embedded description
   private String apiDetailUrl;
 
-  private Map<String, String> imagesUrl; // map of images size (large, medium, small)
-  private List<String> developers;
-  private List<String> pgRating;
-  private List<String> platforms;
+  private ActiveJDBCImage imagesUrl;
+
+  private List<ActiveJDBCDeveloper> developers;
+  private List<ActiveJDBCPGRating> pgRating;
+  private List<ActiveJDBCPlatform> platforms;
 
   public double getPrice()
   {
@@ -81,12 +81,12 @@ public class ActiveJDBCGame extends Model
     this.description = description;
   }
 
-  public List<String> getDevelopers()
+  public List<ActiveJDBCDeveloper> getDevelopers()
   {
     return developers;
   }
 
-  public void setDevelopers(List<String> developers)
+  public void setDevelopers(List<ActiveJDBCDeveloper> developers)
   {
     this.developers = developers;
   }
@@ -101,12 +101,12 @@ public class ActiveJDBCGame extends Model
     this.apiId = apiId;
   }
 
-  public Map<String, String> getImagesUrl()
+  public ActiveJDBCImage getImagesUrl()
   {
     return imagesUrl;
   }
 
-  public void setImagesUrl(Map<String, String> imagesUrl)
+  public void setImagesUrl(ActiveJDBCImage imagesUrl)
   {
     this.imagesUrl = imagesUrl;
   }
@@ -131,22 +131,22 @@ public class ActiveJDBCGame extends Model
     this.releaseDate = releaseDate;
   }
 
-  public List<String> getPgRating()
+  public List<ActiveJDBCPGRating> getPgRating()
   {
     return pgRating;
   }
 
-  public void setPgRating(List<String> pgRating)
+  public void setPgRating(List<ActiveJDBCPGRating> pgRating)
   {
     this.pgRating = pgRating;
   }
 
-  public List<String> getPlatforms()
+  public List<ActiveJDBCPlatform> getPlatforms()
   {
     return platforms;
   }
 
-  public void setPlatforms(List<String> platforms)
+  public void setPlatforms(List<ActiveJDBCPlatform> platforms)
   {
     this.platforms = platforms;
   }
