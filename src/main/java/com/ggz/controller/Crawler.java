@@ -6,6 +6,7 @@ import com.google.gson.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.*;
@@ -41,7 +42,8 @@ public class Crawler
     try
     {
       URL url = new URL(queryURL);
-      reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+//      reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+      reader = new BufferedReader(new InputStreamReader(ClassLoader.getSystemResourceAsStream("response.sample.txt")));
 
       JsonParser parser = new JsonParser();
       JsonObject results = parser.parse(reader).getAsJsonObject();

@@ -1,13 +1,10 @@
 package com.ggz.model.activejdbc;
 
-/**
- * Created with IntelliJ IDEA.
- * User: snw
- * Date: 11/7/2013
- * Time: 12:50 PM
- * To change this template use File | Settings | File Templates.
- */
-public class ActiveJDBCPGRating
+import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
+
+@Table("activejdbcpgratings")
+public class ActiveJDBCPGRating extends Model
 {
   String name;
 

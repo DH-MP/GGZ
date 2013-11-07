@@ -1,23 +1,20 @@
 package com.ggz.model.activejdbc;
 
-/**
- * Created with IntelliJ IDEA.
- * User: snw
- * Date: 11/7/2013
- * Time: 12:49 PM
- * To change this template use File | Settings | File Templates.
- */
-public class ActiveJDBCDeveloper
+import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
+
+@Table("activejdbcdevelopers")
+public class ActiveJDBCDeveloper extends Model
 {
   String name;
 
-  public String getName()
-  {
-    return name;
-  }
-
-  public void setName(String name)
-  {
-    this.name = name;
-  }
+//  public String getName()
+//  {
+//    return name;
+//  }
+//
+//  public void setName(String name)
+//  {
+//    this.name = name;
+//  }
 }
