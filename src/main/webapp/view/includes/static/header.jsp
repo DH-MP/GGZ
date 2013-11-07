@@ -16,6 +16,7 @@
   <script src="/assets/js/lib/bootstrap.js"></script>
   <script src="/assets/js/lib/jquery.stellar.min.js"></script>
   <script src="/assets/js/lib/flippant.min.js"></script>
+  <script src="/assets/js/lib/blur.js"></script>
   <script src="/assets/js/lib/holder.js"></script>
   <script src="/assets/js/custom/script.min.js"></script>
 </head>

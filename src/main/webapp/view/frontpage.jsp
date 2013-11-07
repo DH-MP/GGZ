@@ -45,7 +45,7 @@
 
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="ggz-front-carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -106,9 +106,9 @@
       </div>
     </div>
   </div>
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+  <a class="left carousel-control" href="#ggz-front-carousel" data-slide="prev"><span
       class="glyphicon glyphicon-chevron-left"></span></a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+  <a class="right carousel-control" href="#ggz-front-carousel" data-slide="next"><span
       class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
 <!-- /.carousel -->
