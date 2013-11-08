@@ -65,6 +65,8 @@ public class GameDeserializer implements JsonDeserializer<ActiveJDBCGame>
         game.add(platform);
       }
     }
+
+    game.save();
     return game;
   }
 }

@@ -63,6 +63,7 @@ public class Crawler
         try
         {
           game = gson.fromJson(el, ActiveJDBCGame.class);
+//          game.save();
         }
         catch (ClassCastException e)
         {
