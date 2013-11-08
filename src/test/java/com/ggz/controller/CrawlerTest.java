@@ -1,6 +1,6 @@
 package com.ggz.controller;
 
-import com.ggz.model.activejdbc.ActiveJDBCGame;
+import com.ggz.model.activejdbc.Game;
 import org.javalite.activejdbc.Base;
 import org.testng.annotations.Test;
 
@@ -13,8 +13,8 @@ public class CrawlerTest
   {
     Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
 
-    List<ActiveJDBCGame> gameList = Crawler.search("mario");
-    for (ActiveJDBCGame game : gameList)
+    List<Game> gameList = Crawler.search("mario");
+    for (Game game : gameList)
       System.out.println(game);
 
     Base.close();
