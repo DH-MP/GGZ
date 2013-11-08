@@ -1,8 +1,11 @@
 package com.ggz.model.activejdbc;
 
 import org.javalite.activejdbc.Model;
-import org.javalite.activejdbc.annotations.Table;
 
 public class Platform extends Model
 {
+  private Platform platform;
+  public Platform() {}
+  public Platform(Platform d) { this.platform = d; }
+  public String getName() { return platform.getString("name"); }
 }
