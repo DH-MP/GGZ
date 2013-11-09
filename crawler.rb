@@ -70,7 +70,7 @@ def from_json_response(hash)
   unless hash.image.nil?
     img.tiny_url = hash.image.tiny_url || ""
     img.medium_url = hash.image.thumb_url || ""
-    img.large_url = hash.image.super_url || ""
+    img.large_url = hash.image.small_url || ""
     g.image = img
   end
 

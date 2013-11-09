@@ -131,5 +131,11 @@
       <version>2.2.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
   </dependencies>
 </project>

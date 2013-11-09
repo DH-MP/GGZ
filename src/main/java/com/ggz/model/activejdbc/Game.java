@@ -1,6 +1,6 @@
 package com.ggz.model.activejdbc;
 
-import org.codehaus.plexus.util.StringUtils;
+import org.javalite.activejdbc.LazyList;
 import org.javalite.activejdbc.Model;
 
 import java.lang.reflect.Constructor;
@@ -62,17 +62,11 @@ public class Game extends Model
 
   public Image getImage()
   {
-    List<Image> list = g.get(Image.class, "images");
-    if (list.size() == 0)
-      throw new RuntimeException("No image associated with this game.");
-    if (list.size() > 1)
-      throw new RuntimeException("More than 1 image associated with this game.");
-
-    List<Image> realImage = new ArrayList<Image>(list.size());
-    for (Image i : list)
-      realImage.add(new Image(i));
-
-    return realImage.get(0);
+    LazyList<Image> img = g.getAll(Image.class);
+    if (img.size() < 1)
+      return new Image();
+    else
+      return new Image(img.get(0));
   }
 
   public List<Developer> getDevelopers()
@@ -93,14 +87,12 @@ public class Game extends Model
   private <T extends Model> List<T> getGenericManyToMany(Class<T> clazz)
   {
 
-    List<T> castedList = null;
+    List<T> castedList = new ArrayList<T>();
 
     try
     {
       List<T> lists = g.getAll(clazz);
-      castedList = new ArrayList<T>(lists.size());
       Constructor<?> c = clazz.getConstructor(clazz);
-
       for (Object t : lists)
       {
         castedList.add((T)c.newInstance(t));

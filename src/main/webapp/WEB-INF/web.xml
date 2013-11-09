@@ -73,11 +73,20 @@
         <servlet-name>error</servlet-name>
         <jsp-file>/view/error.jsp</jsp-file>
     </servlet>
-    <servlet-mapping>
+  <servlet>
+    <display-name>front.do</display-name>
+    <servlet-name>front.do</servlet-name>
+    <servlet-class>com.ggz.controller.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
         <servlet-name>error</servlet-name>
         <url-pattern>/error</url-pattern>
     </servlet-mapping>
-    <filter>
+  <servlet-mapping>
+    <servlet-name>front.do</servlet-name>
+    <url-pattern>/front.do</url-pattern>
+  </servlet-mapping>
+  <filter>
         <filter-name>noCacheFilter</filter-name>
         <filter-class>com.ggz.controller.NoCacheFilter</filter-class>
     </filter>

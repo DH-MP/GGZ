@@ -1,4 +1,7 @@
+<%@ page import="com.ggz.model.activejdbc.Game" %>
+<%@ page import="java.util.List" %>
 <%@ include file="/view/includes/static/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="navbar-wrapper">
   <div class="container">
@@ -108,7 +111,8 @@
   </div>
   <a class="left carousel-control" href="#ggz-front-carousel" data-slide="prev"><span
       class="glyphicon glyphicon-chevron-left"></span></a>
-  <a class="right carousel-control" href="#ggz-front-carousel" data-slide="next"><span
+  <a class="right carousel-control" href="#ggz-front-carousel"
+     data-slide="next"><span
       class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
 <!-- /.carousel -->
@@ -117,11 +121,13 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-        <% for (int i = 0; i < 9; i++)
-        { %>
+        <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
+        {
+          Game game = new Game(g);
+        %>
         <div class="col-6 col-sm-6 col-lg-4 flippable">
-          <h2>Heading</h2>
-          <img src="holder.js/150x200/vine" class="img-rounded box-art"/>
+          <h2><%= game.getName() %></h2>
+          <img src="<%= game.getImage().getMediumThumb() %>" class="img-rounded box-art"/>
 
           <div>
             <span class="label label-primary">PC</span>
@@ -135,20 +141,23 @@
     <div class="col-xs-6 col-sm-5 sidebar-offcanvas" id="sidebar"
          role="navigation">
       <h2>Top Game of the Week</h2>
+
       <div class="list-group">
-        <% for (int i = 0; i < 5; i++)
-        { %>
+        <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
+        {
+          Game game = new Game(g);
+        %>
         <a href="#" class="list-group-item">
           <div class="pull-left">
-            <img src="holder.js/80x110/vine" alt=""/>
+            <img src="<%= game.getImage().getSmallThumb() %>" alt=""/>
           </div>
-          <h4>Game Category Heading</h4>
+          <h4><%= game.getName() %></h4>
           <h6>
             <span class="label label-primary">PC</span>
             <span class="label label-warning">PlayStation</span>
           </h6>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
-            eget risus varius blandit.</p>
+
+          <p><%= game.getDeck() %></p>
         </a>
         <% } %>
       </div>
