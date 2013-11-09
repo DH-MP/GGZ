@@ -127,8 +127,9 @@
         %>
         <div class="col-6 col-sm-6 col-lg-4 flippable">
           <h2><%= game.getName() %></h2>
-          <img src="<%= game.getImage().getMediumThumb() %>" class="img-rounded box-art"/>
-
+          <div class="box-art-container">
+            <img src="<%= game.getImage().getMediumThumb() %>" class="img-rounded box-art"/>
+          </div>
           <div>
             <span class="label label-primary">PC</span>
             <span class="label label-warning">PlayStation</span>
