@@ -19,7 +19,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create Person</button>
     </form>
     <div style="float:left; width:200px; margin-top:100px">
-        <h3><img src="http://www.dougmcmillan.com/Images/arrow_big.gif" width="32" height="32"> Inherits From</h3>
+        <p><h1><</h1></p><h3> Inherits From</h3>
     </div>
     <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
         <h2>Create Child</h2>
@@ -31,7 +31,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create Child</button>
     </form>
     <div style="float:left; width:200px; margin-top:100px">
-        <h3><img src="http://www.dougmcmillan.com/Images/arrow_big.gif" width="32" height="32"> Inherits From</h3>
+        <p><h1><</h1></p><h3> Inherits From</h3>
     </div>
     <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
         <h2>Create GrandChild</h2>
@@ -64,6 +64,11 @@
                     out.print("<td>"+key+"</td>");
                 }
                 out.println("</tr>");
+                out.println("<tr>");
+                for(String key: personValue.keySet()){
+                    out.print("<td>"+personValue.get(key)+"</td>");
+                }
+                out.println("</tr>");
             }
             while(pIter.hasNext()){
                 Map<String,Object> personValue = (Map<String,Object>) pIter.next();
@@ -90,6 +95,11 @@
                     out.print("<td>"+key+"</td>");
                 }
                 out.println("</tr>");
+                out.println("<tr>");
+                for(String key: childValue.keySet()){
+                    out.print("<td>"+childValue.get(key)+"</td>");
+                }
+                out.println("</tr>");
             }
             while(cIter.hasNext()){
                 Map<String,Object> childValue = (Map<String,Object>) cIter.next();
@@ -114,6 +124,11 @@
                 out.println("<tr>");
                 for(String key: grandChildValue.keySet()){
                     out.print("<td>"+key+"</td>");
+                }
+                out.println("</tr>");
+                out.println("<tr>");
+                for(String key: grandChildValue.keySet()){
+                    out.print("<td>"+grandChildValue.get(key)+"</td>");
                 }
                 out.println("</tr>");
             }
