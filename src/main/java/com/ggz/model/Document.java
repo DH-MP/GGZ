@@ -3,6 +3,8 @@ package com.ggz.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
+
 import com.sunnyd.Base;
 import com.sunnyd.IModel;
 import com.sunnyd.annotations.ActiveRelationHasMany;
@@ -27,10 +29,6 @@ public class Document extends Base implements IModel {
     private Integer peerId;
     @ActiveRecordField
     private String docType;
-    @ActiveRelationHasMany
-    private Hunk[] hunks;
-    @ActiveRelationHasMany
-    private Changeset[] changesets;
     
     
     public Document() {
@@ -47,7 +45,7 @@ public class Document extends Base implements IModel {
 
     public Peer getPeer(){
         if(peer == null){
-            HashMap<String, Object> foundPeer = Manager.find(peerId, "peers");
+            HashMap<String, Object> foundPeer = (HashMap<String, Object> ) Manager.find(peerId, "peers");
             this.peer = new Peer(foundPeer);
         }
         return peer;
@@ -117,38 +115,5 @@ public class Document extends Base implements IModel {
         }
     }
 
-    public Hunk[] getHunks()
-    {
-        HashMap<String, Object> condition = new HashMap<String, Object>();
-        condition.put("documentId", this.getId());
-
-        ArrayList<HashMap<String, Object>> foundHunks = Manager.findAll("hunks", condition);
-        int size = foundHunks.size();
-        hunks = new Hunk[size];
-
-        for (int i = 0; i < size; i++)
-        {
-            Hunk h = new Hunk(foundHunks.get(i));
-            hunks[i] = h;
-        }
-        return hunks;
-    }
-
-    public Changeset[] getChangesets()
-    {
-        HashMap<String, Object> condition = new HashMap<String, Object>();
-        condition.put("documentId", this.getId());
-
-        ArrayList<HashMap<String, Object>> foundChangesets = Manager.findAll("changesets", condition);
-        int size = foundChangesets.size();
-        changesets = new Changeset[size];
-
-        for (int i = 0; i < size; i++)
-        {
-            Changeset c = new Changeset(foundChangesets.get(i));
-            changesets[i] = c;
-        }
-        return changesets;
-    }
 
 }

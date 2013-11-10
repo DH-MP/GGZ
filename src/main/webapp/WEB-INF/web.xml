@@ -87,7 +87,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>classTableInheritance</servlet-name>
-        <url-pattern>/classTableInheritance</url-pattern>
+        <url-pattern>/classTableInheritanceAndForeignKey</url-pattern>
     </servlet-mapping>
 
 </web-app>
