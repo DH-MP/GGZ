@@ -10,6 +10,47 @@
 
 
 <div class="container">
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+        <h2>Create Person</h2>
+        <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
+        <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
+        <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
+        <input type="hidden"  name="type" value="person">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Person</button>
+    </form>
+    <div style="float:left; width:200px; margin-top:100px">
+        <h3><img src="http://www.dougmcmillan.com/Images/arrow_big.gif" width="32" height="32"> Inherits From</h3>
+    </div>
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+        <h2>Create Child</h2>
+        <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
+        <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
+        <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
+        <input type="text" class="form-control" name="childName" style="margin:10px 0" placeholder="childName">
+        <input type="hidden" name="type" value="child">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Child</button>
+    </form>
+    <div style="float:left; width:200px; margin-top:100px">
+        <h3><img src="http://www.dougmcmillan.com/Images/arrow_big.gif" width="32" height="32"> Inherits From</h3>
+    </div>
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+        <h2>Create GrandChild</h2>
+        <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
+        <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
+        <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
+        <input type="text" class="form-control" name="childName" style="margin:10px 0" placeholder="childName">
+        <input type="text" class="form-control" name="grandChildName" style="margin:10px 0" placeholder="grandChildName">
+        <input type="hidden"  name="type" value="grandChild">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create GrandChild</button>
+    </form>
+    <div style="clear:both"></div>
+
+    <br/>
+    <p>
+        Note*: The following table is the live view of the database. It is to illustrate the result of implementing
+        class table inheritance.
+    </p>
+
     <h3>Persons  table</h3>
     <table class="table">
         <%
@@ -87,10 +128,6 @@
             }
         %>
     </table>
-
-
-
-
 </div>
 
 

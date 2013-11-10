@@ -26,7 +26,7 @@ public class Child extends Person {
 //        a.setFirstName("D");
 //        a.setLastName("Luffy");
 //        a.save();
-        
+
         Child b = new Child().find(18);
         System.out.println(b.getId());
         System.out.println(b.getChildName());
