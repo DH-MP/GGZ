@@ -1,4 +1,4 @@
-<%@ page import="com.ggz.model.Peer" %>
+<%@ page import="com.sunnyd.models.Peer" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 
 <script type="text/javascript">

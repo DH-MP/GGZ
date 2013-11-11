@@ -3,7 +3,7 @@ package com.ggz.model;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-
+import com.sunnyd.models.*;
 public class PeerTest
 {
   @Test

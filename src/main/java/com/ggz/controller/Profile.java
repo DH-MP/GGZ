@@ -1,6 +1,5 @@
 package com.ggz.controller;
 
-import com.ggz.model.Peer;
 import com.sunnyd.database.Manager;
 
 import javax.servlet.ServletException;
@@ -10,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
-
+import com.sunnyd.models.*;
 public class Profile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // get all profile input
@@ -35,7 +35,7 @@ public class Profile extends HttpServlet {
         String redirect = "/error";
         try {
 
-            System.out.println("true or fals?" + Manager.update(id,"peers",map));
+            System.out.println("true or fals?" + Manager.update(id,Peer.class,map));
             redirect = "/profile";
             Peer peer = new Peer(Manager.find(id, "peers"));
             HttpSession session = request.getSession();

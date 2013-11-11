@@ -1,4 +1,3 @@
-<%@ page import="com.ggz.model.Person" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -10,7 +9,7 @@
 
 
 <div class="container">
-    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create Person</h2>
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
@@ -21,7 +20,7 @@
     <div style="float:left; width:200px; margin-top:100px">
         <p><h1><</h1></p><h3> Inherits From</h3>
     </div>
-    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create Child</h2>
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
@@ -33,7 +32,7 @@
     <div style="float:left; width:200px; margin-top:100px">
         <p><h1><</h1></p><h3> Inherits From</h3>
     </div>
-    <form style="float:left; margin-right: 20px;" action="/classTableInheritance" method="post">
+    <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create GrandChild</h2>
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">

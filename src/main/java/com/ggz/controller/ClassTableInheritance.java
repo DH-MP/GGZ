@@ -1,8 +1,6 @@
 package com.ggz.controller;
-import com.ggz.model.Child;
-import com.ggz.model.GrandChild;
-import com.ggz.model.Person;
 import com.sunnyd.database.Manager;
+import com.sunnyd.models.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -10,12 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Iterator;
 
 
 /**
@@ -32,7 +28,6 @@ public class ClassTableInheritance extends HttpServlet {
         map.put("firstName", request.getParameter("firstName"));
         map.put("lastName", request.getParameter("lastName"));
         map.put("email", request.getParameter("email"));
-
         switch (request.getParameter("type")){
             case "person":
                 new Person(map).save();
