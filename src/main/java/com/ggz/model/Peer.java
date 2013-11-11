@@ -7,6 +7,7 @@ import com.sunnyd.database.Manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Peer extends Base
 {
@@ -29,8 +30,6 @@ public class Peer extends Base
   private String personalWebsite;
   @ActiveRelationHasMany
   private Document[] documents;
-  @ActiveRelationHasMany
-  private Changeset[] changesets;
 
   public Peer()
   {
@@ -136,34 +135,19 @@ public class Peer extends Base
     HashMap<String, Object> condition = new HashMap<String, Object>();
     condition.put("peerId", this.getId());
 
-    ArrayList<HashMap<String, Object>> foundDocuments = Manager.findAll("documents", condition);
+    ArrayList<Map<String, Object>> foundDocuments = Manager.findAll("documents", condition);
     int size = foundDocuments.size();
     documents = new Document[size];
 
     for (int i = 0; i < size; i++)
     {
-      Document d = new Document(foundDocuments.get(i));
+      Document d = new Document((HashMap<String, Object> )foundDocuments.get(i));
       documents[i] = d;
     }
     return documents;
   }
 
-    public Changeset[] getChangesets()
-    {
-        HashMap<String, Object> condition = new HashMap<String, Object>();
-        condition.put("peerId", this.getId());
 
-        ArrayList<HashMap<String, Object>> foundChangesets = Manager.findAll("changesets", condition);
-        int size = foundChangesets.size();
-        changesets = new Changeset[size];
-
-        for (int i = 0; i < size; i++)
-        {
-            Changeset c = new Changeset(foundChangesets.get(i));
-            changesets[i] = c;
-        }
-        return changesets;
-    }
 
     public static void main(String[] args) {
         /*Peer p = new Peer();
@@ -172,12 +156,6 @@ public class Peer extends Base
         p.setPassword("khedri");
         System.out.println(p.save());
           */
-        Peer p = Peer.find(1);
-        System.out.println(p.getFirstName());
-        System.out.println(p.getUserName());
-        Document[] a = p.getDocuments();
-        Changeset[] c = p.getChangesets();
-        System.out.println(a);
 
     }
 

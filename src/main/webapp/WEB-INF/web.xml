@@ -81,4 +81,13 @@
         <session-timeout>72</session-timeout>
     </session-config>
 
+    <servlet>
+        <servlet-name>classTableInheritance</servlet-name>
+        <servlet-class>com.ggz.controller.ClassTableInheritance</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>classTableInheritance</servlet-name>
+        <url-pattern>/classTableInheritanceAndForeignKey</url-pattern>
+    </servlet-mapping>
+
 </web-app>

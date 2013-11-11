@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class Login extends HttpServlet {
@@ -23,11 +24,11 @@ public class Login extends HttpServlet {
 
         String redirect = "/error";
         try {
-            ArrayList<HashMap<String, Object>> matches = Manager.findAll("peers", map);
+            ArrayList<Map<String, Object>> matches = Manager.findAll("peers", map);
 
             if (matches.size() == 1){ // means found exactly 1 user with that username and password
-                HashMap<String, Object> match = matches.get(0); // get this hashmap from the arraylist
-                Peer peer = new Peer(match);
+                Map<String, Object> match = matches.get(0); // get this hashmap from the arraylist
+                Peer peer = new Peer((HashMap<String, Object>)match);
                 // store the peer obj in session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", peer);
