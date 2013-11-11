@@ -1,9 +1,9 @@
 package com.ggz.model;
 
+import com.sunnyd.models.Peer;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import com.sunnyd.models.*;
 public class PeerTest
 {
   @Test
@@ -24,6 +24,7 @@ public class PeerTest
     map.put("email", email);
     map.put("username", userName);
     map.put("password", password);
+
 
     Peer p = new Peer(map);
 

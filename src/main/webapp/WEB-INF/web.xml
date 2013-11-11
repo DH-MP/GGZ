@@ -90,4 +90,14 @@
         <url-pattern>/classTableInheritanceAndForeignKey</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>lazyInitialization</servlet-name>
+        <servlet-class>com.ggz.controller.LazyInitialization</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lazyInitialization</servlet-name>
+        <url-pattern>/lazyInitialization</url-pattern>
+    </servlet-mapping>
+
 </web-app>
