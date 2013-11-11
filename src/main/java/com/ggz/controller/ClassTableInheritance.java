@@ -30,7 +30,7 @@ public class ClassTableInheritance extends HttpServlet {
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         HashMap<String, Object> map = new HashMap<String, Object>();
-        if ( request.getParameter( "id" ) != null ) {
+        if ( !request.getParameter( "id" ).equalsIgnoreCase( "" ) ) {
             Integer id = Integer.parseInt( request.getParameter( "id" ) );
             map.put( "firstName", request.getParameter( "firstName" ) );
             map.put( "lastName", request.getParameter( "lastName" ) );
