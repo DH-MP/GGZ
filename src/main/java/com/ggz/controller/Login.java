@@ -1,8 +1,7 @@
 package com.ggz.controller;
 
-import com.ggz.model.Peer;
 import com.sunnyd.database.Manager;
-
+import com.sunnyd.models.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

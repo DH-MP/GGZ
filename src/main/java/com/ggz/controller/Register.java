@@ -1,6 +1,5 @@
 package com.ggz.controller;
 
-import com.ggz.model.Peer;
 import com.sunnyd.database.Manager;
 
 import javax.servlet.ServletException;
@@ -11,6 +10,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.sunnyd.models.*;
 
 
 public class Register extends HttpServlet {
@@ -31,7 +33,7 @@ public class Register extends HttpServlet {
         map.put("userName", user_name);
         String redirect = "/error";
         try {
-            ArrayList<HashMap<String, Object>> matches = Manager.findAll("peers", map);
+            ArrayList<Map<String, Object>> matches = Manager.findAll("peers", map);
             if (matches.size() == 0){ // means user does not exist
                 Peer newPeer = new Peer();
                 newPeer.setFirstName(first_name);
