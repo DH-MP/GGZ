@@ -11,6 +11,7 @@
 <div class="container">
     <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create Person</h2>
+        <input type="text" class="form-control" name="id" style="margin:10px 0" placeholder="Id" autofocus="">
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
         <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
@@ -22,6 +23,7 @@
     </div>
     <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create Child</h2>
+        <input type="text" class="form-control" name="id" style="margin:10px 0" placeholder="Id" autofocus="">
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
         <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
@@ -34,6 +36,7 @@
     </div>
     <form style="float:left; margin-right: 20px;" action="/classTableInheritanceAndForeignKey" method="post">
         <h2>Create GrandChild</h2>
+        <input type="text" class="form-control" name="id" style="margin:10px 0" placeholder="Id" autofocus="">
         <input type="text" class="form-control" name="firstName" style="margin:10px 0" placeholder="First Name" autofocus="">
         <input type="text" class="form-control" name="lastName" style="margin:10px 0" placeholder="Last Name">
         <input type="text" class="form-control" name="email" style="margin:10px 0" placeholder="Email">
