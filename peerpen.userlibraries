@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="ppar-1.0-SNAPSHOT-sources">
+    <archive path="/Users/bobbyyit/Documents/GGZ/src/main/webapp/lib/ppar-1.0-SNAPSHOT.jar" />
+  </library>
+  <library name="Maven: javax.activation:activation:1.1">
+    <archive path="/Users/bobbyyit/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar" />
+  </library>
+  <library name="Maven: classworlds:classworlds:1.1">
+    <archive path="/Users/bobbyyit/.m2/repository/classworlds/classworlds/1.1/classworlds-1.1.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-ssh-external:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-ssh-external/1.0-beta-2/wagon-ssh-external-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: com.google.guava:guava:15.0">
+    <archive path="/Users/bobbyyit/.m2/repository/com/google/guava/guava/15.0/guava-15.0.jar" />
+  </library>
+  <library name="Maven: com.jcraft:jsch:0.1.27">
+    <archive path="/Users/bobbyyit/.m2/repository/com/jcraft/jsch/0.1.27/jsch-0.1.27.jar" />
+  </library>
+  <library name="Maven: org.testng:testng:6.1.1">
+    <archive path="/Users/bobbyyit/.m2/repository/org/testng/testng/6.1.1/testng-6.1.1.jar" />
+  </library>
+  <library name="Maven: jtidy:jtidy:4aug2000r7-dev">
+    <archive path="/Users/bobbyyit/.m2/repository/jtidy/jtidy/4aug2000r7-dev/jtidy-4aug2000r7-dev.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-artifact-manager:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-plugin-descriptor:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-plugin-descriptor/2.0.6/maven-plugin-descriptor-2.0.6.jar" />
+  </library>
+  <library name="Maven: javax.servlet:servlet-api:2.5">
+    <archive path="/Users/bobbyyit/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" />
+  </library>
+  <library name="Maven: org.beanshell:bsh:2.0b4">
+    <archive path="/Users/bobbyyit/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-toolchain:1.0">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-toolchain/1.0/maven-toolchain-1.0.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-plugin-registry:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-artifact:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-repository-metadata:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-profile:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-plugin-parameter-documenter:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-plugin-parameter-documenter/2.0.6/maven-plugin-parameter-documenter-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.commons:commons-exec:1.1">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.reporting:maven-reporting-api:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-http-shared:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-http-shared/1.0-beta-2/wagon-http-shared-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-file:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-file/1.0-beta-2/wagon-file-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.doxia:doxia-sink-api:1.0-alpha-7">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.0-alpha-7/doxia-sink-api-1.0-alpha-7.jar" />
+  </library>
+  <library name="Maven: org.apache.commons:commons-lang3:3.1">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-plugin-api:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-project:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-api:1.6.4">
+    <archive path="/Users/bobbyyit/.m2/repository/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-core:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-core/2.0.6/maven-core-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-settings:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.jar" />
+  </library>
+  <library name="Maven: javax:javaee-api:7.0">
+    <archive path="/Users/bobbyyit/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0.jar" />
+  </library>
+  <library name="Maven: org.codehaus.mojo:exec-maven-plugin:1.2.1">
+    <archive path="/Users/bobbyyit/.m2/repository/org/codehaus/mojo/exec-maven-plugin/1.2.1/exec-maven-plugin-1.2.1.jar" />
+  </library>
+  <library name="Maven: org.javalite:javalite-common:1.4.7">
+    <archive path="/Users/bobbyyit/.m2/repository/org/javalite/javalite-common/1.4.7/javalite-common-1.4.7.jar" />
+  </library>
+  <library name="Maven: com.sun.mail:javax.mail:1.5.0">
+    <archive path="/Users/bobbyyit/.m2/repository/com/sun/mail/javax.mail/1.5.0/javax.mail-1.5.0.jar" />
+  </library>
+  <library name="Maven: com.beust:jcommander:1.12">
+    <archive path="/Users/bobbyyit/.m2/repository/com/beust/jcommander/1.12/jcommander-1.12.jar" />
+  </library>
+  <library name="Maven: junit:junit:3.8.1">
+    <archive path="/Users/bobbyyit/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-model:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-monitor:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-monitor/2.0.6/maven-monitor-2.0.6.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-ssh:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-ssh/1.0-beta-2/wagon-ssh-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9">
+    <archive path="/Users/bobbyyit/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-ssh-common:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-ssh-common/1.0-beta-2/wagon-ssh-common-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.slf4j:jcl-over-slf4j:1.6.4">
+    <archive path="/Users/bobbyyit/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4.jar" />
+  </library>
+  <library name="Maven: org.javalite:activejdbc:1.4.7">
+    <archive path="/Users/bobbyyit/.m2/repository/org/javalite/activejdbc/1.4.7/activejdbc-1.4.7.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-simple:1.6.4">
+    <archive path="/Users/bobbyyit/.m2/repository/org/slf4j/slf4j-simple/1.6.4/slf4j-simple-1.6.4.jar" />
+  </library>
+  <library name="Maven: org.yaml:snakeyaml:1.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar" />
+  </library>
+  <library name="Maven: commons-cli:commons-cli:1.0">
+    <archive path="/Users/bobbyyit/.m2/repository/commons-cli/commons-cli/1.0/commons-cli-1.0.jar" />
+  </library>
+  <library name="Maven: org.apache.maven.wagon:wagon-http-lightweight:1.0-beta-2">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/wagon/wagon-http-lightweight/1.0-beta-2/wagon-http-lightweight-1.0-beta-2.jar" />
+  </library>
+  <library name="Maven: org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-4">
+    <archive path="/Users/bobbyyit/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar" />
+  </library>
+  <library name="Maven: xml-apis:xml-apis:1.0.b2">
+    <archive path="/Users/bobbyyit/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar" />
+  </library>
+  <library name="Maven: org.codehaus.plexus:plexus-utils:2.0.5">
+    <archive path="/Users/bobbyyit/.m2/repository/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar" />
+  </library>
+  <library name="Maven: org.apache.maven:maven-error-diagnostics:2.0.6">
+    <archive path="/Users/bobbyyit/.m2/repository/org/apache/maven/maven-error-diagnostics/2.0.6/maven-error-diagnostics-2.0.6.jar" />
+  </library>
+  <library name="Maven: mysql:mysql-connector-java:5.1.26">
+    <archive path="/Users/bobbyyit/.m2/repository/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar" />
+  </library>
+  <library name="ppar-1.0-SNAPSHOT">
+    <archive path="/Users/bobbyyit/Documents/GGZ/src/main/webapp/lib/ppar-1.0-SNAPSHOT.jar" />
+  </library>
+  <library name="sass-stdlib" />
+</eclipse-userlibraries>
+

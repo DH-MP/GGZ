@@ -86,6 +86,16 @@
     <servlet-name>front.do</servlet-name>
     <url-pattern>/front.do</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>cart.do</servlet-name>
+    <servlet-class>com.ggz.controller.CartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cart.do</servlet-name>
+    <url-pattern>/cart.do</url-pattern>
+  </servlet-mapping>
+
   <filter>
         <filter-name>noCacheFilter</filter-name>
         <filter-class>com.ggz.controller.NoCacheFilter</filter-class>
