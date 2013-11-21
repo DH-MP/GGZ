@@ -12,23 +12,7 @@ import org.javalite.activejdbc.annotations.Table;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
-@javax.persistence.Table(name = "users")
 public class User extends Model {
-
-    @Column(name="first_name")
-    private String firstName;
-    @Column(name="last_name")
-    private String lastName;
-    @Column(name="email")
-    private String email;
-    @Column(name="username")
-    private String username;
-    @Column(name="password")
-    private String password;
-    @Column(name="address")
-    private String address;
-
     private User u;
 
     public User() {}
@@ -39,50 +23,43 @@ public class User extends Model {
     }
 
     public String getFirstName() {
-        return u.firstName;
+        return u.getString("first_name");
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        set("first_name",firstName);
+
     }
 
     public String getLastName() {
-        return lastName;
+        return u.getString("last_name");
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+        set("last_name",lastName);
     }
 
     public String getPassword() {
-        return password;
+        return u.getString("password");
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        set("password",password);
     }
 
     public String getAddress() {
-        return address;
+        return u.getString("address");
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        set("address",address);
+    }
+
+    public String getUserName() {
+        return u.getString("user_name");
+    }
+
+    public void setUserName(String userName) {
+        set("user_name",userName);
     }
 }

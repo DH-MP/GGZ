@@ -9,41 +9,46 @@
 </div>
 
 <div class="container">
-  <form class="form-horizontal" action="" role="form">
+  <form id="register" action="/register.do" method="post" class="form-horizontal" >
+
+
     <div class="form-group">
-      <label for="first-name" class="col-sm-3">First Name</label>
+      <label for="first_name" class="col-sm-3">First Name</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First Name" />
+        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" />
       </div>
     </div>
 
     <div class="form-group">
-      <label for="last-name" class="col-sm-3">First Name</label>
+      <label for="last_name" class="col-sm-3">Last Name</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last Name" />
+        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" />
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="email" class="col-sm-3">Email</label>
-      <div class="col-sm-6">
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+      <div class="form-group">
+          <label for="address" class="col-sm-3">Address</label>
+          <div class="col-sm-6">
+              <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
+          </div>
       </div>
-    </div>
 
     <div class="form-group">
-      <label for="username" class="col-sm-3">Username</label>
+      <label for="user_name" class="col-sm-3">Username</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="username" name="email" placeholder="Email" />
+          <input type="text" class="form-control" id="user_name" name="user_name" placeholder="UserName" />
         </div>
     </div>
 
     <div class="form-group">
       <label for="password" class="col-sm-3">Password</label>
         <div class="col-sm-6">
-          <input type="password" class="form-control" id="password" name="email" placeholder="Password" />
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
         </div>
     </div>
+
+    <button type="submit" class="btn btn-primary" value="submit">Register</button>
+
   </form>
 </div>
 <%@ include file="/view/includes/static/footer.jsp" %>

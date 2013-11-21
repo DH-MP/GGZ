@@ -15,7 +15,7 @@
     </servlet-mapping>
     <servlet>
       <servlet-name>front</servlet-name>
-      <jsp-file>/view/frontpage.jsp</jsp-file>
+      <jsp-file>/view/front.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
       <servlet-name>front</servlet-name>
@@ -47,7 +47,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>register.do</servlet-name>
-        <servlet-class>com.ggz.controller.Register</servlet-class>
+        <servlet-class>com.ggz.controller.RegistrationController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>register.do</servlet-name>

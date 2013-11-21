@@ -10,7 +10,7 @@ create table users(
   id int not null auto_increment,
   first_name varchar(256),
   last_name varchar(256),
-  username varchar(256),
+  user_name varchar(256),
   password varchar(256),
   address varchar(256),
   inventory_id int,
