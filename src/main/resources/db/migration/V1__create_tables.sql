@@ -39,12 +39,17 @@ create table items(
   id int not null auto_increment,
   item_name varchar(256),
   description varchar(256),
+  quantity int,
   price int,
   inventory_id int,
-  shopping_cart_id int,
   PRIMARY KEY (id),
-  FOREIGN KEY(inventory_id) REFERENCES inventories(id) ON DELETE CASCADE,
-  FOREIGN KEY(shopping_cart_id) REFERENCES shopping_carts(id)
+  FOREIGN KEY(inventory_id) REFERENCES inventories(id) ON DELETE CASCADE
+);
+
+create table items_shopping_carts(
+  shopping_cart_id int not null REFERENCES shopping_carts(id),
+	item_id int not null REFERENCES items(id),
+	PRIMARY KEY(item_id,shopping_cart_id)
 );
 
 create table users_items(
