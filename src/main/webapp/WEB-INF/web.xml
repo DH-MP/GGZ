@@ -121,6 +121,15 @@
         <filter-name>noCacheFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <servlet>
+        <display-name>store.do</display-name>
+        <servlet-name>store.do</servlet-name>
+        <servlet-class>com.ggz.controller.StoreController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>store.do</servlet-name>
+        <url-pattern>/store</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>72</session-timeout>
     </session-config>
