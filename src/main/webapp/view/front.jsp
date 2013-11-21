@@ -3,6 +3,20 @@
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script>
+  $(document).ready(function() {
+    $('#submit').click(function(event)
+    {
+      var e = $('#submit').val();
+      $.post('cart.do', {
+        email : e
+      }, function(responseText) {
+        var e = $('#cart').val();
+        $('#cart').text(responseText);
+      });
+    });
+  });
+</script>
 <div class="navbar-wrapper">
   <div class="container">
     <div class="col-md-8">
@@ -199,7 +213,10 @@
     </div>
   </div>
 </div>
-
+<form action="" >
+  <input type="button" id="submit" value="something" />
+  <div id="cart"></div>
+</form>
 <footer>
   2013 Sunny Delight
 </footer>
