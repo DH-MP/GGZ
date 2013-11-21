@@ -40,14 +40,13 @@ public class RegistrationController extends HttpServlet{
 
         // here we should validate the input...
 
-        // check if user already exists
-        Map<String, Object> map =  new HashMap<String, Object>();
-        map.put("userName", user_name);
+
         String redirect = "/error";
         try {
-            //List<User> matches = User.find(user_name,map);
-            //System.out.println(matches);
-            //if (matches.size() == 0)
+            // check if user already exists
+            List<User> matches = User.where("user_name = '" + user_name + "'");
+            System.out.println(matches);
+            if (matches.size() == 0)
              { // means user does not exist
                 User u = new User();
                 u.setFirstName(first_name);
