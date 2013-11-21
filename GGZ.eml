@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/target/test-classes"/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/src/test/java"/>
+		<excludeFolder url="file://$MODULE_DIR$/target"/>
+	</contentEntry>
+	<lib name="sass-stdlib" scope="PROVIDED"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-file:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-http-lightweight:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-http-shared:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: jtidy:jtidy:4aug2000r7-dev" scope="RUNTIME"/>
+	<lib name="Maven: xml-apis:xml-apis:1.0.b2" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-ssh-external:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-ssh-common:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: org.apache.maven.wagon:wagon-ssh:1.0-beta-2" scope="RUNTIME"/>
+	<lib name="Maven: com.jcraft:jsch:0.1.27" scope="RUNTIME"/>
+	<lib name="Maven: org.testng:testng:6.1.1" scope="TEST"/>
+	<lib name="Maven: org.beanshell:bsh:2.0b4" scope="TEST"/>
+	<lib name="Maven: com.beust:jcommander:1.12" scope="TEST"/>
+	<lib name="Maven: org.yaml:snakeyaml:1.6" scope="TEST"/>
+	<levels>
+		<level name="ppar-1.0-SNAPSHOT-sources" value="project"/>
+		<level name="ppar-1.0-SNAPSHOT" value="project"/>
+		<level name="Maven: javax.servlet:servlet-api:2.5" value="project"/>
+		<level name="Maven: javax:javaee-api:7.0" value="project"/>
+		<level name="Maven: com.sun.mail:javax.mail:1.5.0" value="project"/>
+		<level name="Maven: javax.activation:activation:1.1" value="project"/>
+		<level name="Maven: org.slf4j:slf4j-api:1.6.4" value="project"/>
+		<level name="Maven: org.slf4j:jcl-over-slf4j:1.6.4" value="project"/>
+		<level name="Maven: org.slf4j:slf4j-simple:1.6.4" value="project"/>
+		<level name="Maven: mysql:mysql-connector-java:5.1.26" value="project"/>
+		<level name="Maven: org.codehaus.mojo:exec-maven-plugin:1.2.1" value="project"/>
+		<level name="Maven: org.apache.maven:maven-toolchain:1.0" value="project"/>
+		<level name="Maven: org.apache.maven:maven-core:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-settings:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-model:2.0.6" value="project"/>
+		<level name="Maven: org.codehaus.plexus:plexus-utils:2.0.5" value="project"/>
+		<level name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9" value="project"/>
+		<level name="Maven: junit:junit:3.8.1" value="project"/>
+		<level name="Maven: classworlds:classworlds:1.1" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-file:1.0-beta-2" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-beta-2" value="project"/>
+		<level name="Maven: org.apache.maven:maven-plugin-parameter-documenter:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-http-lightweight:1.0-beta-2" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-http-shared:1.0-beta-2" value="project"/>
+		<level name="Maven: jtidy:jtidy:4aug2000r7-dev" value="project"/>
+		<level name="Maven: xml-apis:xml-apis:1.0.b2" value="project"/>
+		<level name="Maven: org.apache.maven.reporting:maven-reporting-api:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven.doxia:doxia-sink-api:1.0-alpha-7" value="project"/>
+		<level name="Maven: org.apache.maven:maven-profile:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-artifact:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-repository-metadata:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-error-diagnostics:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-project:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-artifact-manager:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-plugin-registry:2.0.6" value="project"/>
+		<level name="Maven: commons-cli:commons-cli:1.0" value="project"/>
+		<level name="Maven: org.apache.maven:maven-plugin-api:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-ssh-external:1.0-beta-2" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-ssh-common:1.0-beta-2" value="project"/>
+		<level name="Maven: org.codehaus.plexus:plexus-interactivity-api:1.0-alpha-4" value="project"/>
+		<level name="Maven: org.apache.maven:maven-plugin-descriptor:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven:maven-monitor:2.0.6" value="project"/>
+		<level name="Maven: org.apache.maven.wagon:wagon-ssh:1.0-beta-2" value="project"/>
+		<level name="Maven: com.jcraft:jsch:0.1.27" value="project"/>
+		<level name="Maven: org.apache.commons:commons-exec:1.1" value="project"/>
+		<level name="Maven: org.testng:testng:6.1.1" value="project"/>
+		<level name="Maven: org.beanshell:bsh:2.0b4" value="project"/>
+		<level name="Maven: com.beust:jcommander:1.12" value="project"/>
+		<level name="Maven: org.yaml:snakeyaml:1.6" value="project"/>
+		<level name="Maven: com.google.guava:guava:15.0" value="project"/>
+		<level name="Maven: org.apache.commons:commons-lang3:3.1" value="project"/>
+		<level name="Maven: org.javalite:activejdbc:1.4.7" value="project"/>
+		<level name="Maven: org.javalite:javalite-common:1.4.7" value="project"/>
+	</levels>
+</component>
