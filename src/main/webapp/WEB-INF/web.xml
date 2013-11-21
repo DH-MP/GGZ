@@ -23,7 +23,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>login.do</servlet-name>
-        <servlet-class>com.ggz.controller.Login</servlet-class>
+        <servlet-class>com.ggz.controller.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login.do</servlet-name>
