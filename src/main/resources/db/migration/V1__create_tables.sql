@@ -38,10 +38,18 @@ create table shopping_carts(
 create table items(
   id int not null auto_increment,
   item_name varchar(256),
-  description varchar(256),
-  quantity int,
-  price int,
+  description varchar(256) default '',
+  quantity int default 0,
+  price float default 0,
+  rating int(2) default 0,
+  api_id int(10) default 0,
+  release_date varchar(256) default 'CURRENT_TIMESTAMP',
+  deck varchar(256) default '',
+  api_detail_url varchar(256) default '',
   inventory_id int,
+  item_type enum('game','console'),
+  created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (id),
   FOREIGN KEY(inventory_id) REFERENCES inventories(id) ON DELETE CASCADE
 );
