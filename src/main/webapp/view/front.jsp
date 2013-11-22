@@ -19,7 +19,7 @@
 </script>
 <div class="navbar-wrapper">
   <div class="container">
-    <div class="col-md-7">
+    <div class="col-md-8">
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
           <a href="/" class="navbar-brand">Gravity Game Zone</a>
@@ -31,6 +31,40 @@
           <li><a href="">Xbox</a></li>
           <li><a href="">PlayStation</a></li>
           <li><a href="">Nintendo</a></li>
+          <li>
+            <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div>
+                    <table class="table table-striped" style="width:500px;">
+                      <tr>
+                        <td>Items</td>
+                        <td>Price</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Super Mario Bros. (Wii)</td>
+                        <td>59.99</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                      </tr>
+                      <tr>
+                        <td>Killer Instinct (Xbox One)</td>
+                        <td>24.99</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                      </tr>
+                    </table>
+                    <div class="col-md-offset-8">
+                      <p>Total: 84.98</p>
+                    </div>
+                      <div class="col-md-offset-9">
+                        <button type="button" class="btn btn-default btn-success">
+                          Checkout
+                        <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
+                        </button>
+                      </div>
+                </div>
+              </li>
+            </ul>
         </ul>
 
         <%--<div class="collapse navbar-collapse">--%>
@@ -46,7 +80,7 @@
         <%--</div>--%>
       </nav>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div id="primary-search" class="input-group input-group-lg">
         <input type="text" class="form-control"/>
 
