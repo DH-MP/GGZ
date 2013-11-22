@@ -171,7 +171,7 @@
       <div class="row">
         <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
         {
-          Game game = new Game(g);
+          Game game = g;
         %>
         <div class="col-6 col-sm-6 col-lg-4 flippable">
           <h2><%= game.getName() %></h2>
@@ -194,9 +194,9 @@
       <div class="list-group">
         <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
         {
-          Game game = new Game(g);
+          Game game = g;
         %>
-        <a href="#" class="list-group-item">
+        <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">
             <img src="<%= game.getImage().getSmallThumb() %>" alt=""/>
           </div>

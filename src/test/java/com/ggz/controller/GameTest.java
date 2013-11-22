@@ -17,7 +17,7 @@ public class GameTest
   @Test
   public void createGameTest() throws ClassNotFoundException
   {
-    Game g = new Game(Game.findById(1));
+    Game g = Game.findById(1);
     for (Platform p : g.getPlatforms())
       System.out.println(p.getName());
   }
@@ -25,7 +25,7 @@ public class GameTest
   @Test(dependsOnMethods = {"createGameTest"})
   public void genericManyToManyTest()
   {
-    Game g = new Game(Game.findById(1));
+    Game g = Game.findById(1);
     for (PgRating r : g.getPgRating())
       System.out.println(r.getName());
   }
@@ -33,7 +33,7 @@ public class GameTest
   @Test(dependsOnMethods = {"genericManyToManyTest"})
   public void imageUrlTest()
   {
-    Game g = new Game(Game.findById(1));
+    Game g =Game.findById(1);
     Image img = g.getImage();
     System.out.println(img.getLargeThumb());
     System.out.println(img.getMediumThumb());

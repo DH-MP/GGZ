@@ -96,6 +96,7 @@
     <url-pattern>/cart.do</url-pattern>
   </servlet-mapping>
 
+  <!--
   <servlet>
     <servlet-name>checkout</servlet-name>
     <jsp-file>/view/checkout.jsp</jsp-file>
@@ -112,6 +113,7 @@
     <servlet-name>checkout.do</servlet-name>
     <url-pattern>/checkout.do</url-pattern>
   </servlet-mapping>
+  -->
 
   <filter>
         <filter-name>noCacheFilter</filter-name>
@@ -121,15 +123,30 @@
         <filter-name>noCacheFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--StoreController-->
     <servlet>
-        <display-name>store.do</display-name>
-        <servlet-name>store.do</servlet-name>
-        <servlet-class>com.ggz.controller.StoreController</servlet-class>
+        <display-name>inventory.do</display-name>
+        <servlet-name>inventory.do</servlet-name>
+        <servlet-class>com.ggz.controller.InventoryController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>store.do</servlet-name>
-        <url-pattern>/store</url-pattern>
+        <servlet-name>inventory.do</servlet-name>
+        <url-pattern>/inventory.do</url-pattern>
     </servlet-mapping>
+
+
+    <!--StoreController-->
+    <servlet>
+        <display-name>game.do</display-name>
+        <servlet-name>game.do</servlet-name>
+        <servlet-class>com.ggz.controller.GameController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>game.do</servlet-name>
+        <url-pattern>/game.do</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>72</session-timeout>
     </session-config>

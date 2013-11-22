@@ -134,6 +134,10 @@ CREATE TABLE `pg_ratings` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+
+
+
 --
 -- Table structure for table `platforms`
 --
@@ -144,6 +148,28 @@ DROP TABLE IF EXISTS `platforms`;
 CREATE TABLE `platforms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+--
+-- Table structure for table `consoles`
+--
+DROP TABLE IF EXISTS `consoles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `consoles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `price` float DEFAULT '0',
+  `api_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `platform_id` int(11) unsigned references platforms(id),
+  `description` mediumtext COLLATE utf8_unicode_ci,
+  `api_detail_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -182,5 +208,8 @@ CREATE TABLE `schema_version` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+
 
 -- Dump completed on 2013-11-08 20:08:29

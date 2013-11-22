@@ -11,58 +11,51 @@ import java.util.List;
 
 public class Game extends Model
 {
-  private Game g;
-
   public Game() {}
-
-  public Game(Model g)
-  {
-    this.g = (Game)g;
-  }
 
   public double getPrice()
   {
-    return g.getDouble("price");
+    return this.getDouble("price");
   }
 
   public int getRating()
   {
-    return g.getInteger("rating");
+    return this.getInteger("rating");
   }
 
   public int getApiId()
   {
-    return g.getInteger("api_id");
+    return this.getInteger("api_id");
   }
 
   public String getName()
   {
-    return g.getString("name");
+    return this.getString("name");
   }
 
   public Timestamp getReleaseDate()
   {
-    return g.getTimestamp("release_date");
+    return this.getTimestamp("release_date");
   }
 
   public String getDeck()
   {
-    return g.getString("deck");
+    return this.getString("deck");
   }
 
   public String getDescription()
   {
-    return g.getString("description");
+    return this.getString("description");
   }
 
   public String getApiDetailUrl()
   {
-    return g.getString("api_detail_url");
+    return this.getString("api_detail_url");
   }
 
   public Image getImage()
   {
-    LazyList<Image> img = g.getAll(Image.class);
+    LazyList<Image> img = this.getAll(Image.class);
     if (img.size() < 1)
       return new Image();
     else
@@ -91,7 +84,7 @@ public class Game extends Model
 
     try
     {
-      List<T> lists = g.getAll(clazz);
+      List<T> lists = this.getAll(clazz);
       Constructor<?> c = clazz.getConstructor(clazz);
       for (Object t : lists)
       {
