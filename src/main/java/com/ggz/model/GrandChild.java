@@ -2,10 +2,12 @@ package com.ggz.model;
 
 import com.sunnyd.Base;
 import com.sunnyd.annotations.ActiveRecordField;
+import com.sunnyd.annotations.ActiveRecordInheritFrom;
 
 import java.util.Map;
 
-public class GrandChild extends Base
+@ActiveRecordInheritFrom(childClassof = "Child")
+public class GrandChild extends Child
 {
   public static final String tableName = "grand_childs";
 
