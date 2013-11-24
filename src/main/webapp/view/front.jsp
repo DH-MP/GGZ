@@ -16,6 +16,19 @@
       });
     });
   });
+  $(function() {
+    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
+      e.stopPropagation();
+      deleteRow(this);
+    });
+  });
+  $(function() {
+    $("ul.dropdown-menu").on("click", "[data-Add]", function(e) {
+      e.stopPropagation();
+      insRow();
+    });
+  });
+
 </script>
 <div class="navbar-wrapper">
   <div class="container">
@@ -32,35 +45,43 @@
           <li><a href="">PlayStation</a></li>
           <li><a href="">Nintendo</a></li>
           <li>
-            <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a class="removefromcart" id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
             <ul class="dropdown-menu">
               <li>
                 <div>
-                    <table class="table table-striped" style="width:500px;">
+                    <table id="POITable" class="table table-striped" style="width:500px;">
+                     <thead>
                       <tr>
-                        <td>Items</td>
+                        <td>Item</td>
+                        <td>Item name</td>
                         <td>Price</td>
                         <td></td>
                       </tr>
+                      </thead>
+                      <tbody>
                       <tr>
-                        <td>Super Mario Bros. (Wii)</td>
-                        <td>59.99</td>
-                        <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        <td>1</td>
+                        <td><p id="latbox">Super Mario Bros. (Wii)</p></td>
+                        <td><p id="lngbox">59.99</p></td>
+                        <td><a href="#" data-Delete="true"><span class="glyphicon glyphicon-remove"></span></a></td>
                       </tr>
-                      <tr>
-                        <td>Killer Instinct (Xbox One)</td>
-                        <td>24.99</td>
-                        <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                      </tr>
+                      </tbody>
                     </table>
                     <div class="col-md-offset-8">
                       <p>Total: 84.98</p>
                     </div>
-                      <div class="col-md-offset-9">
-                        <button type="button" class="btn btn-default btn-success">
-                          Checkout
-                        <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
-                        </button>
+                      <div class="well">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <button type="button" class="btn btn-primary" data-Add="true">Add</button>
+                          </div>
+                          <div class="col-md-3 col-md-offset-5">
+                            <button type="button" class="btn btn-default btn-success">
+                              Checkout
+                            <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                 </div>
               </li>
@@ -80,6 +101,7 @@
         <%--</div>--%>
       </nav>
     </div>
+
     <div class="col-md-4">
       <div id="primary-search" class="input-group input-group-lg">
         <input type="text" class="form-control"/>
@@ -221,4 +243,37 @@
   2013 Sunny Delight
 </footer>
 
+  <script type="text/javascript">
+    var table = document.getElementById('POITable'),
+        tbody = table.getElementsByTagName('tbody')[0],
+        clone = tbody.rows[0].cloneNode(true);
+
+    function deleteRow(el) {
+      var i = el.parentNode.parentNode.rowIndex;
+      table.deleteRow(i);
+      while (table.rows[i]) {
+        updateRow(table.rows[i], i, false);
+        i++;
+      }
+    }
+
+    function insRow() {
+      var new_row = updateRow(clone.cloneNode(true), ++tbody.rows.length, true);
+      tbody.appendChild(new_row);
+    }
+
+    function updateRow(row, i, reset) {
+      row.cells[0].innerHTML = i;
+
+      var inp1 = row.cells[1].getElementsByTagName('p')[0];
+      var inp2 = row.cells[2].getElementsByTagName('p')[0];
+      inp1.id = 'latbox' + i;
+      inp2.id = 'lngbox' + i;
+
+      if (reset) {
+        inp1.value = inp2.value = '';
+      }
+      return row;
+    }
+  </script>
 <%@ include file="/view/includes/static/footer.jsp" %>
