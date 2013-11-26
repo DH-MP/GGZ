@@ -90,3 +90,18 @@ CREATE TABLE `consoles` (
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+create table games_shopping_carts(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  shopping_cart_id int not null REFERENCES shopping_carts(id),
+  game_id int not null REFERENCES games(id),
+  primary key(id)
+);
+
+create table consoles_shopping_carts(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  shopping_cart_id int not null REFERENCES shopping_carts(id),
+  console_id int not null REFERENCES consoles(id),
+  primary key(id)
+);
+
