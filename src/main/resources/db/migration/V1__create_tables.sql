@@ -14,12 +14,14 @@ create table users(
   password varchar(256),
   address varchar(256),
   inventory_id int,
+  shopping_cart_id int,
   PRIMARY KEY (id),
-  FOREIGN KEY(inventory_id) REFERENCES inventories(id)
+  FOREIGN KEY(inventory_id) REFERENCES inventories(id),
+  FOREIGN KEY(shopping_cart_id) REFERENCES shopping_carts(id)
 );
 
 create table managers(
-  id int not null auto_increment,
+  id int not null,
   inventory_id int,
   PRIMARY KEY (id),
   FOREIGN KEY (id) REFERENCES users(id),

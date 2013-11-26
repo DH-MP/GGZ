@@ -37,22 +37,13 @@
           <url>jdbc:mysql://localhost:3306/soen387</url>
           <user>root</user>
           <password>root</password>
+          <initOnMigrate>true</initOnMigrate>
+          <locations>
+            <location>filesystem:${build.outputDirectory}/db/migration</location>
+          </locations>
         </configuration>
       </plugin>
 
-      <plugin>
-        <groupId>org.javalite</groupId>
-        <artifactId>activejdbc-instrumentation</artifactId>
-        <version>1.4.8</version>
-        <executions>
-          <execution>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>instrument</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
 
     </plugins>
   </build>
@@ -61,7 +52,7 @@
     <dependency>
       <groupId>com.sunnyd.ppar</groupId>
       <artifactId>ppar</artifactId>
-      <version>1.0.9-SNAPSHOT</version>
+      <version>[1.0.0-SNAPSHOT,)</version>
     </dependency>
 
     <dependency>
@@ -123,12 +114,6 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.javalite</groupId>
-      <artifactId>activejdbc</artifactId>
-      <version>1.4.7</version>
     </dependency>
 
     <dependency>

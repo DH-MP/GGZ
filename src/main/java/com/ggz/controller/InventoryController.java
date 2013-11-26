@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mike
- * Date: 11/21/13
- * Time: 6:53 PM
- * To change this template use File | Settings | File Templates.
- */
+* Created with IntelliJ IDEA.
+* User: Mike
+* Date: 11/21/13
+* Time: 6:53 PM
+* To change this template use File | Settings | File Templates.
+*/
 public class InventoryController extends HttpServlet
 {
     @Override

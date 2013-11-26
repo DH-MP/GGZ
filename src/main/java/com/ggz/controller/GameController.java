@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Mike
- * Date: 11/21/13
- * Time: 11:20 PM
- * To change this template use File | Settings | File Templates.
- */
+* Created with IntelliJ IDEA.
+* User: Mike
+* Date: 11/21/13
+* Time: 11:20 PM
+* To change this template use File | Settings | File Templates.
+*/
 public class GameController extends HttpServlet
 {
     @Override
