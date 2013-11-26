@@ -113,6 +113,24 @@
     <servlet-name>checkout.do</servlet-name>
     <url-pattern>/checkout.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>overview</servlet-name>
+    <jsp-file>/view/overview.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>overview</servlet-name>
+    <url-pattern>/overview</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>overview.do</servlet-name>
+    <servlet-class>com.ggz.controller.O</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>overview.do</servlet-name>
+    <url-pattern>/overview.do</url-pattern>
+  </servlet-mapping>
+
 
 
   <filter>
