@@ -33,8 +33,6 @@ public class LoginController extends HttpServlet{
                 //Map<String, Object> match = matches.get(0);
                 // get this hashmap from the arraylist
                 User u = matches.get(0);
-
-
                 // store the peer obj in session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);

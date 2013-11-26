@@ -175,6 +175,17 @@
         <url-pattern>/game.do</url-pattern>
     </servlet-mapping>
 
+    <!--Manage Inventory -->
+    <servlet>
+        <display-name>MI.do</display-name>
+        <servlet-name>MI.do</servlet-name>
+        <servlet-class>com.ggz.controller.ManageInventoryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MI.do</servlet-name>
+        <url-pattern>/MI.do</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>72</session-timeout>
     </session-config>
