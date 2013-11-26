@@ -15,6 +15,7 @@
                    out.println("<td>"+game.getDeck()+"</td>");
                    out.println("<td>"+game.getDescription()+"</td>");
                    out.println("<td><input name='"+game.getId()+":price' value="+game.getPrice()+"></td>");
+                   out.println("<td><input name='"+game.getId()+":quantities' value="+game.getQuantity()+"></td>");
                out.println("</tr>");
            }
         %>
@@ -36,6 +37,7 @@
                     out.println("<td>"+consoleName+"</td>");
                     out.println("<td>"+console.getDescription()+"</td>");
                     out.println("<td><input name='"+console.getId()+":price' value="+console.getPrice()+"></td>");
+                    out.println("<td><input name='"+console.getId()+":quantities' value="+console.getQuantity()+"></td>");
                     out.println("</tr>");
                 }
             %>

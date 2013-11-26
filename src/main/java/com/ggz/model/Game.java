@@ -34,6 +34,9 @@ public class Game extends Base implements IModel
     @ActiveRecordField
     private String apiDetailUrl;
 
+    @ActiveRecordField
+    private Integer quantity;
+
     //Relation
     @ActiveRecordField
     private Integer apiId;
@@ -165,5 +168,14 @@ public class Game extends Base implements IModel
     public Image getImage(){
         initRelation("image");
         return this.image;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+        setUpdateFlag(true);
     }
 }

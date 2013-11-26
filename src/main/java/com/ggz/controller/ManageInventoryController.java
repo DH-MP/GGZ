@@ -51,6 +51,9 @@ public class ManageInventoryController extends HttpServlet
                 if(attribute.contentEquals("price")){
                     a.setPrice(Double.parseDouble(unlockedMap.get(entry)[0]));
                 }
+                if(attribute.contentEquals("quantities")){
+                    a.setQuantity(Integer.parseInt(unlockedMap.get(entry)[0]));
+                }
                 a.update();
             }
         }
@@ -64,6 +67,9 @@ public class ManageInventoryController extends HttpServlet
                 Console a = new Console().find(id);
                 if(attribute.contentEquals("price")){
                     a.setPrice(Double.parseDouble(unlockedMap.get(entry)[0]));
+                }
+                if(attribute.contentEquals("quantities")){
+                    a.setQuantity(Integer.parseInt(unlockedMap.get(entry)[0]));
                 }
                 a.update();
             }
