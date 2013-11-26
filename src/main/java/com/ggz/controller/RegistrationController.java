@@ -31,7 +31,7 @@ public class RegistrationController extends HttpServlet{
         map.put("userName", user_name);
         String redirect = "/error";
         try {
-            ArrayList<Map<String, Object>> matches = Manager.findAll("users", map);
+            ArrayList<Map<String, Object>> matches = new User().findAll(map);
             System.out.println(matches);
             if (matches.size() == 0){ // means user does not exist
                 User u = new User();
