@@ -1,5 +1,6 @@
 package com.ggz.controller;
 
+import com.ggz.model.Game;
 import com.ggz.model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -31,7 +32,7 @@ public class RegistrationController extends HttpServlet{
         map.put("userName", user_name);
         String redirect = "/error";
         try {
-            ArrayList<Map<String, Object>> matches = Manager.findAll("users", map);
+            List<User> matches = new User().findAll(map);
             System.out.println(matches);
             if (matches.size() == 0){ // means user does not exist
                 User u = new User();

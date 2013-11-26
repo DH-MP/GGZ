@@ -42,6 +42,14 @@ public class Game extends Base implements IModel
     private List<Developer> developers;
 
 
+    //Relation
+    @ActiveRecordField
+    private Integer imageId;
+
+    @ActiveRelationHasOne
+    private Image image;
+
+
     public Game() {
         super();
     }
@@ -139,5 +147,23 @@ public class Game extends Base implements IModel
     }
 
 
+    public Integer getImageId() {
+        return imageId;
+    }
 
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+        setUpdateFlag(true);
+    }
+
+    public void setImage(Image image) {
+        this.image = null;
+        this.imageId = image.getId();
+        setUpdateFlag(true);
+    }
+
+    public Image getImage(){
+        initRelation("image");
+        return this.image;
+    }
 }

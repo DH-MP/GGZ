@@ -29,7 +29,7 @@ public class GameController extends HttpServlet
         String id = req.getParameter("id");
         if (id != null)
         {
-          Game game = new Game.find(Integer.valueOf(id));
+          Game game = new Game().find(Integer.valueOf(id));
           if (game != null)
           {
             StringBuilder sb = new StringBuilder();
@@ -43,7 +43,7 @@ public class GameController extends HttpServlet
             sb.append("  \"deck\": \"" + game.getDeck() + "\",");
             sb.append("  \"description\": \"" + game.getDescription() + "\",");
             sb.append("  \"api_detail_url\": \"" + game.getApiDetailUrl() + "\",");
-            sb.append("  \"image_url\": \"" + game.getImage().getLargeThumb() + "\",");
+            sb.append("  \"image_url\": \"" + game.getImage().getLargeUrl() + "\",");
             sb.append("}");
 
             resp.setContentType("application/json");
@@ -61,8 +61,8 @@ resp.setCharacterEncoding("UTF-8");
       }
         String id = req.getParameter("id");
         if(id !=null){
-            Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
-            req.setAttribute("game", game);
+            //Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
+           //req.setAttribute("game", game);
             req.getRequestDispatcher("/view/game.jsp").forward(req, resp);
            // Base.close();
         }else{

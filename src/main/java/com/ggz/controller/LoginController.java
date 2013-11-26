@@ -1,5 +1,6 @@
 package com.ggz.controller;
 
+import com.ggz.model.Game;
 import com.ggz.model.User;
 
 import javax.servlet.FilterChain;
@@ -26,11 +27,12 @@ public class LoginController extends HttpServlet{
 
         String redirect = "/error";
         try {
-            ArrayList<Map<String, Object>> matches = Manager.findAll("users", map);
-
+            //ArrayList<Map<String, Object>> matches = new User().findAll(map);
+            List<User> matches = new User().findAll(map);
             if (matches.size() == 1){ // means found exactly 1 user with that username and password
-                Map<String, Object> match = matches.get(0); // get this hashmap from the arraylist
-                User u = new User(match);
+                //Map<String, Object> match = matches.get(0);
+                // get this hashmap from the arraylist
+                User u = matches.get(0);
                 // store the peer obj in session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);
