@@ -1,4 +1,4 @@
-package com.ggz.model.activejdbc;
+package com.ggz.model;
 
 /**
  * Created with IntelliJ IDEA.
