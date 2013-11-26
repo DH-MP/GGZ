@@ -88,6 +88,16 @@
   </servlet-mapping>
 
   <servlet>
+    <display-name>search.do</display-name>
+    <servlet-name>search.do</servlet-name>
+    <servlet-class>com.ggz.controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>search.do</servlet-name>
+    <url-pattern>/search.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>cart.do</servlet-name>
     <servlet-class>com.ggz.controller.CartController</servlet-class>
   </servlet>

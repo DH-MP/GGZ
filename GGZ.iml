@@ -83,6 +83,11 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.yaml:snakeyaml:1.6" level="project" />
+<<<<<<< Updated upstream
+=======
+    <orderEntry type="library" name="Maven: org.javalite:activejdbc:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: org.javalite:javalite-common:1.4.7" level="project" />
+>>>>>>> Stashed changes
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
   </component>
