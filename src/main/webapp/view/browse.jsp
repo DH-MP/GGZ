@@ -25,7 +25,7 @@
                 <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
                     <h2><%= game.getName() %></h2>
                     <div class="box-art-container">
-                        <img src="<%= game.getImage().getMediumURL() %>" class="img-rounded box-art"/>
+                        <img src="<%= game.getImage().getMediumUrl() %>" class="img-rounded box-art"/>
                     </div>
                     <div>
                         <span class="label label-primary">PC</span>

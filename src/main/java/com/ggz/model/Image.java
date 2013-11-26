@@ -12,14 +12,14 @@ public class Image extends Base implements IModel
 {
 
     @ActiveRecordField
-    private String tinyURL;
+    private String tinyUrl;
 
     @ActiveRecordField
-    private String mediumURL;
+    private String mediumUrl;
 
 
     @ActiveRecordField
-    private String largeURL;
+    private String largeUrl;
 
 
     //Relation
@@ -43,31 +43,31 @@ public class Image extends Base implements IModel
 
 
 
-    public String getTinyURL() {
-        return tinyURL;
+    public String getTinyUrl() {
+        return tinyUrl;
     }
 
-    public void setTinyURL(String tinyURL) {
-        this.tinyURL = tinyURL;
+    public void setTinyUrl(String tinyUrl) {
+        this.tinyUrl = tinyUrl;
         setUpdateFlag(true);
     }
 
-    public String getMediumURL() {
-        return mediumURL;
+    public String getMediumUrl() {
+        return mediumUrl;
 
     }
 
-    public void setMediumURL(String mediumURL) {
-        this.mediumURL = mediumURL;
+    public void setMediumUrl(String mediumUrl) {
+        this.mediumUrl = mediumUrl;
         setUpdateFlag(true);
     }
 
-    public String getLargeURL() {
-        return largeURL;
+    public String getLargeUrl() {
+        return largeUrl;
     }
 
-    public void setLargeURL(String largeURL) {
-        this.largeURL = largeURL;
+    public void setLargeUrl(String largeUrl) {
+        this.largeUrl = largeUrl;
         setUpdateFlag(true);
     }
 

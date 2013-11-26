@@ -43,7 +43,7 @@ public class GameController extends HttpServlet
             sb.append("  \"deck\": \"" + game.getDeck() + "\",");
             sb.append("  \"description\": \"" + game.getDescription() + "\",");
             sb.append("  \"api_detail_url\": \"" + game.getApiDetailUrl() + "\",");
-            sb.append("  \"image_url\": \"" + game.getImage().getLargeURL() + "\",");
+            sb.append("  \"image_url\": \"" + game.getImage().getLargeUrl() + "\",");
             sb.append("}");
 
             resp.setContentType("application/json");
