@@ -33,10 +33,7 @@
     <orderEntry type="library" name="Maven: org.jdbi:jdbi:2.51" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:annotations:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.8" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sunnyd.ppar:ppar:1.0.9-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.6.4" level="project" />
@@ -74,14 +71,21 @@
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-descriptor:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-monitor:2.0.6" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.maven.wagon:wagon-ssh:1.0-beta-2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.jcraft:jsch:0.1.27" level="project" />
+    <orderEntry type="library" name="Maven: com.jcraft:jsch:0.1.50" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-exec:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jdbi:jdbi:2.51" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:annotations:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.8" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.testng:testng:6.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.beanshell:bsh:2.0b4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.yaml:snakeyaml:1.6" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.javalite:activejdbc:1.4.7" level="project" />
     <orderEntry type="library" name="Maven: org.javalite:javalite-common:1.4.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />

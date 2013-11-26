@@ -22,8 +22,38 @@ public class CartController extends HttpServlet
     response.setContentType("text/plain");
     response.setCharacterEncoding("UTF-8");
 
-    // Set new item in cart here
-    response.getWriter().write("2");
+    int id = Integer.parseInt(request.getParameter("id"));
+
+    String total_price = request.getParameter("total_price");
+    String quantity = request.getParameter("quantity");
+    String user_id = request.getParameter("user_id");
+
+    // here we should validate the input...
+
+    // check if user already exists
+    Map<String, Object> map = new HashMap<String, Object>();
+    map.put("totalPrice", total_price);
+    map.put("quantity", quantity);
+    map.put("userId", user_id);
+      try {
+        Cart cart = new Cart().find(id);
+        cart.setTotalPrice(total_price);
+        cart.setQuantity(quantity);
+
+        redirect = "/front.do";
+        cart.update();
+
+//            Peer peer = new Peer(Manager.find(id, "peers"));
+        HttpSession session = request.getSession();
+        session.setAttribute("user", peer);
+        response.sendRedirect(redirect);
+
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+
+
+
   }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
