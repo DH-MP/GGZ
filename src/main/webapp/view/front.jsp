@@ -103,15 +103,19 @@
     </div>
 
     <div class="col-md-4">
+        <form action="/search.do" method="post">
       <div id="primary-search" class="input-group input-group-lg">
-        <input type="text" class="form-control"/>
 
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-default btn-lg btn-warning">
-            Search
-          </button>
-        </div>
+            <input type="text" class="form-control"/>
+
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-lg btn-warning">
+                    Search
+                </button>
+            </div>
+
       </div>
+            </form>
     </div>
   </div>
 </div>
