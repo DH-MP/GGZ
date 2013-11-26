@@ -16,4 +16,6 @@ import java.util.Map;
  */
 public class Inventory extends Base implements IModel {
 
+
+
 }

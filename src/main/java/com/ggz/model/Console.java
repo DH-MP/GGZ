@@ -78,7 +78,7 @@ public class Console extends Base implements IModel {
         setUpdateFlag(true);
     }
 
-    public Integer getpPatformId() {
+    public Integer getPlatformId() {
         return this.platformId;
     }
 
@@ -99,10 +99,4 @@ public class Console extends Base implements IModel {
         setUpdateFlag(true);
     }
 
-
-
-    public static void main(String[] args) {
-        Console c = new Console().find(1);
-        System.out.println(c.getPlatform().getName());
-    }
 }

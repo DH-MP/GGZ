@@ -2,102 +2,142 @@ package com.ggz.model;
 
 import com.sunnyd.Base;
 import com.sunnyd.IModel;
+import com.sunnyd.annotations.ActiveRecordField;
+import com.sunnyd.annotations.ActiveRelationHasOne;
+import com.sunnyd.annotations.ActiveRelationManyToMany;
+
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
 
 public class Game extends Base implements IModel
 {
-//  public Game() {}
-//
-//  public double getPrice()
-//  {
-//    return this.getDouble("price");
-//  }
-//
-//  public int getRating()
-//  {
-//    return this.getInteger("rating");
-//  }
-//
-//  public int getApiId()
-//  {
-//    return this.getInteger("api_id");
-//  }
-//
-//  public String getName()
-//  {
-//    return this.getString("name");
-//  }
-//
-//  public Timestamp getReleaseDate()
-//  {
-//    return this.getTimestamp("release_date");
-//  }
-//
-//  public String getDeck()
-//  {
-//    return this.getString("deck");
-//  }
-//
-//  public String getDescription()
-//  {
-//    return this.getString("description");
-//  }
-//
-//  public String getApiDetailUrl()
-//  {
-//    return this.getString("api_detail_url");
-//  }
-//
-//  public Image getImage()
-//  {
-//    LazyList<Image> img = this.getAll(Image.class);
-//    if (img.size() < 1)
-//      return new Image();
-//    else
-//      return new Image(img.get(0));
-//  }
-//
-//  public List<Developer> getDevelopers()
-//  {
-//    return this.getGenericManyToMany(Developer.class);
-//  }
-//
-//  public List<Platform> getPlatforms()
-//  {
-//    return this.getGenericManyToMany(Platform.class);
-//  }
-//
-//  public List<PgRating> getPgRating()
-//  {
-//    return this.getGenericManyToMany(PgRating.class);
-//  }
-//
-//  private <T extends Model> List<T> getGenericManyToMany(Class<T> clazz)
-//  {
-//
-//    List<T> castedList = new ArrayList<T>();
-//
-//    try
-//    {
-//      List<T> lists = this.getAll(clazz);
-//      Constructor<?> c = clazz.getConstructor(clazz);
-//      for (Object t : lists)
-//      {
-//        castedList.add((T)c.newInstance(t));
-//      }
-//    }
-//    catch (NoSuchMethodException e)
-//    {
-//    }
-//    catch (InvocationTargetException e)
-//    {
-//    }
-//    catch (InstantiationException e)
-//    {
-//    }
-//    catch (IllegalAccessException e)
-//    {
-//    }
-//
-//    return castedList;
-//  }
+    //Table attributes
+    @ActiveRecordField
+    private Double price;
+
+    @ActiveRecordField
+    private Integer rating;
+
+    @ActiveRecordField
+    private String name;
+
+    @ActiveRecordField
+    private String releaseDate;
+
+    @ActiveRecordField
+    private String deck;
+
+    @ActiveRecordField
+    private String description;
+
+    @ActiveRecordField
+    private String apiDetailUrl;
+
+    //Relation
+    @ActiveRecordField
+    private Integer apiId;
+
+    @ActiveRelationManyToMany(relationTable = "games_developers")
+    private List<Developer> developers;
+
+
+    public Game() {
+        super();
+    }
+
+    public Game(Map<String, Object> HM) {
+        super(HM);
+    }
+
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+        setUpdateFlag(true);
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+        setUpdateFlag(true);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        setUpdateFlag(true);
+    }
+
+    public String String() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+        setUpdateFlag(true);
+    }
+
+    public String getDeck() {
+        return deck;
+    }
+
+    public void setDeck(String deck) {
+        this.deck = deck;
+        setUpdateFlag(true);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+        setUpdateFlag(true);
+    }
+
+    public String getApiDetailUrl() {
+        return apiDetailUrl;
+    }
+
+    public void setApiDetailUrl(String apiDetailUrl) {
+        this.apiDetailUrl = apiDetailUrl;
+        setUpdateFlag(true);
+    }
+
+    public Integer getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(Integer apiId) {
+        this.apiId = apiId;
+        setUpdateFlag(true);
+    }
+
+
+    public static void main(String[] args) {
+        Game c = new Game().find(1);
+        System.out.println(c.getDevelopers());
+    }
+
+    public List<Developer> getDevelopers() {
+        initRelation("developers");
+        return this.developers;
+    }
+
+    public void setDevelopers(List<Developer> developers) {
+        this.developers = developers;
+    }
+
+
+
 }
