@@ -108,7 +108,7 @@
         <form action="/search.do" method="post">
       <div id="primary-search" class="input-group input-group-lg">
 
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" name="name" placeholder="Name" />
 
             <div class="input-group-btn">
                 <button type="submit" class="btn btn-default btn-lg btn-warning">
@@ -197,9 +197,9 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-      <% for (Map<String, Object> g : (ArrayList<Map<String,Object>>) request.getAttribute("recentAddedGames"))
+      <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
       {
-          Game game = new Game(g);
+          Game game = g;
       %>
         <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
           <h2><%= game.getName() %></h2>
@@ -220,10 +220,10 @@
       <h2>Top Game of the Week</h2>
 
       <div class="list-group">
-        <% for (Map<String, Object> g : (ArrayList<Map<String,Object>>) request.getAttribute("recentAddedGames"))
-        {
-          Game game = new Game(g);
-        %>
+          <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
+          {
+              Game game = g;
+          %>
         <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">
             <img src="<%= game.getImage().getTinyURL() %>" alt=""/>

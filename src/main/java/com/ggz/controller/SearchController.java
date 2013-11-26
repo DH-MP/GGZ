@@ -1,6 +1,7 @@
 package com.ggz.controller;
 
 import com.ggz.model.Game;
+import com.ggz.model.User;
 import com.sunnyd.database.Manager;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,13 +25,36 @@ import java.util.Map;
 public class SearchController  extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
+        String name = request.getParameter("name");
 
-        //doGet(request, response);
-        System.out.print("gets here");
-        // get all register input
+        System.out.println("gets here");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("name", request.getParameter("name"));
 
-        // here we should validate the input...
+        String delimiter = "\\s";
+        String[] n = name.split(delimiter);
+        map.put("n", n);
+        String redirect = "/error";
+        try {
+            //ArrayList<Map<String, Object>> matches = new Game().findAll();
+            List<Game> matches = new Game().findAll(map);
+            if (matches.size() >= 1){ // means found exactly 1 user with that username and password
+
+                //List<Console> recentConsoles = Game.findAll().limit(9).orderBy("release_date desc");
+                request.setAttribute("matches", matches);
+                //req.setAttribute("recentConsoles", recentConsoles);
+                request.getRequestDispatcher("/view/browse.jsp").forward(request, response);
+                //request.setAttribute("user", peer);
+                //redirect = "/front.do";
+                System.out.println(matches);
+
+            }
+
+            //response.sendRedirect(redirect);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 

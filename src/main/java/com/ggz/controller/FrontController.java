@@ -27,7 +27,8 @@ public class FrontController extends HttpServlet
 
 
     //List<Game> recentAddedGames = new Game().find(1);
-    ArrayList<Map<String, Object>> recentAddedGames = new Game().findAll(null);
+    //List<Map<String, Object>> recentAddedGames = new Game().findAll(null);
+    List<Game> recentAddedGames = new Game().findAll(null);
 
       //List<Console> recentConsoles = Game.findAll().limit(9).orderBy("release_date desc");
     req.setAttribute("recentAddedGames", recentAddedGames);
