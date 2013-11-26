@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet{
 
         String redirect = "/error";
         try {
-            ArrayList<Map<String, Object>> matches = Manager.findAll("peers", map);
+            ArrayList<Map<String, Object>> matches = Manager.findAll("users", map);
 
             if (matches.size() == 1){ // means found exactly 1 user with that username and password
                 Map<String, Object> match = matches.get(0); // get this hashmap from the arraylist
