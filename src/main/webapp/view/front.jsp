@@ -199,7 +199,7 @@
         {
           Game game = g;
         %>
-        <div class="col-6 col-sm-6 col-lg-4 flippable">
+        <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
           <h2><%= game.getName() %></h2>
           <div class="box-art-container">
             <img src="<%= game.getImage().getMediumURL() %>" class="img-rounded box-art"/>

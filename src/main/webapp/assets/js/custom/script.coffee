@@ -8,9 +8,12 @@ $ ->
     source: 'body'
     radius: 5
 
-  # Apply flipant to flippable item
   $('.flippable img').on "click", ->
     back = flippant.flip($(this).get(0), game_modal_template, "modal")
+    gameId = $(this).parents('div.flippable').data("id")
+    $.getJSON "/game.do?api=true&id=#{gameId}", (data) ->
+      console.log data
+
     $(".close-flippant").on "click", (e) ->
       e.preventDefault()
       back.close()
@@ -19,11 +22,7 @@ game_modal_template = """
                       <div class="container">
                       <h1>Game Title</h1>
                       <hr />
-                      <p>
-                      Integer porta nulla eget enim tincidunt, in suscipit velit ultrices. Morbi at massa ligula. Cras scelerisque molestie eros sit amet scelerisque. Cras tempus accumsan vestibulum. Nullam congue vestibulum justo, sed tempus felis ornare id. Sed tristique et justo non molestie. Aliquam libero dui, rutrum quis interdum a, facilisis posuere diam. Nam sit amet sapien enim. Morbi viverra laoreet magna, sit amet interdum ligula suscipit et. Nunc molestie nisi vitae orci mattis laoreet. Praesent rutrum nibh vel orci commodo, a dapibus magna blandit. Vivamus tincidunt quam dolor, vitae pellentesque felis dignissim vel. Ut placerat rutrum dui, id fermentum nibh vehicula ut. Cras accumsan tellus in nisi rutrum, eget placerat diam adipiscing.
-                      </p>
-                      <p>
-                      Suspendisse eget dolor elit. Pellentesque congue ante vel mattis auctor. Suspendisse mollis nisl sem. Donec placerat sed turpis eget rutrum. In eu felis et leo semper aliquet. Proin id ante venenatis lectus interdum elementum. Etiam nec libero nunc.
+                      <p>Description
                       </p>
                       <button class="btn btn-default btn-danger close-flippant"><span class="glyphicon glyphicon-remove"></span></span>
                       </div>

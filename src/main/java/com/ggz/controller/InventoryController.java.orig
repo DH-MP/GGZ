@@ -1,9 +1,14 @@
 package com.ggz.controller;
 
+<<<<<<< HEAD
 import com.ggz.model.Game;
 import com.ggz.model.Inventory;
 import com.ggz.model.Item;
 //import org.javalite.activejdbc.Base;
+=======
+import com.ggz.model.activejdbc.Inventory;
+import org.javalite.activejdbc.Base;
+>>>>>>> 0f59d85... Merge with remote
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

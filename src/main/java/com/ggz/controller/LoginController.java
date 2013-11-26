@@ -1,7 +1,6 @@
 package com.ggz.controller;
 
 import com.ggz.model.User;
-import com.sunnyd.database.Manager;
 
 import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
@@ -12,23 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-/**
-* Created with IntelliJ IDEA.
-* User: Wais
-* Date: 11/21/13
-* Time: 6:19 PM
-* To change this template use File | Settings | File Templates.
-*/
 public class LoginController extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //doGet(request, response);
-        //Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
-
         System.out.println("gets here");
+
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("userName", request.getParameter("username"));
         map.put("password", request.getParameter("password"));
