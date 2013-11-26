@@ -2,6 +2,7 @@ package com.ggz.controller;
 
 import com.ggz.model.Game;
 import com.ggz.model.User;
+import com.ggz.model.ShoppingCart;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -42,6 +43,8 @@ public class RegistrationController extends HttpServlet{
                 u.setAddress(address);
                 u.setPassword(password);
                 u.save();
+                ShoppingCart cart = new ShoppingCart();
+                cart.setUserId(u.getId());
 
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);

@@ -1,4 +1,5 @@
 <%@ page import="com.ggz.model.Game" %>
+<%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.ArrayList" %>
@@ -33,6 +34,9 @@
 
 
 </script>
+<%
+   ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+%>
 <div class="navbar-wrapper">
   <div class="container">
     <div class="col-md-8">
@@ -209,15 +213,18 @@
             <img src="<%= game.getImage().getMediumUrl() %>" class="img-rounded box-art"/>
           </div>
           <div>
-            <span class="label label-primary">PC</span>
-            <span class="label label-warning">PlayStation</span>
-            <span class="label label-success">Add to Cart</span>
+            <form action="/cart.do" method="post">
+              <span class="label label-primary">PC</span>
+              <span class="label label-warning">PlayStation</span>
+              <input type="hidden" name="game_id" value="<%= game.getId() %>" />
+              <input type="hidden" name="cart_id" value="<%=cart.getId() %>" />
+              <span class="label label-success">Add to Cart</span>
+            </form>
           </div>
         </div>
         <% } %>
       </div>
     </div>
-    <p id="classifier">Project</p>
     <div class="col-xs-6 col-sm-5 sidebar-offcanvas" id="sidebar"
          role="navigation">
       <h2>Top Game of the Week</h2>
