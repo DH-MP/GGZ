@@ -1,4 +1,6 @@
-package com.ggz.model.activejdbc;
+package com.ggz.model;
+
+import com.ggz.model.User;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,5 +9,6 @@ package com.ggz.model.activejdbc;
  * Time: 7:42 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Manager {
+public class Manager extends User {
+
 }
