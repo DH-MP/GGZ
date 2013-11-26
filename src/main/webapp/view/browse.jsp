@@ -18,7 +18,7 @@
     <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-7">
             <div class="row">
-                <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
+                <% for (Game g : (List<Game>) request.getAttribute("matches"))
                 {
                     Game game = g;
                 %>
