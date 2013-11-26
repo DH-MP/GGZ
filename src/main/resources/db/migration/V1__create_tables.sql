@@ -16,8 +16,7 @@ create table users(
   inventory_id int,
   shopping_cart_id int,
   PRIMARY KEY (id),
-  FOREIGN KEY(inventory_id) REFERENCES inventories(id),
-  FOREIGN KEY(shopping_cart_id) REFERENCES shopping_carts(id)
+  FOREIGN KEY(inventory_id) REFERENCES inventories(id)
 );
 
 create table managers(
@@ -112,4 +111,7 @@ create table receipts(
   PRIMARY KEY (id),
   FOREIGN KEY(user_id) REFERENCES users(id)
 );
+
+Alter table users add FOREIGN KEY(shopping_cart_id) REFERENCES shopping_carts(id);
+
 

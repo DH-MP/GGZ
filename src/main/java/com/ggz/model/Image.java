@@ -86,7 +86,7 @@ public class Image extends Base implements IModel
         return this.game;
     }
 
-    public void setPlatform(Game game){
+    public void setGame(Game game){
         this.game = null;
         this.gameId = game.getId();
         setUpdateFlag(true);

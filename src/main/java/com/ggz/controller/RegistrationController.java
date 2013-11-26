@@ -1,16 +1,6 @@
 package com.ggz.controller;
 
-/**
-* Created with IntelliJ IDEA.
-* User: Wais
-* Date: 11/20/13
-* Time: 8:25 PM
-* To change this template use File | Settings | File Templates.
-*/
-
-
 import com.ggz.model.User;
-import com.sunnyd.database.Manager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -22,16 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RegistrationController extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/soen387", "root", "root");
-
-        //doGet(request, response);
-        // get all register input
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
         String user_name = request.getParameter("user_name");

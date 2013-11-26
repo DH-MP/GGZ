@@ -1,4 +1,4 @@
-<%@ page import="com.ggz.model.activejdbc.Game" %>
+<%@ page import="com.ggz.model.Game" %>
 <%@ page import="java.util.List" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -201,10 +201,10 @@
         {
           Game game = g;
         %>
-        <div class="col-6 col-sm-6 col-lg-4 flippable">
+        <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
           <h2><%= game.getName() %></h2>
           <div class="box-art-container">
-            <img src="<%= game.getImage().getMediumThumb() %>" class="img-rounded box-art"/>
+            <img src="<%= game.getImage().getMediumURL() %>" class="img-rounded box-art"/>
           </div>
           <div>
             <span class="label label-primary">PC</span>
@@ -227,7 +227,7 @@
         %>
         <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">
-            <img src="<%= game.getImage().getSmallThumb() %>" alt=""/>
+            <img src="<%= game.getImage().getTinyURL() %>" alt=""/>
           </div>
           <h4><%= game.getName() %></h4>
           <h6>

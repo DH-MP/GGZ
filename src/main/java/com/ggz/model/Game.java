@@ -78,7 +78,7 @@ public class Game extends Base implements IModel
         setUpdateFlag(true);
     }
 
-    public String String() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 

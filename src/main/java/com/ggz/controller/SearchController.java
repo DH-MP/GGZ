@@ -1,6 +1,6 @@
 package com.ggz.controller;
 
-import com.ggz.model.activejdbc.Game;
+import com.ggz.model.Game;
 import com.sunnyd.database.Manager;
 
 import javax.servlet.ServletException;
