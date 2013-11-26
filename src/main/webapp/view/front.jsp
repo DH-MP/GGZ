@@ -1,5 +1,7 @@
 <%@ page import="com.ggz.model.Game" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -195,10 +197,10 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-        <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
-        {
-          Game game = g;
-        %>
+      <% for (Map<String, Object> g : (ArrayList<Map<String,Object>>) request.getAttribute("recentAddedGames"))
+      {
+          Game game = new Game(g);
+      %>
         <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
           <h2><%= game.getName() %></h2>
           <div class="box-art-container">
@@ -218,9 +220,9 @@
       <h2>Top Game of the Week</h2>
 
       <div class="list-group">
-        <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
+        <% for (Map<String, Object> g : (ArrayList<Map<String,Object>>) request.getAttribute("recentAddedGames"))
         {
-          Game game = g;
+          Game game = new Game(g);
         %>
         <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">

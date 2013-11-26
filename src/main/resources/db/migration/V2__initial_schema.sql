@@ -11,6 +11,7 @@ CREATE TABLE `games` (
   `price` float DEFAULT '0',
   `rating` int(2) DEFAULT '0',
   `api_id` int(10) NOT NULL DEFAULT '0',
+  `image_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `release_date` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'CURRENT_TIMESTAMP',
   `deck` varchar(511) COLLATE utf8_unicode_ci DEFAULT '',
