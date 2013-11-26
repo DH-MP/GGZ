@@ -96,7 +96,7 @@
     <url-pattern>/cart.do</url-pattern>
   </servlet-mapping>
 
-  <!--
+
   <servlet>
     <servlet-name>checkout</servlet-name>
     <jsp-file>/view/checkout.jsp</jsp-file>
@@ -113,7 +113,7 @@
     <servlet-name>checkout.do</servlet-name>
     <url-pattern>/checkout.do</url-pattern>
   </servlet-mapping>
-  -->
+
 
   <filter>
         <filter-name>noCacheFilter</filter-name>
