@@ -62,7 +62,7 @@ public class CreditCard  extends Base implements IModel {
         return this.user;
     }
 
-    public void setPlatform(User user){
+    public void setUser(User user){
         this.user = null;
         this.userId = user.getId();
         setUpdateFlag(true);
