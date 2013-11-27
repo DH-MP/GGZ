@@ -14,7 +14,7 @@
     %>
     <li class="list-group-item">
       <span class="badge"><%= game.getPrice() %></span>
-      <small><%= game.getName() %></small>
+      <small><%= game.getName() %> (<%= game.getRating() %><span class="glyphicon glyphicon-star"></span>)</small>
     </li>
     <% } %>
 

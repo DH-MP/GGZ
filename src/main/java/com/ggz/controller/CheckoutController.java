@@ -51,9 +51,17 @@ public class CheckoutController extends HttpServlet
     List<Game> games = shoppingCart.getGames();
 
     Double p = shoppingCart.getTotalPrice();
+
+    Double net = 0.0;
+//    for (Game game : games) {
+//      net =+ game.getPrice();
+//    }                    ;
     Double gst = p * .05;
     Double qst = p * .0975;
     Double tp =  5 + p + gst + qst;
+
+//    shoppingCart.setTotalPrice(tp);
+//    shoppingCart.update();
 
     request.setAttribute("games", games);
     request.setAttribute("sh", "5.00");
