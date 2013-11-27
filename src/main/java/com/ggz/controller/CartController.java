@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -30,17 +31,30 @@ public class CartController extends HttpServlet
 
     int game_id = Integer.parseInt(request.getParameter("game_id"));
     int cart_id = Integer.parseInt(request.getParameter("cart_id"));
+
+
+
     System.out.println("dfdf"+game_id);
     System.out.println("aaaaaaaaa"+cart_id);
-
-    Map<String, Object> map =  new HashMap<String, Object>();
-    map.put("id", game_id);
-
+    ShoppingCart cart = new ShoppingCart().find(cart_id);
+    if(cart_id ==1){
+      HttpSession session = request.getSession();
+      session.setAttribute("cart", cart);
+      request.getRequestDispatcher("/view/register.jsp").forward(request, response);
+    }else
+    {
+    List<Game> games = cart.getGames();
+    Game newGame = new Game().find(game_id);
+    games.add(newGame);
+//    Map<String, Object> map =  new HashMap<String, Object>();
+//    map.put("id", game_id);
     Double total_price=0.0;
     //Game game = new Game().find(game_id);
-    List<Game> games = new Game().findAll(map);
-    ShoppingCart cart = new ShoppingCart().find(cart_id);
+//    List<Game> games = new Game().findAll(map);
 
+
+
+//    games.add(newgame);
     cart.setGames(games);
     for (Object gameObject : games)
     {
@@ -57,10 +71,11 @@ public class CartController extends HttpServlet
 
         cart.update();
 
-    request.setAttribute("games", games);
-    request.setAttribute("cart", cart);
+//    request.setAttribute("games", games);
+//    request.setAttribute("cart", cart);
     System.out.println(games);
-
+    HttpSession session = request.getSession();
+    session.setAttribute("cart", cart);
 
     response.sendRedirect("/front.do");
 //    request.getRequestDispatcher("/view/front.jsp").forward(request, response);
@@ -75,7 +90,7 @@ public class CartController extends HttpServlet
 //      }
 
 
-
+    }
   }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

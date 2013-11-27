@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet
 //    map.put("cartId", cart.getId());
 //    List<Game> games = new Game().findAll(map);
     List<Game> games = cart.getGames();
-    System.out.println(games);
+    System.out.println("game :"+games);
     req.setAttribute("g", games);
     System.out.print(cart);
 
