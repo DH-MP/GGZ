@@ -25,12 +25,12 @@ public class FrontController extends HttpServlet
     String platform = req.getParameter("platform");
     ShoppingCart cart = (ShoppingCart) req.getAttribute("cart");
     System.out.print(cart);
-    if (cart != null)
-      req.setAttribute  ("cart", cart);
-    else{
-      cart = new ShoppingCart().find(1);
-      req.setAttribute("cart",cart);
-    }
+//    if (cart != null)
+//      req.setAttribute  ("cart", cart);
+//    else{
+//      cart = new ShoppingCart().find(1);
+//      req.setAttribute("cart",cart);
+//    }
 
     List<Game> recentAddedGames = new Game().findAll(null);
     req.setAttribute("recentAddedGames", recentAddedGames
