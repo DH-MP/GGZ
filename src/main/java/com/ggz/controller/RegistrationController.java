@@ -45,9 +45,14 @@ public class RegistrationController extends HttpServlet{
                 u.save();
                 ShoppingCart cart = new ShoppingCart();
                 cart.setUserId(u.getId());
-
+                cart.setTotalPrice(0.0);
+                cart.setQuantity(0);
+                cart.save();
+                u.setShoppingCartId(cart.getId());
+                u.update();
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);
+                session.setAttribute("cart", cart);
                 redirect = "/front.do";
             }
             response.sendRedirect(redirect);

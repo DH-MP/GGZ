@@ -31,6 +31,7 @@
 </script>
 <%
    ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+  int i = 1;
 %>
 <div class="navbar-wrapper">
   <div class="container">
@@ -63,7 +64,7 @@
                           <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
                       <tbody>
                       <tr>
-                        <td><%=g.getId() == null ? "" : g.getId()%></td>
+                        <td><%=g.getId() == null ? "" : ++i%></td>
                         <td><p><%=g.getName() == null? "" : g.getName()%></p></td>
                         <td><p><%=g.getPrice() == null? "" : g.getPrice()%></p></td>
                         <td><a href="#" data-Delete="true"><span class="glyphicon glyphicon-remove"></span></a></td>
@@ -74,36 +75,19 @@
                     <div class="col-md-offset-8">
                       <p>Total: <%=cart.getTotalPrice() == null? "": cart.getTotalPrice()%></p>
                     </div>
-                      <div class="well">
                         <div class="row">
-                          <div class="col-md-3">
-                            <button type="button" class="btn btn-primary" data-Add="true">Add</button>
-                          </div>
-                          <div class="col-md-3 col-md-offset-5">
-                            <button type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
+                          <div class="col-md-3 col-md-offset-8">
+                            <button <%if (cart.getTotalPrice()==0.0){ %>style="visibility:hidden;" <%}%> type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
                               Checkout
                             <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
                             </button>
                           </div>
                         </div>
-                      </div>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
-
-        <%--<div class="collapse navbar-collapse">--%>
-        <%--<form class="navbar-form navbar-right form-inline" action="/search.do"--%>
-        <%--method="post" role="search">--%>
-        <%--<div class="form-group">--%>
-        <%--<input type="text" class="form-control" id="q" name="q"--%>
-        <%--placeholder="Search..."/>--%>
-        <%--</div>--%>
-        <%--<button id="search" class="btn btn-warning" type="submit"><span--%>
-        <%--class="glyphicon glyphicon-search"></span></button>--%>
-        <%--</form>--%>
-        <%--</div>--%>
       </nav>
     </div>
 
@@ -211,8 +195,10 @@
                 } else if (!mobile) { %>
                   <span class="label label-danger">Mobile</span>
               <% mobile = true; } } %>
+              <%List<Game> games = (List<Game>)request.getAttribute("g"); %>
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
               <input type="hidden" name="cart_id" value="<%= cart.getId() %>" />
+              <input type="hidden" name="games" value="<%=games%>" />
               <button type="submit" class="btn btn-xs btn-success" >Add to Cart</button>
             </form>
           </div>
