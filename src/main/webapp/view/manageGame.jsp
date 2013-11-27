@@ -1,4 +1,6 @@
 <%@ page import="com.ggz.model.Game" %>
+<%@ page import="com.ggz.model.PgRating" %>
+<%@ page import="com.ggz.model.Platform" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 
 
@@ -7,11 +9,25 @@
 %>
 
 <div class="panel panel-default">
+
     <div class="panel-heading">
         <h3 class="panel-title"></h3>
     </div>
     <div class="panel-body">
-        <table border="0" width="500" align="center">
+        <div class="bs-sidebar" style="float:left">
+            <% if( g!= null){%>
+                <a href="#">
+                   <img class="profile2"
+                   src=<%= g.getImage() == null ? "http://png-2.findicons.com/files/icons/2380/android_style_icons_r1/512/gallery.png" : g.getImage().getTinyUrl()%>>
+                </a>
+            <%}else{%>
+                <a href="#">
+                    <img class="profile2"
+                         src="http://png-2.findicons.com/files/icons/2380/android_style_icons_r1/512/gallery.png""%>>
+                </a>
+            <%}%>
+        </div>
+        <table border="0" width="500" align="center" style="margin-left: 100px; float:left">
             <% if( g!= null){%>
                 <form action="/MG.do" method="post">
                     <tr>
@@ -49,6 +65,50 @@
                             </div>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">PG-Rating</span>
+                                <select class="form-control" name="pgRatingId">
+                                    <option value="">N/A</option>
+                                    <% Object[] pr = new PgRating().findAll(null).toArray();
+                                        for(Object p : pr){
+                                            PgRating pl = (PgRating) p;
+                                            if(pl.getId() == g.getPgRatingId()){
+                                                out.println("<option value="+pl.getId()+" selected=\"selected\">"+pl.getName()+"</option>");
+                                            }else{
+                                                out.println("<option value="+pl.getId()+">"+pl.getName()+"</option>");
+                                            }
+                                        }
+                                    %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Platform</span>
+                                <select class="form-control" name="platformId">
+                                    <option value="">N/A</option>
+                                    <% Object[] ps = new Platform().findAll(null).toArray();
+                                        for(Object p : ps){
+                                            Platform pl = (Platform) p;
+                                            if(pl.getId() == g.getPlatformId()){
+                                                out.println("<option value="+pl.getId()+" selected=\"selected\">"+pl.getName()+"</option>");
+                                            }else{
+                                                out.println("<option value="+pl.getId()+">"+pl.getName()+"</option>");
+                                            }
+                                        }
+
+                                    %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td>
                             <div class="input-group input-group-sm">
@@ -61,10 +121,35 @@
                         <td>
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon">Description</span>
-                                <input type="text" name="description" class="form-control" value=<%= g.getDescription() == null ? "" : g.getDescription()%>>
+                                <textarea name="description" style="resize:none; width:100%;"  rows="6" ><%= g.getDescription() == null ? "" : g.getDescription()%></textarea>
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Tiny URL</span>
+                                <input type="text" name="imageTinyURL" class="form-control" value="<%= g.getImage() == null ? "" : g.getImage().getTinyUrl()%>">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Medium URL</span>
+                                <input type="text" name="imageMediumURL" class="form-control" value="<%= g.getImage() == null ? "" : g.getImage().getMediumUrl()%>">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Large URL</span>
+                                <input type="text" name="imageLargeURL" class="form-control" value="<%= g.getImage() == null ? "" : g.getImage().getLargeUrl()%>">
+                            </div>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td>
                             <br />
@@ -105,6 +190,41 @@
                     <tr>
                         <td>
                             <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Name</span>
+                                <select class="form-control" name="pgRatingId">
+                                    <option value="">N/A</option>
+                                    <% Object[] pr = new PgRating().findAll(null).toArray();
+                                        for(Object p : pr){
+                                            PgRating pl = (PgRating) p;
+                                            out.println("<option value="+pl.getId()+">"+pl.getName()+"</option>");
+                                        }
+                                    %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Name</span>
+                                <select class="form-control" name="platformId">
+                                    <option value="">N/A</option>
+                                    <% Object[] ps = new Platform().findAll(null).toArray();
+                                        for(Object p : ps){
+                                            Platform pl = (Platform) p;
+                                            out.println("<option value="+pl.getId()+">"+pl.getName()+"</option>");
+                                        }
+
+                                    %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
                                 <span class="input-group-addon">Release Date</span>
                                 <input type="text" name="releaseDate" class="form-control" value="">
                             </div>
@@ -122,7 +242,32 @@
                         <td>
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon">Description</span>
-                                <input type="text" name="description" class="form-control" value="">
+                                <textarea name="description" style="resize:none; width:100%;"  rows="6" > </textarea>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Tiny URL</span>
+                                <input type="text" name="imageTinyURL" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Medium URL</span>
+                                <input type="text" name="imageMediumURL" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Image Large URL</span>
+                                <input type="text" name="imageLargeURL" class="form-control" value="">
                             </div>
                         </td>
                     </tr>

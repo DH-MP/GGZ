@@ -2,8 +2,10 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.ggz.model.Console" %>
 <%@ include file="/view/includes/static/header.jsp" %>
-
+<a href="/MG.do" class="btn btn-default btn-lg" role="button">Create Game</a>
+<a href="/MC.do" class="btn btn-default btn-lg" role="button">Create Console</a>
 <div class="GameInventoryTableContainer">
+
     <form method="post" action="/MI.do">
         <table  class="table table-bordered table-condensed">
         <% Object[] games =  (Object[])request.getAttribute("allGames");
@@ -14,8 +16,15 @@
                    out.println("<td>"+game.getRating()+"</td>");
                    out.println("<td>"+game.getDeck()+"</td>");
                    out.println("<td>"+game.getDescription()+"</td>");
-                   out.println("<td><input name='"+game.getId()+":price' value="+game.getPrice()+"></td>");
-                   out.println("<td><input name='"+game.getId()+":quantities' value="+game.getQuantity()+"></td>");
+
+                   Double price = game.getPrice() == null ? 0 : game.getPrice();
+                   out.println("<td><input name='"+game.getId()+":price' value="+ price +"></td>");
+
+                   Integer qt = game.getQuantity() == null ? 0 : game.getQuantity();
+                   out.println("<td><input name='"+game.getId()+":quantities' value="+ qt +"></td>");
+
+                   out.println("<td><a href=\"/MG.do?id="+game.getId()+"\" class=\"btn btn-alert\" role=\"button\">Edit Game</a></td>");
+                   out.println("<td><a href=\"/MG.do?delete="+game.getId()+"\" class=\"btn btn-alert\" role=\"button\">Delete Game</a></td>");
                out.println("</tr>");
            }
         %>
@@ -36,8 +45,14 @@
                     out.println("<tr>");
                     out.println("<td>"+consoleName+"</td>");
                     out.println("<td>"+console.getDescription()+"</td>");
-                    out.println("<td><input name='"+console.getId()+":price' value="+console.getPrice()+"></td>");
-                    out.println("<td><input name='"+console.getId()+":quantities' value="+console.getQuantity()+"></td>");
+
+                    Double price = console.getPrice() == null ? 0 : console.getPrice();
+                    out.println("<td><input name='"+console.getId()+":price' value="+ price +"></td>");
+
+                    Integer qt = console.getQuantity() == null ? 0 : console.getQuantity();
+                    out.println("<td><input name='"+console.getId()+":quantities' value="+ qt +"></td>");
+
+                    out.println("<td><a href=\"/MC.do?id="+console.getId()+"\" class=\"btn btn-alert\" role=\"button\">Edit Game</a></td>");
                     out.println("</tr>");
                 }
             %>

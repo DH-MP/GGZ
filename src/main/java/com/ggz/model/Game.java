@@ -11,185 +11,211 @@ import java.util.Map;
 
 public class Game extends Base implements IModel
 {
-  //Table attributes
-  @ActiveRecordField
-  private Double price;
-  @ActiveRecordField
-  private Integer rating;
-  @ActiveRecordField
-  private String name;
-  @ActiveRecordField
-  private String releaseDate;
-  @ActiveRecordField
-  private String deck;
-  @ActiveRecordField
-  private String description;
-  @ActiveRecordField
-  private String apiDetailUrl;
-  @ActiveRecordField
-  private Integer quantity;
-  //Relation
-  @ActiveRecordField
-  private Integer apiId;
-  @ActiveRelationManyToMany(relationTable = "games_developers")
-  private List<Developer> developers;
-  @ActiveRelationManyToMany(relationTable = "games_platforms")
-  private List<Platform> platforms;
-  //Relation
-  @ActiveRecordField
-  private Integer imageId;
-  @ActiveRelationHasOne
-  private Image image;
+    //Table attributes
+    @ActiveRecordField
+    private Double price;
+
+    @ActiveRecordField
+    private Integer rating;
+
+    @ActiveRecordField
+    private String name;
+
+    @ActiveRecordField
+    private String releaseDate;
+
+    @ActiveRecordField
+    private String deck;
+
+    @ActiveRecordField
+    private String description;
+
+    @ActiveRecordField
+    private String apiDetailUrl;
+
+    @ActiveRecordField
+    private Integer quantity;
+
+    //Relation
+    @ActiveRecordField
+    private Integer apiId;
+
+    @ActiveRelationManyToMany(relationTable = "games_developers")
+    private List<Developer> developers;
+
+    //Relation
+    @ActiveRecordField
+    private Integer imageId;
+    @ActiveRelationHasOne
+    private Image image;
+
+    @ActiveRecordField
+    private Integer platformId;
+    @ActiveRelationHasOne
+    private Platform platform;
 
 
-  public Game()
-  {
-    super();
-  }
+    @ActiveRecordField
+    private Integer pgRatingId;
+    @ActiveRelationHasOne
+    private PgRating pgRating;
 
-  public Game(Map<String, Object> HM)
-  {
-    super(HM);
-  }
+    public Game() {
+        super();
+    }
 
-  public static void main(String[] args)
-  {
-    Game c = new Game().find(1);
-    System.out.println(c.getDevelopers());
-  }
+    public Game(Map<String, Object> HM) {
+        super(HM);
+    }
 
-  public Double getPrice()
-  {
-    return price;
-  }
 
-  public void setPrice(Double price)
-  {
-    this.price = price;
-    setUpdateFlag(true);
-  }
+    public Double getPrice() {
+        return price;
+    }
 
-  public Integer getRating()
-  {
-    return rating;
-  }
+    public void setPrice(Double price) {
+        this.price = price;
+        setUpdateFlag(true);
+    }
 
-  public void setRating(Integer rating)
-  {
-    this.rating = rating;
-    setUpdateFlag(true);
-  }
+    public Integer getRating() {
+        return rating;
+    }
 
-  public String getName()
-  {
-    return name;
-  }
+    public void setRating(Integer rating) {
+        this.rating = rating;
+        setUpdateFlag(true);
+    }
 
-  public void setName(String name)
-  {
-    this.name = name;
-    setUpdateFlag(true);
-  }
+    public String getName() {
+        return name;
+    }
 
-  public String getReleaseDate()
-  {
-    return releaseDate;
-  }
+    public void setName(String name) {
+        this.name = name;
+        setUpdateFlag(true);
+    }
 
-  public void setReleaseDate(String releaseDate)
-  {
-    this.releaseDate = releaseDate;
-    setUpdateFlag(true);
-  }
+    public String getReleaseDate() {
+        return releaseDate;
+    }
 
-  public String getDeck()
-  {
-    return deck;
-  }
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+        setUpdateFlag(true);
+    }
 
-  public void setDeck(String deck)
-  {
-    this.deck = deck;
-    setUpdateFlag(true);
-  }
+    public String getDeck() {
+        return deck;
+    }
 
-  public String getDescription()
-  {
-    return description;
-  }
+    public void setDeck(String deck) {
+        this.deck = deck;
+        setUpdateFlag(true);
+    }
 
-  public void setDescription(String description)
-  {
-    this.description = description;
-    setUpdateFlag(true);
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public String getApiDetailUrl()
-  {
-    return apiDetailUrl;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+        setUpdateFlag(true);
+    }
 
-  public void setApiDetailUrl(String apiDetailUrl)
-  {
-    this.apiDetailUrl = apiDetailUrl;
-    setUpdateFlag(true);
-  }
+    public String getApiDetailUrl() {
+        return apiDetailUrl;
+    }
 
-  public Integer getApiId()
-  {
-    return apiId;
-  }
+    public void setApiDetailUrl(String apiDetailUrl) {
+        this.apiDetailUrl = apiDetailUrl;
+        setUpdateFlag(true);
+    }
 
-  public void setApiId(Integer apiId)
-  {
-    this.apiId = apiId;
-    setUpdateFlag(true);
-  }
+    public Integer getApiId() {
+        return apiId;
+    }
 
-  public List<Developer> getDevelopers()
-  {
-    initRelation("developers");
-    return this.developers;
-  }
+    public void setApiId(Integer apiId) {
+        this.apiId = apiId;
+        setUpdateFlag(true);
+    }
 
-  public List<Platform> getPlatforms()
-  {
-    initRelation("platforms");
-    return this.platforms;
-  }
 
-  public Integer getImageId()
-  {
-    return imageId;
-  }
+    public List<Developer> getDevelopers() {
+        initRelation("developers");
+        return this.developers;
+    }
 
-  public void setImageId(Integer imageId)
-  {
-    this.imageId = imageId;
-    setUpdateFlag(true);
-  }
+    public void setDevelopers(List<Developer> developers) {
+        this.developers = developers;
+    }
 
-  public Image getImage()
-  {
-    initRelation("image");
-    return this.image;
-  }
 
-  public void setImage(Image image)
-  {
-    this.image = null;
-    this.imageId = image.getId();
-    setUpdateFlag(true);
-  }
+    public Integer getImageId() {
+        return imageId;
+    }
 
-  public Integer getQuantity()
-  {
-    return quantity;
-  }
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+        setUpdateFlag(true);
+    }
 
-  public void setQuantity(Integer quantity)
-  {
-    this.quantity = quantity;
-    setUpdateFlag(true);
-  }
+    public void setImage(Image image) {
+        this.image = null;
+        this.imageId = image.getId();
+        setUpdateFlag(true);
+    }
+
+    public Image getImage(){
+        initRelation("image");
+        return this.image;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+        setUpdateFlag(true);
+    }
+
+    public Integer getPlatformId() {
+        return platformId;
+    }
+
+    public void setPlatformId(Integer platformId) {
+        this.platformId = platformId;
+        setUpdateFlag(true);
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = null;
+        this.platformId = platform.getId();
+        setUpdateFlag(true);
+    }
+
+    public Integer getPgRatingId() {
+        return pgRatingId;
+    }
+
+    public void setPgRatingId(Integer pgRatingId) {
+        this.pgRatingId = pgRatingId;
+        setUpdateFlag(true);
+    }
+
+    public PgRating getPgRating() {
+        return pgRating;
+    }
+
+    public void setPgRating(PgRating pgRating) {
+        this.pgRating = null;
+        this.pgRatingId = pgRating.getId();
+        this.pgRating = pgRating;
+    }
 }
