@@ -27,13 +27,12 @@ public class ManageGameController  extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer gameId = null;
-        if( req.getAttribute("id") != 0){
-            //From Post
-
-            gameId =  req.getAttribute("id") == null ? null : Integer.parseInt(req.getAttribute("id").toString());
-        }else{
+        if(req.getAttribute("id") == null){
             //Get
             gameId = req.getParameter("id") == null ? null : Integer.parseInt(req.getParameter("id"));
+        }else{
+            //Post Redirect
+            gameId =  req.getAttribute("id") == 0 ? null : Integer.parseInt(req.getAttribute("id").toString());
         }
 
         Game game = null;
@@ -64,7 +63,7 @@ public class ManageGameController  extends HttpServlet
                 String notParsed = map.get(entry)[0].toString();
                 switch(attrType.getSimpleName().trim().toLowerCase()){
                     case "double":
-                        if(notParsed != null | !notParsed.isEmpty()){
+                        if(notParsed == null | notParsed.isEmpty()){
                             Double a = 0.00;
                             setterMethod.invoke(g, a);
                         }else{
@@ -73,7 +72,7 @@ public class ManageGameController  extends HttpServlet
 
                         break;
                     case "integer":
-                        if(notParsed != null | !notParsed.isEmpty()){
+                        if(notParsed == null | notParsed.isEmpty()){
                             Integer a = null;
                             setterMethod.invoke(g, a);
                         }else{
@@ -81,7 +80,7 @@ public class ManageGameController  extends HttpServlet
                         }
                         break;
                     default:
-                        setterMethod.invoke(g, map.get(entry)[0].toString());
+                        setterMethod.invoke(g, map.get(entry)[0]);
 
                 }
 

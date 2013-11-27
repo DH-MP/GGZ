@@ -12,74 +12,129 @@
     </div>
     <div class="panel-body">
         <table border="0" width="500" align="center">
-            <form action="/MG.do" method="post">
-                <tr>
-                    <th>Game</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Name</span>
-                            <input type="text" name="name" class="form-control" value=<%= g == null ? "" : g.getName()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Price</span>
-                            <input type="text" name="price" class="form-control" value=<%= g == null ? "" : g.getPrice()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Rating</span>
-                            <input type="text" name="rating" class="form-control" value=<%= g == null ? "" : g.getRating()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Release Date</span>
-                            <input type="text" name="releaseDate" class="form-control" value=<%= g == null ? "" : g.getReleaseDate()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Deck</span>
-                            <input type="text" name="deck" class="form-control">
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Deck</span>
-                            <input type="text" name="deck" class="form-control" value=<%= g == null ? "" : g.getDeck()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">Description</span>
-                            <input type="text" name="description" class="form-control" value=<%= g == null ? "" : g.getDescription()%>>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br />
-                        <input type="submit" class="btn btn-lg btn-primary btn-block" />
-                    </td>
+            <% if( g!= null){%>
+                <form action="/MG.do" method="post">
+                    <tr>
+                        <th>Game</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Name</span>
+                                <input type="text" name="name" class="form-control" value=<%=  g.getName() == null? "" : g.getName()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Price</span>
+                                <input type="text" name="price" class="form-control" value=<%= g.getPrice() == null ? "" : g.getPrice()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Rating</span>
+                                <input type="text" name="rating" class="form-control" value=<%=  g.getRating()==null ? "" : g.getRating()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Release Date</span>
+                                <input type="text" name="releaseDate" class="form-control" value=<%= g.getReleaseDate() == null ? "" : g.getReleaseDate()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Deck</span>
+                                <input type="text" name="deck" class="form-control" value=<%= g.getDeck() == null ? "" : g.getDeck()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Description</span>
+                                <input type="text" name="description" class="form-control" value=<%= g.getDescription() == null ? "" : g.getDescription()%>>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br />
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" />
+                        </td>
 
-                <input type="hidden" name="id" value=<%=g == null ? 0: g.getId()%> >
-            </form>
+                    <input type="hidden" name="id" value=<%=g.getId()%> >
+                </form>
+            <% }else{ %>
+                <form action="/MG.do" method="post">
+                    <tr>
+                        <th>Game</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Name</span>
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Price</span>
+                                <input type="text" name="price" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Rating</span>
+                                <input type="text" name="rating" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Release Date</span>
+                                <input type="text" name="releaseDate" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Deck</span>
+                                <input type="text" name="deck" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">Description</span>
+                                <input type="text" name="description" class="form-control" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br />
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" />
+                        </td>
+
+                        <input type="hidden" name="id" value=0>
+                </form>
+            <% } %>
             </tr>
 
         </table>
