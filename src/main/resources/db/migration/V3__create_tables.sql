@@ -3,6 +3,8 @@ create table inventories(
   total_item int,
   inventory_name varchar(256),
   address varchar(256),
+  etag varchar(256),
+  semaphore int(1),
   PRIMARY KEY (id)
 );
 
@@ -15,6 +17,8 @@ create table users(
   address varchar(256),
   inventory_id int,
   shopping_cart_id int,
+  etag varchar(256),
+  semaphore int(1),
   PRIMARY KEY (id),
   FOREIGN KEY(inventory_id) REFERENCES inventories(id)
 );
@@ -22,6 +26,8 @@ create table users(
 create table managers(
   id int not null,
   inventory_id int,
+  etag varchar(256),
+  semaphore int(1),
   PRIMARY KEY (id),
   FOREIGN KEY (id) REFERENCES users(id),
   FOREIGN KEY(inventory_id) REFERENCES inventories(id)
@@ -29,9 +35,11 @@ create table managers(
 
 create table shopping_carts(
   id int not null auto_increment,
-  total_price int,
+  total_price DOUBLE,
   user_id int,
   quantity int,
+  etag varchar(256),
+  semaphore int(1),
   PRIMARY KEY (id),
   FOREIGN KEY(user_id) REFERENCES users(id)
 );
@@ -51,6 +59,8 @@ create table items(
   item_type enum('game','console'),
   created_at timestamp DEFAULT CURRENT_TIMESTAMP,
   updated_at timestamp DEFAULT '0000-00-00 00:00:00',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (id),
   FOREIGN KEY(inventory_id) REFERENCES inventories(id) ON DELETE CASCADE
 );
@@ -73,6 +83,8 @@ create table orders(
   order_date timestamp default '0000-00-00 00:00:00',
   shopping_cart_id int,
   user_id int,
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (id),
   FOREIGN KEY(shopping_cart_id) REFERENCES shopping_carts(id),
   FOREIGN KEY(user_id) REFERENCES users(id)
@@ -89,6 +101,8 @@ create table credit_cards(
   cc_number int,
   user_id int,
   PRIMARY KEY (id),
+  etag varchar(256),
+  semaphore int(1) default 0,
   FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -97,6 +111,8 @@ create table payments(
   amount int,
   user_id int,
   order_id int,
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (id),
   FOREIGN KEY(user_id) REFERENCES users(id),
   FOREIGN KEY(order_id) REFERENCES orders(id)
@@ -108,6 +124,8 @@ create table receipts(
   amount int,
   payment_id int,
   user_id int,
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (id),
   FOREIGN KEY(user_id) REFERENCES users(id)
 );

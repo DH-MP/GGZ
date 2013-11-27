@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS `developers`;
 CREATE TABLE `developers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -20,6 +22,8 @@ CREATE TABLE `games` (
   `api_detail_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -60,6 +64,8 @@ CREATE TABLE `images` (
   `tiny_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `medium_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `large_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -67,6 +73,8 @@ DROP TABLE IF EXISTS `pg_ratings`;
 CREATE TABLE `pg_ratings` (
   `id` int(11) SIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -74,6 +82,8 @@ DROP TABLE IF EXISTS `platforms`;
 CREATE TABLE `platforms` (
   `id` int(11) SIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -88,6 +98,8 @@ CREATE TABLE `consoles` (
   `api_detail_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  etag varchar(256),
+  semaphore int(1) default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
