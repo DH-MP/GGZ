@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,24 +50,27 @@ public class CheckoutController extends HttpServlet
     ShoppingCart shoppingCart = user.getShoppingCart();
     List<Game> games = shoppingCart.getGames();
 
-    Double p = shoppingCart.getTotalPrice();
+//    Double p = shoppingCart.getTotalPrice();
+
+    DecimalFormat df = new DecimalFormat();
+    df.setMaximumFractionDigits(2);
 
     Double net = 0.0;
-//    for (Game game : games) {
-//      net =+ game.getPrice();
-//    }                    ;
-    Double gst = p * .05;
-    Double qst = p * .0975;
-    Double tp =  5 + p + gst + qst;
+    for (Game game : games) {
+      net =+ game.getPrice();
+    }                    ;
+    Double gst = net * .05;
+    Double qst = net * .0975;
+    Double tp =  5 + net + gst + qst;
 
-//    shoppingCart.setTotalPrice(tp);
-//    shoppingCart.update();
+    shoppingCart.setTotalPrice(tp);
+    shoppingCart.update();
 
     request.setAttribute("games", games);
-    request.setAttribute("sh", "5.00");
-    request.setAttribute("qst", qst);
-    request.setAttribute("gst", gst);
-    request.setAttribute("total", tp);
+    request.setAttribute("sh", df.format(5));
+    request.setAttribute("qst", df.format(qst));
+    request.setAttribute("gst", df.format(gst));
+    request.setAttribute("total", df.format(tp));
     request.getRequestDispatcher("/overview").forward(request, response);
   }
 
@@ -84,6 +87,9 @@ public class CheckoutController extends HttpServlet
       order.setUser(user);
       order.setShoppingCart(user.getShoppingCart());
       order.save();
+
+      user.setShoppingCart(new ShoppingCart());
+      user.update();
 
       response.sendRedirect("/success");
     }
