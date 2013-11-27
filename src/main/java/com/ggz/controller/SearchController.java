@@ -26,38 +26,44 @@ public class SearchController  extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name = request.getParameter("name");
+        List<Game> games = new Game().findAll(null);
 
         System.out.println("gets here");
+
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("name", request.getParameter("name"));
+        List<Game> matches = new Game().findAll(map);
+        matches.removeAll(matches);
+        System.out.println("cccccc"+matches);
+        Object[] gamesArray = games.toArray();
+        for (Object gameObject : games)
+        {
 
-        String delimiter = "\\s";
-        String[] n = name.split(delimiter);
-        map.put("n", n);
-        String redirect = "/error";
-        try {
-            //ArrayList<Map<String, Object>> matches = new Game().findAll();
-            List<Game> matches = new Game().findAll(map);
-            if (matches.size() >= 1){ // means found exactly 1 user with that username and password
+            Game a = (Game) gameObject;
 
-                //List<Console> recentConsoles = Game.findAll().limit(9).orderBy("release_date desc");
-                request.setAttribute("matches", matches);
-                //req.setAttribute("recentConsoles", recentConsoles);
-                request.getRequestDispatcher("/view/browse.jsp").forward(request, response);
-                //request.setAttribute("user", peer);
-                //redirect = "/front.do";
-                System.out.println(matches);
+            if( a.getName().contains(name))
+            {
+                System.out.println(name);
+                map.put("name", a.getName());
+                System.out.println(a.getName());
+                System.out.println("bbbbbbbbbb"+map);
+                matches.add(a);
 
-            }
+           }
 
-            //response.sendRedirect(redirect);
+            //List<Game> matches = new Game().findAll(map);
+        }
+        System.out.println("zzzzzzzzz"+matches);
+        //List<Game> matches = new Game().findAll(map);
+        if (matches.size() >= 1){
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("dffdsf"+map);
+            request.setAttribute("matches", matches);
+
+            System.out.println(matches);
+
         }
 
-
-
+        request.getRequestDispatcher("/view/browse.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
