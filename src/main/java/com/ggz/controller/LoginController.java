@@ -2,6 +2,7 @@ package com.ggz.controller;
 
 import com.ggz.model.Game;
 import com.ggz.model.User;
+import com.ggz.model.ShoppingCart;
 
 import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
@@ -33,9 +34,13 @@ public class LoginController extends HttpServlet{
                 //Map<String, Object> match = matches.get(0);
                 // get this hashmap from the arraylist
                 User u = matches.get(0);
+                System.out.println(u.getShoppingCartId());
+                ShoppingCart cart = new ShoppingCart().find(u.getShoppingCartId());
+                System.out.println(cart);
                 // store the peer obj in session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);
+                session.setAttribute("cart", cart);
                 session.setMaxInactiveInterval(259200); // 3 days in secs
                 //request.setAttribute("user", peer);
                 redirect = "/front.do";

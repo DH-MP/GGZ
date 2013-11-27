@@ -1,6 +1,7 @@
 package com.ggz.controller;
 
 import com.ggz.model.Console;
+import com.ggz.model.ShoppingCart;
 import com.ggz.model.Game;
 import com.ggz.model.User;
 
@@ -21,6 +22,15 @@ public class FrontController extends HttpServlet
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
     String platform = req.getParameter("platform");
+    ShoppingCart cart = (ShoppingCart) req.getAttribute("cart");
+    System.out.print(cart);
+    if (cart != null)
+      req.setAttribute  ("cart", cart);
+    else{
+      cart = new ShoppingCart().find(1);
+      req.setAttribute("cart",cart);
+    }
+
 
     //Map<String, Object> map = new HashMap<String, Object>();
    // map.put("releaseDate", req.getParameter("release_date"));
@@ -28,7 +38,6 @@ public class FrontController extends HttpServlet
 
     //List<Game> recentAddedGames = new Game().find(1);git
     List<Game> recentAddedGames = new Game().findAll(null);
-
       //List<Console> recentConsoles = Game.findAll().limit(9).orderBy("release_date desc");
     req.setAttribute("recentAddedGames", recentAddedGames);
     //req.setAttribute("recentConsoles", recentConsoles);
