@@ -93,12 +93,6 @@ public class Order  extends Base implements IModel {
         setUpdateFlag(true);
     }
 
-
-    public static void main(String[] args) {
-        Order a  = new Order();
-        a.save();
-    }
-
     public Date getOrderDate() {
         return orderDate;
     }

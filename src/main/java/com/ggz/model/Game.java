@@ -135,11 +135,6 @@ public class Game extends Base implements IModel
     }
 
 
-    public static void main(String[] args) {
-        Game c = new Game().find(1);
-        System.out.println(c.getDevelopers());
-    }
-
     public List<Developer> getDevelopers() {
         initRelation("developers");
         return this.developers;
