@@ -39,7 +39,7 @@
           <password>root</password>
           <initOnMigrate>true</initOnMigrate>
           <locations>
-            <location>filesystem:${build.outputDirectory}/db/migration</location>
+            <location>filesystem:${project.build.outputDirectory}/db/migration</location>
           </locations>
         </configuration>
       </plugin>

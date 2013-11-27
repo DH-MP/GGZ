@@ -203,10 +203,7 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-      <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
-      {
-          Game game = g;
-      %>
+      <% for (Game game : (List<Game>)request.getAttribute("recentAddedGames")) { %>
         <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
           <h2><%= game.getName() %></h2>
           <div class="box-art-container">
@@ -230,10 +227,7 @@
       <h2>Top Game of the Week</h2>
 
       <div class="list-group">
-          <% for (Game g : (List<Game>) request.getAttribute("recentAddedGames"))
-          {
-              Game game = g;
-          %>
+        <% for (Game game : (List<Game>)request.getAttribute("recentAddedGames")) { %>
         <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">
             <img src="<%= game.getImage().getTinyUrl() %>" alt=""/>

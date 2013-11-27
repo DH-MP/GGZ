@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet{
         try {
             //ArrayList<Map<String, Object>> matches = new User().findAll(map);
             List<User> matches = new User().findAll(map);
+
             if (matches.size() == 1){ // means found exactly 1 user with that username and password
                 //Map<String, Object> match = matches.get(0);
                 // get this hashmap from the arraylist

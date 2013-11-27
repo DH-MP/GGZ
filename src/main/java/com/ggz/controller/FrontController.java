@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class FrontController extends HttpServlet
 {
+  int NUMBER_OF_RESULT_SHOWN = 9; // Our preference
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -31,16 +32,9 @@ public class FrontController extends HttpServlet
       req.setAttribute("cart",cart);
     }
 
-
-    //Map<String, Object> map = new HashMap<String, Object>();
-   // map.put("releaseDate", req.getParameter("release_date"));
-
-
-    //List<Game> recentAddedGames = new Game().find(1);git
     List<Game> recentAddedGames = new Game().findAll(null);
-      //List<Console> recentConsoles = Game.findAll().limit(9).orderBy("release_date desc");
-    req.setAttribute("recentAddedGames", recentAddedGames);
-    //req.setAttribute("recentConsoles", recentConsoles);
+    req.setAttribute("recentAddedGames", recentAddedGames
+        .subList(0, Math.min(recentAddedGames.size(), NUMBER_OF_RESULT_SHOWN)));
     req.getRequestDispatcher("/view/front.jsp").forward(req, resp);
   }
 }

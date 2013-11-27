@@ -74,6 +74,7 @@ def from_json_response(hash)
     g.image = img
   end
 
+
   unless hash.original_game_rating.nil?
     hash.original_game_rating.each do |r|
       rating = PgRating.find_by(name: r.name) || PgRating.new
@@ -96,6 +97,8 @@ def from_json_response(hash)
     g.developers << developer
   end unless hash.developers.nil?
 
+  g.save
+  g.image_id = g.image.id
   g.save
 end
 
