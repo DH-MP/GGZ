@@ -1,7 +1,8 @@
 <%@ page import="com.ggz.model.Game" %>
 <%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Map" %>
+<%@ page import="com.ggz.model.Platform" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -139,54 +140,39 @@
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide"
-           alt="First slide">
+      <div class="carousel-imageholder">
+        <img src="/assets/images/front/ghost.jpg" alt="Call of Duty: Ghost" />
+      </div>
 
       <div class="container">
         <div class="carousel-caption">
-          <h1>Example headline.</h1>
-
-          <p>Note: If you're viewing this page via a <code>file://</code> URL,
-            the "next" and "previous" Glyphicon buttons on the left and right
-            might not load/display properly due to web browser security rules.
-          </p>
-
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up
-            today</a></p>
+          <h1>Call of Duty: Ghosts</h1>
+          <p>The 2013 installment in the long-running military FPS series, developed by Infinity Ward and an assortment of other studios.</p>
         </div>
       </div>
     </div>
     <div class="item">
-      <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide"
-           alt="Second slide">
+      <div class="carousel-imageholder">
+        <img src="/assets/images/front/hearthstone.jpg" alt="Hearthstone beta" />
+      </div>
 
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
+          <h1>Hearthstone: Heroes of Warcraft</h1>
 
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-            id elit non mi porta gravida at eget metus. Nullam id dolor id nibh
-            ultricies vehicula ut id elit.</p>
-
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn
-            more</a></p>
+          <p>A Free-to-Play card collection/strategy game by Blizzard Entertainment set in the Warcraft universe.</p>
         </div>
       </div>
     </div>
     <div class="item">
-      <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide"
-           alt="Third slide">
+      <div class="carousel-imageholder">
+        <img src="/assets/images/front/nfs.jpg" alt="Need for Speed: Rivals" />
+      </div>
 
       <div class="container">
         <div class="carousel-caption">
-          <h1>One more for good measure.</h1>
-
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-            id elit non mi porta gravida at eget metus. Nullam id dolor id nibh
-            ultricies vehicula ut id elit.</p>
-
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse
-            gallery</a></p>
+          <h1>Need for Speeds: Rivals</h1>
+          <p>A cross-gen open-world driving game set in a fictional Redview County.</p>
         </div>
       </div>
     </div>
@@ -211,11 +197,27 @@
           </div>
           <div>
             <form action="/cart.do" method="post">
-              <span class="label label-primary">PC</span>
-              <span class="label label-warning">PlayStation</span>
+              <%
+                boolean xbox = false;
+                boolean playstation = false;
+                boolean pc = false;
+                boolean mobile = false;
+                for (Platform p : game.getPlatforms()) {
+                if (StringUtils.containsIgnoreCase(p.getName(), "xbox") && !xbox) { %>
+                  <span class="label label-success">Xbox</span>
+                <% xbox = true;
+                } else if (StringUtils.containsIgnoreCase(p.getName(), "playstation") && !playstation) { %>
+                  <span class="label label-primary">PlayStation</span>
+                <% playstation = true;
+                } else if (StringUtils.containsIgnoreCase(p.getName(), "pc") && !pc) { %>
+                  <span class="label label-warning">PC</span>
+                <% pc = true;
+                } else if (!mobile) { %>
+                  <span class="label label-danger">Mobile</span>
+              <% mobile = true; } } %>
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
               <%--<input type="hidden" name="cart_id" value="<%= cart.getId() %>" />--%>
-              <span class="label label-success">Add to Cart</span>
+              <%--<span class="label label-success">Add to Cart</span>--%>
             </form>
           </div>
         </div>
@@ -227,7 +229,7 @@
       <h2>Top Game of the Week</h2>
 
       <div class="list-group">
-        <% for (Game game : (List<Game>)request.getAttribute("recentAddedGames")) { %>
+        <% for (Game game : (List<Game>)request.getAttribute("topGamesOfTheWeek")) { %>
         <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
           <div class="pull-left">
             <img src="<%= game.getImage().getTinyUrl() %>" alt=""/>
@@ -237,7 +239,6 @@
             <span class="label label-primary">PC</span>
             <span class="label label-warning">PlayStation</span>
           </h6>
-
           <p><%= game.getDeck() %></p>
         </a>
         <% } %>
@@ -245,10 +246,6 @@
     </div>
   </div>
 </div>
-<form action="" >
-  <input type="button" id="submit" value="something" />
-  <div id="cart"></div>
-</form>
 <footer>
   2013 Sunny Delight
 </footer>
