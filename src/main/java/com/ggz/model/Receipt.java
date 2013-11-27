@@ -1,4 +1,4 @@
-package com.ggz.model.activejdbc;
+package com.ggz.model;
 
 import com.ggz.model.Inventory;
 import com.ggz.model.Payment;
@@ -9,6 +9,7 @@ import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
 
 import java.security.Timestamp;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -25,7 +26,7 @@ public class Receipt extends Base implements IModel {
     private Double amount;
 
     @ActiveRecordField
-    private Timestamp receiptDate;
+    private Date receiptDate;
 
     @ActiveRecordField
     private Integer paymentId;
@@ -56,11 +57,11 @@ public class Receipt extends Base implements IModel {
         setUpdateFlag(true);
     }
 
-    public Timestamp getReceiptDate() {
+    public Date getReceiptDate() {
         return receiptDate;
     }
 
-    public void setReceiptDate(Timestamp receiptDate) {
+    public void setReceiptDate(Date receiptDate) {
         this.receiptDate = receiptDate;
         setUpdateFlag(true);
     }

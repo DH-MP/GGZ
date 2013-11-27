@@ -20,8 +20,8 @@ CREATE TABLE `games` (
   `description` mediumtext COLLATE utf8_unicode_ci,
   `quantity` int(11)  DEFAULT '0',
   `api_detail_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `creation_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_modified_date` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   etag varchar(256),
   semaphore int(1) default 0,
   PRIMARY KEY (`id`)
@@ -96,8 +96,8 @@ CREATE TABLE `consoles` (
   `description` mediumtext COLLATE utf8_unicode_ci,
   `quantity` int(11)  DEFAULT '0',
   `api_detail_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `creation_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_modified_date` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   etag varchar(256),
   semaphore int(1) default 0,
   PRIMARY KEY (`id`)

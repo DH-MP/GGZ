@@ -6,6 +6,7 @@ import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
 
 import java.security.Timestamp;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -21,7 +22,7 @@ public class Order  extends Base implements IModel {
     private String status;
 
     @ActiveRecordField
-    private Timestamp orderDate;
+    private Date orderDate = new Date();
 
     @ActiveRecordField
     private Integer userId;
@@ -90,5 +91,19 @@ public class Order  extends Base implements IModel {
         this.shoppingCart = null;
         this.shoppingCartId = shoppingCart.getId();
         setUpdateFlag(true);
+    }
+
+
+    public static void main(String[] args) {
+        Order a  = new Order();
+        a.save();
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 }

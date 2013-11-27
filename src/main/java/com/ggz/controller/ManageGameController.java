@@ -27,15 +27,17 @@ public class ManageGameController  extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer gameId = null;
-        if( req.getAttribute("attribute") != 0){
+        if( req.getAttribute("id") != 0){
             //From Post
-            gameId =  req.getAttribute("id") == null ? null : Integer.parseInt(req.getParameter("id"));
+
+            gameId =  req.getAttribute("id") == null ? null : Integer.parseInt(req.getAttribute("id").toString());
         }else{
             //Get
             gameId = req.getParameter("id") == null ? null : Integer.parseInt(req.getParameter("id"));
         }
 
         Game game = null;
+        System.out.println(gameId);
         if(gameId != null){
             game = new Game().find(gameId);
         }
@@ -48,60 +50,61 @@ public class ManageGameController  extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-            Map<String, String[]> map = new HashMap(req.getParameterMap());
-            Integer id = Integer.parseInt(map.remove("id")[0]);
-            Game g = id == null | id == 0 ? (Game) new Game(): (Game) new Game().find(id);
-            Class<?> gameClassObject = g.getClass();
+        Map<String, String[]> map = new HashMap(req.getParameterMap());
+        Integer id = Integer.parseInt(map.remove("id")[0]);
+        Game g = id == null | id == 0 ? (Game) new Game(): (Game) new Game().find(id);
+        Class<?> gameClassObject = g.getClass();
 
-            for(String entry: map.keySet()){
-                try {
-                    Field attr = gameClassObject.getDeclaredField(entry.trim().toString());
-                    Class<?> attrType = attr.getType();
-                    Method setterMethod = gameClassObject.getDeclaredMethod("set" + StringUtils.capitalize(entry), attrType);
+        for(String entry: map.keySet()){
+            try {
+                Field attr = gameClassObject.getDeclaredField(entry.trim().toString());
+                Class<?> attrType = attr.getType();
+                Method setterMethod = gameClassObject.getDeclaredMethod("set" + StringUtils.capitalize(entry), attrType);
 
-                    String notParsed = map.get(entry)[0].toString();
-                    switch(attrType.getSimpleName().trim().toLowerCase()){
-                        case "double":
-                            if(notParsed != null | !notParsed.isEmpty()){
-                                Double a = 0.00;
-                                setterMethod.invoke(g, a);
-                            }else{
-                                setterMethod.invoke(g, Double.parseDouble(map.get(entry)[0].toString()));
-                            }
+                String notParsed = map.get(entry)[0].toString();
+                switch(attrType.getSimpleName().trim().toLowerCase()){
+                    case "double":
+                        if(notParsed != null | !notParsed.isEmpty()){
+                            Double a = 0.00;
+                            setterMethod.invoke(g, a);
+                        }else{
+                            setterMethod.invoke(g, Double.parseDouble(map.get(entry)[0].toString()));
+                        }
 
-                            break;
-                        case "integer":
-                            if(notParsed != null | !notParsed.isEmpty()){
-                                Integer a = 0;
-                                setterMethod.invoke(g, a);
-                            }else{
-                                setterMethod.invoke(g, Integer.parseInt(map.get(entry)[0].toString()));
-                            }
-                            break;
-                        default:
-                            setterMethod.invoke(g, map.get(entry)[0].toString());
+                        break;
+                    case "integer":
+                        if(notParsed != null | !notParsed.isEmpty()){
+                            Integer a = null;
+                            setterMethod.invoke(g, a);
+                        }else{
+                            setterMethod.invoke(g, Integer.parseInt(map.get(entry)[0].toString()));
+                        }
+                        break;
+                    default:
+                        setterMethod.invoke(g, map.get(entry)[0].toString());
 
-                    }
-
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }
-            }
 
-            if(id != 0 ){
-                g.update();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+
+        if(id != 0 ){
+            g.update();
+            req.setAttribute("id", g.getId());
+        }else{
+            if(g.save()){
                 req.setAttribute("id", g.getId());
-            }else{
-                g.save();
-                req.setAttribute("id", g.save());
             }
+        }
 
-         doGet(req, resp);
+        doGet(req, resp);
     }
 }

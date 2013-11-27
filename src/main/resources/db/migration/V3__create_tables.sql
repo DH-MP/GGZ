@@ -35,7 +35,7 @@ create table managers(
 
 create table shopping_carts(
   id int not null auto_increment,
-  total_price DOUBLE,
+  total_price float,
   user_id int,
   quantity int,
   etag varchar(256),
@@ -57,8 +57,8 @@ create table items(
   api_detail_url varchar(256) default '',
   inventory_id int,
   item_type enum('game','console'),
-  created_at timestamp DEFAULT CURRENT_TIMESTAMP,
-  updated_at timestamp DEFAULT '0000-00-00 00:00:00',
+  creation_date timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified_date timestamp DEFAULT '0000-00-00 00:00:00',
   etag varchar(256),
   semaphore int(1) default 0,
   PRIMARY KEY (id),
