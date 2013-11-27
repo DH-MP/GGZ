@@ -51,7 +51,7 @@ create table items(
   quantity int default 0,
   price float default 0,
   rating int(2) SIGNED default 0,
-  api_id int(10) SIGNED default 0,
+  api_id int(10) DEFAULT 'NULL',
   release_date varchar(256) default 'CURRENT_TIMESTAMP',
   deck varchar(256) default '',
   api_detail_url varchar(256) default '',
