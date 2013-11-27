@@ -11,14 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FrontController extends HttpServlet
 {
-  int NUMBER_OF_RESULT_SHOWN = 9; // Our preference
+  public static int NUMBER_OF_RESULT_SHOWN = 9; // Adjustable
+  public static int NUMBER_OF_TOP_GAME_SHOWN = 5; // Adjustable
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
@@ -44,9 +42,18 @@ public class FrontController extends HttpServlet
     req.setAttribute("g", games);
     System.out.print(cart);
 
-    List<Game> recentAddedGames = new Game().findAll(null);
-    req.setAttribute("recentAddedGames", recentAddedGames
-        .subList(0, Math.min(recentAddedGames.size(), NUMBER_OF_RESULT_SHOWN)));
+    Random rand = new Random();
+    List<Game> allGames = new Game().findAll(null);
+    List<Game> recentAddedGames = new ArrayList<Game>();
+    List<Game> topGamesOfTheWeek = new ArrayList<Game>();
+
+    for (int i = 0; i < NUMBER_OF_RESULT_SHOWN; i++)
+      recentAddedGames.add(allGames.get(rand.nextInt(allGames.size())));
+    for (int i = 0; i < NUMBER_OF_TOP_GAME_SHOWN; i++)
+      topGamesOfTheWeek.add(allGames.get(rand.nextInt(allGames.size())));
+
+    req.setAttribute("recentAddedGames", recentAddedGames);
+    req.setAttribute("topGamesOfTheWeek", topGamesOfTheWeek);
     req.getRequestDispatcher("/view/front.jsp").forward(req, resp);
   }
 }

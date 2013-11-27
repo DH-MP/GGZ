@@ -1,6 +1,7 @@
 package com.ggz.controller;
 
 import com.ggz.model.Game;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,22 +25,22 @@ public class GameController extends HttpServlet
         {
           StringBuilder sb = new StringBuilder();
 
-            sb.append("{");
-            sb.append("  \"id\": \"" + game.getId() + "\",");
-            sb.append("  \"api_id\": \"" + game.getApiId() + "\",");
-            sb.append("  \"price\": \"" + game.getPrice() + "\",");
-            sb.append("  \"rating\": \"" + game.getRating() + "\",");
-            sb.append("  \"release_date\": \"" + game.getReleaseDate() + "\",");
-            sb.append("  \"deck\": \"" + game.getDeck() + "\",");
-            sb.append("  \"description\": \"" + game.getDescription() + "\",");
-            sb.append("  \"api_detail_url\": \"" + game.getApiDetailUrl() + "\",");
-            sb.append("  \"image_url\": \"" + game.getImage().getLargeUrl() + "\",");
-            sb.append("}");
+          sb.append("{");
+          sb.append("  \"id\": \"" + game.getId() + "\",");
+          sb.append("  \"title\": \"" + game.getName() + "\",");
+          sb.append("  \"api_id\": \"" + game.getApiId() + "\",");
+          sb.append("  \"price\": \"" + game.getPrice() + "\",");
+          sb.append("  \"rating\": \"" + game.getRating() + "\",");
+          sb.append("  \"release_date\": \"" + game.getReleaseDate() + "\",");
+          sb.append("  \"deck\": \"" + StringEscapeUtils.escapeHtml4(game.getDeck()) + "\",");
+          sb.append("  \"api_detail_url\": \"" + game.getApiDetailUrl() + "\",");
+          sb.append("  \"image_url\": \"" + game.getImage().getLargeUrl() + "\"");
+          sb.append("}");
 
           resp.setContentType("application/json");
           resp.setStatus(200);
           resp.setCharacterEncoding("UTF-8");
-          resp.getWriter().write(sb.toString());
+          resp.getWriter().println(sb.toString());
         }
         else
         {

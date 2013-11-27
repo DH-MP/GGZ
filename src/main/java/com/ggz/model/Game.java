@@ -6,171 +6,190 @@ import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
 import com.sunnyd.annotations.ActiveRelationManyToMany;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
 public class Game extends Base implements IModel
 {
-    //Table attributes
-    @ActiveRecordField
-    private Double price;
-
-    @ActiveRecordField
-    private Integer rating;
-
-    @ActiveRecordField
-    private String name;
-
-    @ActiveRecordField
-    private String releaseDate;
-
-    @ActiveRecordField
-    private String deck;
-
-    @ActiveRecordField
-    private String description;
-
-    @ActiveRecordField
-    private String apiDetailUrl;
-
-    @ActiveRecordField
-    private Integer quantity;
-
-    //Relation
-    @ActiveRecordField
-    private Integer apiId;
-
-    @ActiveRelationManyToMany(relationTable = "games_developers")
-    private List<Developer> developers;
+  //Table attributes
+  @ActiveRecordField
+  private Double price;
+  @ActiveRecordField
+  private Integer rating;
+  @ActiveRecordField
+  private String name;
+  @ActiveRecordField
+  private String releaseDate;
+  @ActiveRecordField
+  private String deck;
+  @ActiveRecordField
+  private String description;
+  @ActiveRecordField
+  private String apiDetailUrl;
+  @ActiveRecordField
+  private Integer quantity;
+  //Relation
+  @ActiveRecordField
+  private Integer apiId;
+  @ActiveRelationManyToMany(relationTable = "games_developers")
+  private List<Developer> developers;
+  @ActiveRelationManyToMany(relationTable = "games_platforms")
+  private List<Platform> platforms;
+  //Relation
+  @ActiveRecordField
+  private Integer imageId;
+  @ActiveRelationHasOne
+  private Image image;
 
 
-    //Relation
-    @ActiveRecordField
-    private Integer imageId;
+  public Game()
+  {
+    super();
+  }
 
-    @ActiveRelationHasOne
-    private Image image;
+  public Game(Map<String, Object> HM)
+  {
+    super(HM);
+  }
 
+  public static void main(String[] args)
+  {
+    Game c = new Game().find(1);
+    System.out.println(c.getDevelopers());
+  }
 
-    public Game() {
-        super();
-    }
+  public Double getPrice()
+  {
+    return price;
+  }
 
-    public Game(Map<String, Object> HM) {
-        super(HM);
-    }
+  public void setPrice(Double price)
+  {
+    this.price = price;
+    setUpdateFlag(true);
+  }
 
+  public Integer getRating()
+  {
+    return rating;
+  }
 
-    public Double getPrice() {
-        return price;
-    }
+  public void setRating(Integer rating)
+  {
+    this.rating = rating;
+    setUpdateFlag(true);
+  }
 
-    public void setPrice(Double price) {
-        this.price = price;
-        setUpdateFlag(true);
-    }
+  public String getName()
+  {
+    return name;
+  }
 
-    public Integer getRating() {
-        return rating;
-    }
+  public void setName(String name)
+  {
+    this.name = name;
+    setUpdateFlag(true);
+  }
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
-        setUpdateFlag(true);
-    }
+  public String getReleaseDate()
+  {
+    return releaseDate;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setReleaseDate(String releaseDate)
+  {
+    this.releaseDate = releaseDate;
+    setUpdateFlag(true);
+  }
 
-    public void setName(String name) {
-        this.name = name;
-        setUpdateFlag(true);
-    }
+  public String getDeck()
+  {
+    return deck;
+  }
 
-    public String getReleaseDate() {
-        return releaseDate;
-    }
+  public void setDeck(String deck)
+  {
+    this.deck = deck;
+    setUpdateFlag(true);
+  }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-        setUpdateFlag(true);
-    }
+  public String getDescription()
+  {
+    return description;
+  }
 
-    public String getDeck() {
-        return deck;
-    }
+  public void setDescription(String description)
+  {
+    this.description = description;
+    setUpdateFlag(true);
+  }
 
-    public void setDeck(String deck) {
-        this.deck = deck;
-        setUpdateFlag(true);
-    }
+  public String getApiDetailUrl()
+  {
+    return apiDetailUrl;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setApiDetailUrl(String apiDetailUrl)
+  {
+    this.apiDetailUrl = apiDetailUrl;
+    setUpdateFlag(true);
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-        setUpdateFlag(true);
-    }
+  public Integer getApiId()
+  {
+    return apiId;
+  }
 
-    public String getApiDetailUrl() {
-        return apiDetailUrl;
-    }
+  public void setApiId(Integer apiId)
+  {
+    this.apiId = apiId;
+    setUpdateFlag(true);
+  }
 
-    public void setApiDetailUrl(String apiDetailUrl) {
-        this.apiDetailUrl = apiDetailUrl;
-        setUpdateFlag(true);
-    }
+  public List<Developer> getDevelopers()
+  {
+    initRelation("developers");
+    return this.developers;
+  }
 
-    public Integer getApiId() {
-        return apiId;
-    }
+  public List<Platform> getPlatforms()
+  {
+    initRelation("platforms");
+    return this.platforms;
+  }
 
-    public void setApiId(Integer apiId) {
-        this.apiId = apiId;
-        setUpdateFlag(true);
-    }
+  public Integer getImageId()
+  {
+    return imageId;
+  }
 
+  public void setImageId(Integer imageId)
+  {
+    this.imageId = imageId;
+    setUpdateFlag(true);
+  }
 
-    public List<Developer> getDevelopers() {
-        initRelation("developers");
-        return this.developers;
-    }
+  public Image getImage()
+  {
+    initRelation("image");
+    return this.image;
+  }
 
-    public void setDevelopers(List<Developer> developers) {
-        this.developers = developers;
-    }
+  public void setImage(Image image)
+  {
+    this.image = null;
+    this.imageId = image.getId();
+    setUpdateFlag(true);
+  }
 
+  public Integer getQuantity()
+  {
+    return quantity;
+  }
 
-    public Integer getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(Integer imageId) {
-        this.imageId = imageId;
-        setUpdateFlag(true);
-    }
-
-    public void setImage(Image image) {
-        this.image = null;
-        this.imageId = image.getId();
-        setUpdateFlag(true);
-    }
-
-    public Image getImage(){
-        initRelation("image");
-        return this.image;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-        setUpdateFlag(true);
-    }
+  public void setQuantity(Integer quantity)
+  {
+    this.quantity = quantity;
+    setUpdateFlag(true);
+  }
 }
