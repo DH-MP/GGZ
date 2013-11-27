@@ -25,6 +25,9 @@ public class Console extends Base implements IModel {
     @ActiveRecordField
     private String apiDetailUrl;
 
+    @ActiveRecordField
+    private Integer quantity;
+
     //Declare Relation
     @ActiveRecordField
     private Integer apiId;
@@ -96,6 +99,16 @@ public class Console extends Base implements IModel {
     public void setPlatform(Platform platform){
         this.platform = null;
         this.platformId = platform.getId();
+        setUpdateFlag(true);
+    }
+
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
         setUpdateFlag(true);
     }
 

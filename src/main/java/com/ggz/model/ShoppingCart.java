@@ -6,7 +6,9 @@ import com.sunnyd.Base;
 import com.sunnyd.IModel;
 import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
+import com.sunnyd.annotations.ActiveRelationManyToMany;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +32,12 @@ public class ShoppingCart extends Base implements IModel {
 
     @ActiveRelationHasOne
     private User user;
+
+    @ActiveRelationManyToMany(relationTable = "games_shopping_carts")
+    private List<Game> games;
+
+    @ActiveRelationManyToMany(relationTable = "consoles_shopping_carts")
+    private List<Console> consoles;
 
     public ShoppingCart() {
         super();
@@ -77,4 +85,26 @@ public class ShoppingCart extends Base implements IModel {
         this.userId = user.getId();
         setUpdateFlag(true);
     }
+
+
+    public List<Game> getGames(){
+        initRelation("games");
+        return this.games;
+    }
+
+    public void  setGames(List<Game> games){
+        this.games = games;
+        setUpdateFlag(true);
+    }
+
+    public List<Console> getConsoles(){
+        initRelation("consoles");
+        return this.consoles;
+    }
+
+    public void  setConsoles(List<Console> consoles){
+        this.consoles = consoles;
+        setUpdateFlag(true);
+    }
+
 }

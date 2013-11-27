@@ -1,4 +1,5 @@
 <%@ page import="com.ggz.model.Game" %>
+<%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.ArrayList" %>
@@ -31,7 +32,11 @@
     });
   });
 
+
 </script>
+<%
+   ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+%>
 <div class="navbar-wrapper">
   <div class="container">
     <div class="col-md-8">
@@ -63,8 +68,8 @@
                       <tbody>
                       <tr>
                         <td>1</td>
-                        <td><p id="latbox">Super Mario Bros. (Wii)</p></td>
-                        <td><p id="lngbox">59.99</p></td>
+                        <td><p>itemName</p></td>
+                        <td><p>itemPrice</p></td>
                         <td><a href="#" data-Delete="true"><span class="glyphicon glyphicon-remove"></span></a></td>
                       </tr>
                       </tbody>
@@ -78,7 +83,7 @@
                             <button type="button" class="btn btn-primary" data-Add="true">Add</button>
                           </div>
                           <div class="col-md-3 col-md-offset-5">
-                            <button type="button" class="btn btn-default btn-success">
+                            <button type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
                               Checkout
                             <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
                             </button>
@@ -88,6 +93,7 @@
                 </div>
               </li>
             </ul>
+          </li>
         </ul>
 
         <%--<div class="collapse navbar-collapse">--%>
@@ -207,14 +213,18 @@
             <img src="<%= game.getImage().getMediumUrl() %>" class="img-rounded box-art"/>
           </div>
           <div>
-            <span class="label label-primary">PC</span>
-            <span class="label label-warning">PlayStation</span>
+            <form action="/cart.do" method="post">
+              <span class="label label-primary">PC</span>
+              <span class="label label-warning">PlayStation</span>
+              <input type="hidden" name="game_id" value="<%= game.getId() %>" />
+              <input type="hidden" name="cart_id" value="<%=cart.getId() %>" />
+              <span class="label label-success">Add to Cart</span>
+            </form>
           </div>
         </div>
         <% } %>
       </div>
     </div>
-
     <div class="col-xs-6 col-sm-5 sidebar-offcanvas" id="sidebar"
          role="navigation">
       <h2>Top Game of the Week</h2>
@@ -270,16 +280,20 @@
 
     function updateRow(row, i, reset) {
       row.cells[0].innerHTML = i;
-
-      var inp1 = row.cells[1].getElementsByTagName('p')[0];
-      var inp2 = row.cells[2].getElementsByTagName('p')[0];
-      inp1.id = 'latbox' + i;
-      inp2.id = 'lngbox' + i;
-
+      var gameName = document.getElementById("gameName");
+      var gamePrice = document.getElementById("gamePrice");
+//      var inp1 = row.cells[1].getElementsByTagName('p')[0];
+//      var inp2 = row.cells[2].getElementsByTagName('p')[0];
+//      inp1.id = i;
+//      inp2.id =  i;
+      gameName.id = i;
+      gamePrice.id = i;
       if (reset) {
-        inp1.value = inp2.value = '';
+//        inp1.value = inp2.value = '';
+          gameName.value = gamePrice.value = '';
       }
       return row;
     }
+
   </script>
 <%@ include file="/view/includes/static/footer.jsp" %>
