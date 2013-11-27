@@ -141,7 +141,7 @@
   <div class="carousel-inner">
     <div class="item active">
       <div class="carousel-imageholder">
-        <img src="/assets/images/front/ghost.jpg" alt="Call of Duty: Ghost" />
+        <img src="/assets/images/front/ghosts.jpg" alt="Call of Duty: Ghost" />
       </div>
 
       <div class="container">

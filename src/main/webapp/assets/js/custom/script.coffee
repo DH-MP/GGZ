@@ -9,24 +9,36 @@ $ ->
     radius: 5
 
   $('.flippable img').on "click", ->
-    back = flippant.flip($(this).get(0), game_modal_template, "modal")
+    $thisImg = $(this)
     gameId = $(this).parents('div.flippable').data("id")
     $.getJSON "/game.do?api=true&id=#{gameId}", (data) ->
-      console.log data
+      game_modal_template = $('<div/>',
+        class: 'container')
+      .append(
+        $('<h1/>',
+          "html": "#{data.title}")
+        .add($("<h1/>")
+          .append(
+            $('<span/>',
+              "class": "label label-success label-large"
+              "html": "    $ #{data.price}")))
+        .add($('<hr/>'))
+        .add($('<img/>',
+          "class": "box-art-container-large"
+          "src": "#{data.image_url}"
+          "style": "float: right"))
+        .add($('<div/>',
+          "html": "#{data.deck}"))
+        .add($('<button/>',
+          "class": "btn btn-default btn-danger close-flippant")
+          .append(
+            $('<span/>',
+              "class": "glyphicon glyphicon-remove")))
+      )
 
-    $(".close-flippant").on "click", (e) ->
-      e.preventDefault()
-      back.close()
+      back = flippant.flip($thisImg.get(0), game_modal_template.html(), "modal")
 
-game_modal_template = """
-                      <div class="container">
-                      <h1>Game Title</h1>
-                      <hr />
-                      <p>Description
-                      </p>
-                      <button class="btn btn-default btn-danger close-flippant"><span class="glyphicon glyphicon-remove"></span></span>
-                      </div>
-                      """
-
-
+      $(".close-flippant").on "click", (e) ->
+        e.preventDefault()
+        back.close()
 
