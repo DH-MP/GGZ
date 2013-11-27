@@ -16,18 +16,19 @@ $(function() {
       var back, game_modal_template;
       game_modal_template = $('<div/>', {
         "class": 'container'
-      }).append($('<h1/>', {
-        "html": "" + data.title
-      }).add($("<h1/>").append($('<span/>', {
-        "class": "label label-success label-large",
-        "html": "    $ " + data.price
-      }))).add($('<hr/>')).add($('<img/>', {
+      }).append($('<img/>', {
         "class": "box-art-container-large",
         "src": "" + data.image_url,
         "style": "float: right"
-      })).add($('<div/>', {
+      }).add($('<h1/>', {
+        "html": "" + data.title
+      }).append($('<span/>', {
+        "class": "label label-success label-large",
+        "style": "margin-left: 20px",
+        "html": "$ " + data.price
+      }))).add($('<hr/>')).add($('<div/>').append($('<p/>', {
         "html": "" + data.deck
-      })).add($('<button/>', {
+      }))).add($('<button/>', {
         "class": "btn btn-default btn-danger close-flippant"
       }).append($('<span/>', {
         "class": "glyphicon glyphicon-remove"

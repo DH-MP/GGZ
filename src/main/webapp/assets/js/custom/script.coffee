@@ -15,29 +15,27 @@ $ ->
       game_modal_template = $('<div/>',
         class: 'container')
       .append(
-        $('<h1/>',
+        $('<img/>',
+            "class": "box-art-container-large"
+            "src": "#{data.image_url}"
+            "style": "float: right")
+        .add($('<h1/>',
           "html": "#{data.title}")
-        .add($("<h1/>")
-          .append(
-            $('<span/>',
+          .append($('<span/>',
               "class": "label label-success label-large"
-              "html": "    $ #{data.price}")))
+              "style": "margin-left: 20px"
+              "html": "$ #{data.price}")))
         .add($('<hr/>'))
-        .add($('<img/>',
-          "class": "box-art-container-large"
-          "src": "#{data.image_url}"
-          "style": "float: right"))
-        .add($('<div/>',
-          "html": "#{data.deck}"))
+        .add($('<div/>')
+          .append($('<p/>',
+            "html": "#{data.deck}")))
         .add($('<button/>',
           "class": "btn btn-default btn-danger close-flippant")
           .append(
             $('<span/>',
-              "class": "glyphicon glyphicon-remove")))
-      )
+              "class": "glyphicon glyphicon-remove"))))
 
       back = flippant.flip($thisImg.get(0), game_modal_template.html(), "modal")
-
       $(".close-flippant").on "click", (e) ->
         e.preventDefault()
         back.close()
