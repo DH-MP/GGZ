@@ -35,7 +35,7 @@
 
 </script>
 <%
-   ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+   ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
 %>
 <div class="navbar-wrapper">
   <div class="container">
@@ -214,7 +214,7 @@
               <span class="label label-primary">PC</span>
               <span class="label label-warning">PlayStation</span>
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
-              <input type="hidden" name="cart_id" value="<%=cart.getId() %>" />
+              <input type="hidden" name="cart_id" value="<%= cart.getId()%>" />
               <span class="label label-success">Add to Cart</span>
             </form>
           </div>

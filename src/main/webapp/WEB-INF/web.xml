@@ -133,14 +133,13 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>overview.do</servlet-name>
-    <servlet-class>com.ggz.controller.O</servlet-class>
+    <servlet-name>success</servlet-name>
+    <jsp-file>/view/success.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>overview.do</servlet-name>
-    <url-pattern>/overview.do</url-pattern>
+    <servlet-name>success</servlet-name>
+    <url-pattern>/success</url-pattern>
   </servlet-mapping>
-
 
 
   <filter>

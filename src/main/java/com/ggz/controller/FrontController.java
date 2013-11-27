@@ -1,6 +1,7 @@
 package com.ggz.controller;
 
 import com.ggz.model.Console;
+import com.ggz.model.ShoppingCart;
 import com.ggz.model.Game;
 import com.ggz.model.User;
 
@@ -21,8 +22,17 @@ public class FrontController extends HttpServlet
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
-    List<Game> recentAddedGames = (new Game()).findAll(null);
+    String platform = req.getParameter("platform");
+    ShoppingCart cart = (ShoppingCart) req.getAttribute("cart");
+    System.out.print(cart);
+    if (cart != null)
+      req.setAttribute  ("cart", cart);
+    else{
+      cart = new ShoppingCart().find(1);
+      req.setAttribute("cart",cart);
+    }
 
+    List<Game> recentAddedGames = new Game().findAll(null);
     req.setAttribute("recentAddedGames", recentAddedGames
         .subList(0, Math.min(recentAddedGames.size(), NUMBER_OF_RESULT_SHOWN)));
     req.getRequestDispatcher("/view/front.jsp").forward(req, resp);
