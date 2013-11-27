@@ -2,12 +2,15 @@ package com.ggz.controller;
 
 import com.ggz.model.ShoppingCart;
 import com.ggz.model.Game;
+import com.ggz.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,23 +30,40 @@ public class CartController extends HttpServlet
 
     int game_id = Integer.parseInt(request.getParameter("game_id"));
     int cart_id = Integer.parseInt(request.getParameter("cart_id"));
-    Game game = new Game().find(game_id);
+    System.out.println("dfdf"+game_id);
+    System.out.println("aaaaaaaaa"+cart_id);
+
+    Map<String, Object> map =  new HashMap<String, Object>();
+    map.put("id", game_id);
+
+    Double total_price=0.0;
+    //Game game = new Game().find(game_id);
+    List<Game> games = new Game().findAll(map);
     ShoppingCart cart = new ShoppingCart().find(cart_id);
 
+    cart.setGames(games);
+    for (Object gameObject : games)
+    {
+      Game a = (Game) gameObject;
+
+     total_price += a.getPrice();
+
+    }
+    System.out.println(total_price);
+    cart.setTotalPrice(total_price);
+    System.out.println(cart.getGames());
     // here we should validate the input...
 
-    // check if user already exists
-    Map<String, Object> map = new HashMap<String, Object>();
-//    map.put("totalPrice", total_price);
-//    map.put("quantity", quantity);
-//    map.put("userId", user_id);
-//      try {
-//        ShoppingCart cart = new ShoppingCart().find(id);
-//        cart.setTotalPrice(total_price);
-//        cart.setQuantity(quantity);
-//
-//        redirect = "/front.do";
+
         cart.update();
+
+    request.setAttribute("games", games);
+    request.setAttribute("cart", cart);
+    System.out.println(games);
+
+
+    response.sendRedirect("/front.do");
+//    request.getRequestDispatcher("/view/front.jsp").forward(request, response);
 
 //            Peer peer = new Peer(Manager.find(id, "peers"));
 //        HttpSession session = request.getSession();

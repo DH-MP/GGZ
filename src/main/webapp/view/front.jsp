@@ -25,12 +25,6 @@
       deleteRow(this);
     });
   });
-  $(function() {
-    $("ul.dropdown-menu").on("click", "[data-Add]", function(e) {
-      e.stopPropagation();
-      insRow();
-    });
-  });
 
 
 </script>
@@ -65,17 +59,19 @@
                         <td></td>
                       </tr>
                       </thead>
+                          <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
                       <tbody>
                       <tr>
-                        <td>1</td>
-                        <td><p>itemName</p></td>
-                        <td><p>itemPrice</p></td>
+                        <td><%=g.getId() == null ? "" : g.getId()%></td>
+                        <td><p><%=g.getName() == null? "" : g.getName()%></p></td>
+                        <td><p><%=g.getPrice() == null? "" : g.getPrice()%></p></td>
                         <td><a href="#" data-Delete="true"><span class="glyphicon glyphicon-remove"></span></a></td>
                       </tr>
                       </tbody>
+                      <% }%>
                     </table>
                     <div class="col-md-offset-8">
-                      <p>Total: 84.98</p>
+                      <p>Total: <%=cart.getTotalPrice() == null? "": cart.getTotalPrice()%></p>
                     </div>
                       <div class="well">
                         <div class="row">
@@ -214,8 +210,8 @@
               <span class="label label-primary">PC</span>
               <span class="label label-warning">PlayStation</span>
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
-              <%--<input type="hidden" name="cart_id" value="<%= cart.getId() %>" />--%>
-              <span class="label label-success">Add to Cart</span>
+              <input type="hidden" name="cart_id" value="<%= cart.getId() %>" />
+              <button type="submit" class="btn btn-xs btn-success" >Add to Cart</button>
             </form>
           </div>
         </div>
@@ -267,27 +263,7 @@
       }
     }
 
-    function insRow() {
-      var new_row = updateRow(clone.cloneNode(true), ++tbody.rows.length, true);
-      tbody.appendChild(new_row);
-    }
 
-    function updateRow(row, i, reset) {
-      row.cells[0].innerHTML = i;
-      var gameName = document.getElementById("gameName");
-      var gamePrice = document.getElementById("gamePrice");
-//      var inp1 = row.cells[1].getElementsByTagName('p')[0];
-//      var inp2 = row.cells[2].getElementsByTagName('p')[0];
-//      inp1.id = i;
-//      inp2.id =  i;
-      gameName.id = i;
-      gamePrice.id = i;
-      if (reset) {
-//        inp1.value = inp2.value = '';
-          gameName.value = gamePrice.value = '';
-      }
-      return row;
-    }
 
   </script>
 <%@ include file="/view/includes/static/footer.jsp" %>

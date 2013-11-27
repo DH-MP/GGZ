@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,14 +24,25 @@ public class FrontController extends HttpServlet
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
   {
     String platform = req.getParameter("platform");
-    ShoppingCart cart = (ShoppingCart) req.getAttribute("cart");
+    HttpSession session = req.getSession();
+    ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
     System.out.print(cart);
-//    if (cart != null)
-//      req.setAttribute  ("cart", cart);
-//    else{
-//      cart = new ShoppingCart().find(1);
-//      req.setAttribute("cart",cart);
-//    }
+    if (cart != null){
+      req.setAttribute  ("cart", cart);
+      System.out.println("From Login: "+cart);
+    }
+    else{
+      cart = new ShoppingCart().find(1);
+      session.setAttribute("cart",cart);
+      System.out.println("From Non-Login: "+cart);
+    }
+//    Map<String, Object> map =  new HashMap<String, Object>();
+//    map.put("cartId", cart.getId());
+//    List<Game> games = new Game().findAll(map);
+    List<Game> games = cart.getGames();
+    System.out.println(games);
+    req.setAttribute("g", games);
+    System.out.print(cart);
 
     List<Game> recentAddedGames = new Game().findAll(null);
     req.setAttribute("recentAddedGames", recentAddedGames
