@@ -88,7 +88,15 @@ public class CheckoutController extends HttpServlet
       order.setShoppingCart(user.getShoppingCart());
       order.save();
 
-      user.setShoppingCart(new ShoppingCart());
+      user.getShoppingCart().destroy();
+
+      ShoppingCart shoppingCart = new ShoppingCart();
+      shoppingCart.setTotalPrice(0.0);
+      shoppingCart.setQuantity(0);
+      shoppingCart.setUserId(user.getId());
+      shoppingCart.save();
+      user.setShoppingCart(shoppingCart);
+      user.setShoppingCartId(shoppingCart.getId());
       user.update();
 
       response.sendRedirect("/success");
