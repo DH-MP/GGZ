@@ -1,5 +1,8 @@
 <%@ include file="/view/includes/static/header.jsp" %>
-
+<br>
+<br>
+<br>
+<br>
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
