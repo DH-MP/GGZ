@@ -194,7 +194,7 @@
         <url-pattern>/MI.do</url-pattern>
     </servlet-mapping>
 
-    <!--Manage Inventory -->
+    <!--Manage Game -->
     <servlet>
         <display-name>MG.do</display-name>
         <servlet-name>MG.do</servlet-name>
@@ -203,6 +203,19 @@
     <servlet-mapping>
         <servlet-name>MG.do</servlet-name>
         <url-pattern>/MG.do</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!--Manage Console -->
+    <servlet>
+        <display-name>MC.do</display-name>
+        <servlet-name>MC.do</servlet-name>
+        <servlet-class>com.ggz.controller.ManageConsoleController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MC.do</servlet-name>
+        <url-pattern>/MC.do</url-pattern>
     </servlet-mapping>
 
     <session-config>

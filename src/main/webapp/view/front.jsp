@@ -198,7 +198,8 @@
                 boolean playstation = false;
                 boolean pc = false;
                 boolean mobile = false;
-                for (Platform p : game.getPlatforms()) {
+                Platform p = game.getPlatform();
+                if(p != null){
                 if (StringUtils.containsIgnoreCase(p.getName(), "xbox") && !xbox) { %>
                   <span class="label label-success">Xbox</span>
                 <% xbox = true;
@@ -210,7 +211,7 @@
                 <% pc = true;
                 } else if (!mobile) { %>
                   <span class="label label-danger">Mobile</span>
-              <% mobile = true; } } %>
+              <% mobile = true; }} %>
               <%List<Game> games = (List<Game>)request.getAttribute("g"); %>
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
               <input type="hidden" name="cart_id" value="<%= cart.getId() %>" />
@@ -261,8 +262,5 @@
         i++;
       }
     }
-
-
-
   </script>
 <%@ include file="/view/includes/static/footer.jsp" %>
