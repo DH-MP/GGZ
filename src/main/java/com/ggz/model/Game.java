@@ -6,6 +6,7 @@ import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
 import com.sunnyd.annotations.ActiveRelationManyToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -218,4 +219,23 @@ public class Game extends Base implements IModel
         this.pgRatingId = pgRating.getId();
         this.pgRating = pgRating;
     }
+
+//    public static void main(String [ ] args){
+//      List<Game> games = new ArrayList<Game>();
+//      Game a = new Game().find(1);
+//      games.add(a);
+//
+//      Game b = new Game().find(1);
+//      games.add(b);
+//
+//      Object[] gameArray = games.toArray();
+//      for(Object game : games.toArray()){
+//          Game g = (Game) game;
+//          if(g.getId() == 1){
+//            System.out.println(g);
+//            System.out.println(new Game());
+//
+//          }
+//      }
+//    }
 }

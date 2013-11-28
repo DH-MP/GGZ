@@ -47,6 +47,7 @@ public class CartController extends HttpServlet
 //    Map<String, Object> map =  new HashMap<String, Object>();
 //    map.put("id", game_id);
     Double total_price=0.0;
+    int quantity = 0;
     //Game game = new Game().find(game_id);
 //    List<Game> games = new Game().findAll(map);
 
@@ -59,10 +60,12 @@ public class CartController extends HttpServlet
       Game a = (Game) gameObject;
 
      total_price += a.getPrice();
+     quantity++;
 
     }
     System.out.println(total_price);
     cart.setTotalPrice(total_price);
+    cart.setQuantity(quantity);
     System.out.println(cart.getGames());
     // here we should validate the input...
 

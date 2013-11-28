@@ -19,29 +19,27 @@
         $('#cart').text(responseText);
       });
     });
-  });
 //  $(function() {
 //    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
 //      e.stopPropagation();
 //      deleteRow(this);
 //    });
 //  });
-  <%int formCall=0;
-    int deleteCall=0;
-  %>
   <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
-  $('#tester').click(function(){
-    document.getElementById("test").submit();
+  $('#test').click(function (){
+    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
+      e.stopPropagation();
+    });
+    document.getElementById("tester").submit();
     return false;
   });
   <% }%>
+  });
 
 </script>
 <%
    ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
-  int i = 1;
-  int deleteId= 0;
-  int formId = 0;
+  int i = 0;
 %>
 <div class="navbar-wrapper">
   <div class="container">
@@ -58,7 +56,7 @@
           <li><a href="">PlayStation</a></li>
           <li><a href="">Nintendo</a></li>
           <li>
-            <a class="removefromcart" id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
             <ul class="dropdown-menu">
               <li>
                 <div>
@@ -77,7 +75,14 @@
                         <td><%=g.getId() == null ? "" : ++i%></td>
                         <td><p><%=g.getName() == null? "" : g.getName()%></p></td>
                         <td><p><%=g.getPrice() == null? "" : g.getPrice()%></p></td>
-                        <td><a id="test" type="submit" data-Delete="true" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        <td>
+                          <form action="/cartremove.do" method="post">
+                            <input type="hidden" name="game_id" value="<%=g.getId()%>" />
+                            <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
+                            <a href="" onclick="get_form(this).submit(); return false"><span class="glyphicon glyphicon-remove"></span></a>
+                          </form>
+
+                        </td>
                       </tr>
                       </tbody>
                       <% }%>
@@ -101,8 +106,7 @@
       </nav>
     </div>
     <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
-    <form action="/cartremove.do" id="tester" method="post">
-      <h2>Hi From Here</h2>
+    <form action="/cartremove.do" method="post">
       <input type="hidden" name="game_id" value="<%=g.getId()%>" />
       <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
     </form>
@@ -250,17 +254,18 @@
 </footer>
 
   <script type="text/javascript">
-    var table = document.getElementById('POITable'),
-        tbody = table.getElementsByTagName('tbody')[0],
-        clone = tbody.rows[0].cloneNode(true);
-
-    function deleteRow(el) {
-      var i = el.parentNode.parentNode.rowIndex;
-      table.deleteRow(i);
-      while (table.rows[i]) {
-        updateRow(table.rows[i], i, false);
-        i++;
+    function get_form( element )
+    {
+      while( element )
+      {
+        element = element.parentNode
+        if( element.tagName.toLowerCase() == "form" )
+        {
+          //alert( element ) //debug/test
+          return element
+        }
       }
+      return 0; //error: no form found in ancestors
     }
   </script>
 <%@ include file="/view/includes/static/footer.jsp" %>

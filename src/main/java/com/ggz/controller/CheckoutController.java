@@ -36,6 +36,7 @@ public class CheckoutController extends HttpServlet
     String expiration_date = request.getParameter("expirationdate");
 
     HttpSession session = request.getSession();
+    ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
     User user = (User)session.getAttribute("user");
 
     CreditCard cc = new CreditCard();
@@ -50,21 +51,21 @@ public class CheckoutController extends HttpServlet
     ShoppingCart shoppingCart = user.getShoppingCart();
     List<Game> games = shoppingCart.getGames();
 
-//    Double p = shoppingCart.getTotalPrice();
+    Double p = shoppingCart.getTotalPrice();
 
     DecimalFormat df = new DecimalFormat();
     df.setMaximumFractionDigits(2);
 
-    Double net = 0.0;
-    for (Game game : games) {
-      net =+ game.getPrice();
-    }
-    Double gst = net * .05;
-    Double qst = net * .0975;
-    Double tp =  5 + net + gst + qst;
+//    Double net = 0.0;
+//    for (Game game : games) {
+//      net =+ game.getPrice();
+//    }
+    Double gst = p * .05;
+    Double qst = p * .0975;
+    Double tp =  5 + p + gst + qst;
 
-    shoppingCart.setTotalPrice(tp);
-    shoppingCart.update();
+//    shoppingCart.setTotalPrice(tp);
+//    shoppingCart.update();
 
     request.setAttribute("games", games);
     request.setAttribute("sh", df.format(5));
