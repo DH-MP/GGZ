@@ -58,7 +58,7 @@ public class CheckoutController extends HttpServlet
     Double net = 0.0;
     for (Game game : games) {
       net =+ game.getPrice();
-    }                    ;
+    }
     Double gst = net * .05;
     Double qst = net * .0975;
     Double tp =  5 + net + gst + qst;
@@ -88,16 +88,13 @@ public class CheckoutController extends HttpServlet
       order.setShoppingCart(user.getShoppingCart());
       order.save();
 
-      user.getShoppingCart().destroy();
-
-      ShoppingCart shoppingCart = new ShoppingCart();
-      shoppingCart.setTotalPrice(0.0);
-      shoppingCart.setQuantity(0);
-      shoppingCart.setUserId(user.getId());
-      shoppingCart.save();
-      user.setShoppingCart(shoppingCart);
-      user.setShoppingCartId(shoppingCart.getId());
-      user.update();
+//      List<Game> games = new ArrayList<>();
+//      ShoppingCart shoppingCart = user.getShoppingCart();
+//      shoppingCart.setGames(games);
+//      shoppingCart.setTotalPrice(0.0);
+//      shoppingCart.setQuantity(0);
+//      shoppingCart.setUser(user);
+//      shoppingCart.update();
 
       response.sendRedirect("/success");
     }
