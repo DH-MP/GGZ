@@ -56,7 +56,7 @@
           <li><a href="">PlayStation</a></li>
           <li><a href="">Nintendo</a></li>
           <li>
-            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><%if(cart.getQuantity() != 0){%> <span class="badge"><%=cart.getQuantity()%></span><%}%></a>
             <ul class="dropdown-menu">
               <li>
                 <div>
@@ -115,16 +115,16 @@
         <form action="/search.do" method="post">
       <div id="primary-search" class="input-group input-group-lg">
 
-            <input type="text" class="form-control" name="name" placeholder="Name" />
+            <input type="text" class="form-control" name="name" placeholder="Search" />
 
             <div class="input-group-btn">
-                <button type="submit" class="btn btn-default btn-lg btn-warning">
-                    Search
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span>
                 </button>
             </div>
 
       </div>
-            </form>
+         </form>
     </div>
   </div>
 </div>
