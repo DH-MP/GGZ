@@ -173,6 +173,15 @@
         <servlet-name>game.do</servlet-name>
         <url-pattern>/game.do</url-pattern>
     </servlet-mapping>
+  <servlet>
+        <display-name>cartremove.do</display-name>
+        <servlet-name>cartremove.do</servlet-name>
+        <servlet-class>com.ggz.controller.CartRemoveController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cartremove.do</servlet-name>
+        <url-pattern>/cartremove.do</url-pattern>
+    </servlet-mapping>
 
     <!--Manage Inventory -->
     <servlet>

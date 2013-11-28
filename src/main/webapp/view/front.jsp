@@ -20,18 +20,28 @@
       });
     });
   });
-  $(function() {
-    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
-      e.stopPropagation();
-      deleteRow(this);
-    });
+//  $(function() {
+//    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
+//      e.stopPropagation();
+//      deleteRow(this);
+//    });
+//  });
+  <%int formCall=0;
+    int deleteCall=0;
+  %>
+  <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
+  $('#tester').click(function(){
+    document.getElementById("test").submit();
+    return false;
   });
-
+  <% }%>
 
 </script>
 <%
    ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
   int i = 1;
+  int deleteId= 0;
+  int formId = 0;
 %>
 <div class="navbar-wrapper">
   <div class="container">
@@ -67,7 +77,7 @@
                         <td><%=g.getId() == null ? "" : ++i%></td>
                         <td><p><%=g.getName() == null? "" : g.getName()%></p></td>
                         <td><p><%=g.getPrice() == null? "" : g.getPrice()%></p></td>
-                        <td><a href="#" data-Delete="true"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        <td><a id="test" type="submit" data-Delete="true" href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
                       </tr>
                       </tbody>
                       <% }%>
@@ -90,7 +100,13 @@
         </ul>
       </nav>
     </div>
-
+    <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
+    <form action="/cartremove.do" id="tester" method="post">
+      <h2>Hi From Here</h2>
+      <input type="hidden" name="game_id" value="<%=g.getId()%>" />
+      <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
+    </form>
+    <% } %>
     <div class="col-md-4">
         <form action="/search.do" method="post">
       <div id="primary-search" class="input-group input-group-lg">

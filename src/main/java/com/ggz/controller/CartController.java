@@ -26,8 +26,6 @@ public class CartController extends HttpServlet
 {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
-    response.setContentType("text/plain");
-    response.setCharacterEncoding("UTF-8");
 
     int game_id = Integer.parseInt(request.getParameter("game_id"));
     int cart_id = Integer.parseInt(request.getParameter("cart_id"));
