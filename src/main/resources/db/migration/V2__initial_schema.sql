@@ -14,6 +14,8 @@ CREATE TABLE `games` (
   `rating` int(2) DEFAULT '0',
   `api_id` int(10) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
+  `platform_id` int(11) SIGNED references platforms(id),
+  `pg_rating_id` int(11) SIGNED references pg_ratings(id),
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `release_date` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'CURRENT_TIMESTAMP',
   `deck` varchar(511) COLLATE utf8_unicode_ci DEFAULT '',
@@ -36,26 +38,6 @@ CREATE TABLE `games_developers` (
   UNIQUE KEY `game_developer_fk_constraint` (`game_id`,`developer_id`),
   KEY `game_developer_index` (`game_id`,`developer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `games_pg_ratings`;
-CREATE TABLE `games_pg_ratings` (
-  `id` int(11)  NOT NULL AUTO_INCREMENT,
-  `game_id` int(11)  NOT NULL,
-  `pg_rating_id` int(11)  NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `game_pgrating_fk_constraint` (`game_id`,`pg_rating_id`),
-  KEY `game_pgrating_index` (`game_id`,`pg_rating_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-DROP TABLE IF EXISTS `games_platforms`;
-CREATE TABLE `games_platforms` (
-  `id` int(11)  NOT NULL AUTO_INCREMENT,
-  `game_id` int(11) SIGNED  NOT NULL,
-  `platform_id` int(11) SIGNED  NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `game_platform_fk_constraint` (`game_id`,`platform_id`),
-  KEY `game_platform_index` (`game_id`,`platform_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (

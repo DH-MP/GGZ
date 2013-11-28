@@ -2,6 +2,8 @@ package com.ggz.model;
 
 import com.ggz.model.User;
 
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Wais
@@ -10,5 +12,13 @@ import com.ggz.model.User;
  * To change this template use File | Settings | File Templates.
  */
 public class Manager extends User {
+
+    public Manager() {
+        super();
+    }
+
+    public Manager(Map<String, Object> HM) {
+        super(HM);
+    }
 
 }

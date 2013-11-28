@@ -1,6 +1,7 @@
 package com.ggz.controller;
 
 import com.ggz.model.Game;
+import com.ggz.model.Manager;
 import com.ggz.model.User;
 import com.ggz.model.ShoppingCart;
 
@@ -38,6 +39,18 @@ public class LoginController extends HttpServlet{
                 System.out.println(u.getShoppingCartId());
                 ShoppingCart cart = new ShoppingCart().find(u.getShoppingCartId());
                 System.out.println(cart);
+                Manager manager = new Manager().find(u.getId());
+
+                if(manager!=null)
+                {
+                    System.out.println("user is a manager");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("manager", manager);
+                    session.setAttribute("cart", cart);
+                    session.setMaxInactiveInterval(259200); // 3 days in secs
+                    //request.setAttribute("user", peer);
+                    redirect = "/MI.do";
+                }else {
                 // store the peer obj in session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", u);
@@ -45,7 +58,7 @@ public class LoginController extends HttpServlet{
                 session.setMaxInactiveInterval(259200); // 3 days in secs
                 //request.setAttribute("user", peer);
                 redirect = "/front.do";
-
+                }
             }
 
             response.sendRedirect(redirect);

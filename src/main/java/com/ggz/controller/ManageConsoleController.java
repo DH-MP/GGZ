@@ -1,7 +1,6 @@
 package com.ggz.controller;
 
-import com.ggz.model.Game;
-import com.ggz.model.Image;
+import com.ggz.model.Console;
 import com.ggz.model.ShoppingCart;
 import org.apache.commons.lang3.StringUtils;
 
@@ -23,27 +22,18 @@ import java.util.Map;
  * Time: 6:39 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ManageGameController  extends HttpServlet
+public class ManageConsoleController  extends HttpServlet
 {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getParameter("delete")!= null){
-            Game g = new Game().find(Integer.parseInt(req.getParameter("delete")));
-            g.destroy();
-            resp.sendRedirect("/MI.do");
-            return;
+        Integer consoleId =  req.getParameter("id") == null ? null : Integer.parseInt(req.getParameter("id").toString());
+        Console console = null;
+        System.out.println(consoleId);
+        if(consoleId != null){
+            console = new Console().find(consoleId);
         }
-
-
-        Integer gameId = req.getParameter("id") == null ? null : Integer.parseInt(req.getParameter("id"));
-
-        Game game = null;
-        System.out.println(gameId);
-        if(gameId != null){
-            game = new Game().find(gameId);
-        }
-        req.setAttribute("game", game);
-        req.getRequestDispatcher("/view/manageGame.jsp").forward(req, resp);
+        req.setAttribute("console", console);
+        req.getRequestDispatcher("/view/manageConsole.jsp").forward(req, resp);
 
     }
 
@@ -51,68 +41,42 @@ public class ManageGameController  extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
+        for(Field field : Console.class.getDeclaredFields()){
+            System.out.println(field.getName());
+        }
+
         Map<String, String[]> map = new HashMap(req.getParameterMap());
         Integer id = Integer.parseInt(map.remove("id")[0]);
-        String imageTinyURL = map.remove("imageTinyURL")[0];
-        String imageMediumURL = map.remove("imageMediumURL")[0];
-        String imageLargeURL = map.remove("imageLargeURL")[0];
-
-        Game g = id == null | id == 0 ? (Game) new Game(): (Game) new Game().find(id);
-        Class<?> gameClassObject = g.getClass();
-
-        if(id != 0){
-            if(g.getImage() == null){
-                Image a = new Image();
-                a.setTinyUrl(imageTinyURL);
-                a.setMediumUrl(imageMediumURL);
-                a.setLargeUrl(imageLargeURL);
-                a.setGame(g);
-                a.save();
-                g.setImage(a);
-            } else{
-                Image a = g.getImage();
-                a.setTinyUrl(imageTinyURL);
-                a.setMediumUrl(imageMediumURL);
-                a.setLargeUrl(imageLargeURL);
-                g.getImage().update();
-            }
-        }else{
-            Image a = new Image();
-            a.setTinyUrl(imageTinyURL);
-            a.setMediumUrl(imageMediumURL);
-            a.setLargeUrl(imageLargeURL);
-            a.setGame(g);
-            a.save();
-            g.setImage(a);
-        }
+        Console c = id == null | id == 0 ? (Console) new Console(): (Console) new Console().find(id);
+        Class<?> consoleClassObject = c.getClass();
 
         for(String entry: map.keySet()){
             try {
-                Field attr = gameClassObject.getDeclaredField(entry.trim().toString());
+                Field attr = consoleClassObject.getDeclaredField(entry.trim().toString());
                 Class<?> attrType = attr.getType();
-                Method setterMethod = gameClassObject.getDeclaredMethod("set" + StringUtils.capitalize(entry), attrType);
+                Method setterMethod = consoleClassObject.getDeclaredMethod("set" + StringUtils.capitalize(entry), attrType);
 
                 String notParsed = map.get(entry)[0].toString();
                 switch(attrType.getSimpleName().trim().toLowerCase()){
                     case "double":
                         if(notParsed == null | notParsed.isEmpty()){
                             Double a = 0.00;
-                            setterMethod.invoke(g, a);
+                            setterMethod.invoke(c, a);
                         }else{
-                            setterMethod.invoke(g, Double.parseDouble(map.get(entry)[0].toString()));
+                            setterMethod.invoke(c, Double.parseDouble(map.get(entry)[0].toString()));
                         }
 
                         break;
                     case "integer":
                         if(notParsed == null | notParsed.isEmpty()){
                             Integer a = null;
-                            setterMethod.invoke(g, a);
+                            setterMethod.invoke(c, a);
                         }else{
-                            setterMethod.invoke(g, Integer.parseInt(map.get(entry)[0].toString()));
+                            setterMethod.invoke(c, Integer.parseInt(map.get(entry)[0].toString()));
                         }
                         break;
                     default:
-                        setterMethod.invoke(g, map.get(entry)[0]);
+                        setterMethod.invoke(c, map.get(entry)[0]);
 
                 }
 
@@ -136,11 +100,11 @@ public class ManageGameController  extends HttpServlet
         }
 
         if(id != 0 ){
-            g.update();
-            req.setAttribute("id", g.getId());
+            c.update();
+            req.setAttribute("id", c.getId());
         }else{
-            if(g.save()){
-                req.setAttribute("id", g.getId());
+            if(c.save()){
+                req.setAttribute("id", c.getId());
             }
         }
 

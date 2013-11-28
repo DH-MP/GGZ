@@ -35,6 +35,7 @@ public class Console extends Base implements IModel {
 
     @ActiveRecordField
     public Integer platformId;
+
     @ActiveRelationHasOne
     private Platform platform;
 
