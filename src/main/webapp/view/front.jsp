@@ -220,7 +220,11 @@
               <input type="hidden" name="game_id" value="<%= game.getId() %>" />
               <input type="hidden" name="cart_id" value="<%= cart.getId() %>" />
               <input type="hidden" name="games" value="<%=games%>" />
+              <% if(game.getQuantity()>0){ %>
               <button type="submit" class="btn btn-xs btn-success" >Add to Cart</button>
+              <%}else{%>
+              <button type="submit" class="btn btn-xs btn-danger" disabled>Out of Stock</button>
+              <%}%>
             </form>
           </div>
         </div>
