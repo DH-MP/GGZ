@@ -43,7 +43,7 @@
 %>
 <div class="navbar-wrapper">
   <div class="container">
-    <div class="col-md-9">
+    <div class="col-md-10">
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
           <a href="/" class="navbar-brand">Gravity Game Zone</a>
@@ -105,6 +105,9 @@
             <li>
             <a href="logout.do">Logout</a>
             </li>
+            <li>
+                <a href="userOrder.do">My Order</a>
+            </li>
         </ul>
       </nav>
     </div>
@@ -114,7 +117,7 @@
       <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
     </form>
     <% } %>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <form action="/search.do" method="post">
       <div id="primary-search" class="input-group input-group-lg">
 

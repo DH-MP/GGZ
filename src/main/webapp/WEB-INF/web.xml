@@ -218,6 +218,18 @@
         <url-pattern>/MC.do</url-pattern>
     </servlet-mapping>
 
+    <!--Manage Inventory -->
+    <servlet>
+        <display-name>userOrder.do</display-name>
+        <servlet-name>userOrder.do</servlet-name>
+        <servlet-class>com.ggz.controller.UserOrderController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userOrder.do</servlet-name>
+        <url-pattern>/userOrder.do</url-pattern>
+    </servlet-mapping>
+
+
     <session-config>
         <session-timeout>72</session-timeout>
     </session-config>
