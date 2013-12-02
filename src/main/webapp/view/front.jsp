@@ -56,7 +56,7 @@
           <li><a href="">PlayStation</a></li>
           <li><a href="">Nintendo</a></li>
           <li>
-            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><%if(cart.getQuantity() != 0){%> <span class="badge"><%=cart.getQuantity()%></span><%}%></a>
+            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><%if( cart.getQuantity() != null | cart.getQuantity() != 0){%> <span class="badge"><%=cart.getQuantity()%></span><%}%></a>
             <ul class="dropdown-menu">
               <li>
                 <div>
@@ -88,11 +88,11 @@
                       <% }%>
                     </table>
                     <div class="col-md-offset-8">
-                      <p>Total: <%=cart.getTotalPrice() == null? "": cart.getTotalPrice()%></p>
+                      <p>Total: <%=cart.getTotalPrice() == null ? "": cart.getTotalPrice()%></p>
                     </div>
                         <div class="row">
                           <div class="col-md-3 col-md-offset-8">
-                            <button <%if (cart.getTotalPrice()==0.0){ %>style="visibility:hidden;" <%}%> type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
+                            <button <%if (cart.getTotalPrice()==null | cart.getTotalPrice()==0.0){ %>style="visibility:hidden;" <%}%> type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
                               Checkout
                             <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
                             </button>

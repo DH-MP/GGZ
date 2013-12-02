@@ -23,21 +23,27 @@ public class FrontController extends HttpServlet
   {
     String platform = req.getParameter("platform");
     HttpSession session = req.getSession();
-    ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-    System.out.print(cart);
-    if (cart != null){
-      req.setAttribute  ("cart", cart);
+    User user  = (User) session.getAttribute("user");
+
+    ShoppingCart cart = null;
+    if (user != null){
+      user = new User().find(user.getId()); //Because session store old shopping cart object. force lazy loading pattern to retrieve the object.
+      cart = user.getShoppingCart();
+      session.setAttribute("cart", cart);
       System.out.println("From Login: "+cart);
     }
     else{
-      cart = new ShoppingCart().find(1);
+      cart = new ShoppingCart().find(1);//no user associated shopping cart
       session.setAttribute("cart",cart);
       System.out.println("From Non-Login: "+cart);
     }
 //    Map<String, Object> map =  new HashMap<String, Object>();
 //    map.put("cartId", cart.getId());
 //    List<Game> games = new Game().findAll(map);
+
+    System.out.println("adadss");
     List<Game> games = cart.getGames();
+    System.out.println("cartIDDD"+cart.getId());
     System.out.println("game :"+games);
     req.setAttribute("g", games);
     System.out.print(cart);

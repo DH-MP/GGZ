@@ -5,6 +5,7 @@ import com.sunnyd.IModel;
 import com.sunnyd.annotations.ActiveRecordField;
 import com.sunnyd.annotations.ActiveRelationHasOne;
 
+import java.math.BigInteger;
 import java.util.Map;
 
 /**
@@ -19,7 +20,7 @@ public class CreditCard  extends Base implements IModel {
 
     //Table attributes
     @ActiveRecordField
-    private Integer ccNumber;
+    private String ccNumber;
 
 
     //Relation
@@ -37,11 +38,11 @@ public class CreditCard  extends Base implements IModel {
         super(HM);
     }
 
-    public Integer getCcNumber() {
+    public String getCcNumber() {
         return this.ccNumber;
     }
 
-    public void setCcNumber(Integer ccNumber) {
+    public void setCcNumber(String ccNumber) {
         this.ccNumber = ccNumber;
         setUpdateFlag(true);
     }

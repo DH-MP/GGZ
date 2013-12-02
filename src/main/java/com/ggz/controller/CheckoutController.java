@@ -41,7 +41,7 @@ public class CheckoutController extends HttpServlet
 
     CreditCard cc = new CreditCard();
     List<CreditCard> creditCardList = new ArrayList<>();
-    cc.setCcNumber(Integer.parseInt(credit_card_number));//11 characters max
+    cc.setCcNumber(credit_card_number);//11 characters max
     creditCardList.add(cc);
 
     user.setAddress(address);
@@ -89,14 +89,21 @@ public class CheckoutController extends HttpServlet
       order.setShoppingCart(user.getShoppingCart());
       order.save();
 
-//      List<Game> games = new ArrayList<>();
-//      ShoppingCart shoppingCart = user.getShoppingCart();
-//      shoppingCart.setGames(games);
-//      shoppingCart.setTotalPrice(0.0);
-//      shoppingCart.setQuantity(0);
-//      shoppingCart.setUser(user);
-//      shoppingCart.update();
+      ShoppingCart shoppingCart = user.getShoppingCart();
+      shoppingCart.setUserId(null);
+      ShoppingCart newCart = new ShoppingCart();
+      newCart.setQuantity(0);
+      newCart.setTotalPrice((double)0.00);
+      newCart.setUser(user);
+      if(newCart.save()){
 
+
+          shoppingCart.update();
+          user.setShoppingCart(newCart);
+          user.update();
+      }  else{
+          response.sendRedirect("/error");
+      }
       response.sendRedirect("/success");
     }
     else response.sendRedirect("/error");

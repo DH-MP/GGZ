@@ -30,6 +30,7 @@ public class CartController extends HttpServlet
     int game_id = Integer.parseInt(request.getParameter("game_id"));
     int cart_id = Integer.parseInt(request.getParameter("cart_id"));
 
+    System.out.println(cart_id);
 
 
     System.out.println("dfdf"+game_id);
@@ -41,54 +42,51 @@ public class CartController extends HttpServlet
       request.getRequestDispatcher("/view/register.jsp").forward(request, response);
     }else
     {
-    List<Game> games = cart.getGames();
-    Game newGame = new Game().find(game_id);
-    games.add(newGame);
-//    Map<String, Object> map =  new HashMap<String, Object>();
-//    map.put("id", game_id);
-    Double total_price=0.0;
-    int quantity = 0;
-    //Game game = new Game().find(game_id);
-//    List<Game> games = new Game().findAll(map);
+        List<Game> games = cart.getGames();
+        Game newGame = new Game().find(game_id);
+        games.add(newGame);
+    //    Map<String, Object> map =  new HashMap<String, Object>();
+    //    map.put("id", game_id);
+        Double total_price=0.0;
+        int quantity = 0;
+        //Game game = new Game().find(game_id);
+    //    List<Game> games = new Game().findAll(map);
 
 
 
-//    games.add(newgame);
-    cart.setGames(games);
-    for (Object gameObject : games)
-    {
-      Game a = (Game) gameObject;
+    //    games.add(newgame);
+        cart.setGames(games);
+        for (Object gameObject : games)
+        {
+          Game a = (Game) gameObject;
 
-     total_price += a.getPrice();
-     quantity++;
+         total_price += a.getPrice();
+         quantity++;
 
-    }
-    System.out.println(total_price);
-    cart.setTotalPrice(total_price);
-    cart.setQuantity(quantity);
-    System.out.println(cart.getGames());
-    // here we should validate the input...
+        }
+        System.out.println(total_price);
+        cart.setTotalPrice(total_price);
+        cart.setQuantity(quantity);
+        System.out.println(cart.getGames());
+        // here we should validate the input...
 
 
-        cart.update();
+            cart.update();
 
-//    request.setAttribute("games", games);
-//    request.setAttribute("cart", cart);
-    System.out.println(games);
-    HttpSession session = request.getSession();
-    session.setAttribute("cart", cart);
+    //    request.setAttribute("games", games);
+    //    request.setAttribute("cart", cart);
 
-    response.sendRedirect("/front.do");
-//    request.getRequestDispatcher("/view/front.jsp").forward(request, response);
+        response.sendRedirect("/front.do");
+    //    request.getRequestDispatcher("/view/front.jsp").forward(request, response);
 
-//            Peer peer = new Peer(Manager.find(id, "peers"));
-//        HttpSession session = request.getSession();
-//        session.setAttribute("user", peer);
-//        response.sendRedirect(redirect);
+    //            Peer peer = new Peer(Manager.find(id, "peers"));
+    //        HttpSession session = request.getSession();
+    //        session.setAttribute("user", peer);
+    //        response.sendRedirect(redirect);
 
-//      } catch (Exception e) {
-//        e.printStackTrace();
-//      }
+    //      } catch (Exception e) {
+    //        e.printStackTrace();
+    //      }
 
 
     }
