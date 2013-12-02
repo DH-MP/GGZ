@@ -31,7 +31,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>logout.do</servlet-name>
-        <servlet-class>com.ggz.controller.Logout</servlet-class>
+        <servlet-class>com.ggz.controller.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logout.do</servlet-name>
