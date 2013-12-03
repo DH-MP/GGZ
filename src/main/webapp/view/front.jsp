@@ -208,8 +208,9 @@
                 boolean playstation = false;
                 boolean pc = false;
                 boolean mobile = false;
-                Platform p = game.getPlatform();
-                if(p != null){
+˜                Platform p = game.getPlatform();
+                if (p != null)
+                {
                 if (StringUtils.containsIgnoreCase(p.getName(), "xbox") && !xbox) { %>
                   <span class="label label-success">Xbox</span>
                 <% xbox = true;

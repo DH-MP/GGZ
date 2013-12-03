@@ -68,51 +68,6 @@
 
 
   <footer>
-    <div class="container useful-link">
-      <div class="row">
-        <div class="col-md-3">
-          <h3>Sunny Delight</h3>
-
-          <p>
-            Bacon ipsum dolor sit amet pork loin drumstick chicken frankfurter
-            fatback shankle. Brisket spare ribs fatback boudin, sausage corned
-            beef leberkas ham hock shank frankfurter prosciutto meatball biltong.
-            Shankle sausage ground round rump, ribeye ham ball tip. Ground round
-            meatloaf frankfurter ham, brisket pork chop short ribs andouille.
-            T-bone bresaola short loin pork. Biltong ham hock turducken swine
-            filet mignon. Shank kevin bacon turkey, prosciutto t-bone ham doner
-            tongue capicola pork flank frankfurter kielbasa.
-          </p>
-        </div>
-        <div class="col-md-offset-1 col-md-3">
-          <h3>Peter Trang</h3>
-
-          <p>
-            Bacon ipsum dolor sit amet pork loin drumstick chicken frankfurter
-            fatback shankle. Brisket spare ribs fatback boudin, sausage corned
-            beef leberkas ham hock shank frankfurter prosciutto meatball biltong.
-            Shankle sausage ground round rump, ribeye ham ball tip. Ground round
-            meatloaf frankfurter ham, brisket pork chop short ribs andouille.
-            T-bone bresaola short loin pork. Biltong ham hock turducken swine
-            filet mignon. Shank kevin bacon turkey, prosciutto t-bone ham doner
-            tongue capicola pork flank frankfurter kielbasa.
-          </p>
-        </div>
-        <div class="col-md-offset-1 col-md-3">
-          <h3>Concordia University</h3>
-          <p>
-            Bacon ipsum dolor sit amet pork loin drumstick chicken frankfurter
-            fatback shankle. Brisket spare ribs fatback boudin, sausage corned
-            beef leberkas ham hock shank frankfurter prosciutto meatball biltong.
-            Shankle sausage ground round rump, ribeye ham ball tip. Ground round
-            meatloaf frankfurter ham, brisket pork chop short ribs andouille.
-            T-bone bresaola short loin pork. Biltong ham hock turducken swine
-            filet mignon. Shank kevin bacon turkey, prosciutto t-bone ham doner
-            tongue capicola pork flank frankfurter kielbasa.
-          </p>
-        </div>
-      </div>
-    </div>
     2013 Sunny Delight
   </footer>
 

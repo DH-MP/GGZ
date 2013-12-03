@@ -31,21 +31,16 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Game < ActiveRecord::Base
+  belongs_to :platform
   has_one :image
-  has_and_belongs_to_many :platforms
   has_and_belongs_to_many :developers
-  has_and_belongs_to_many :pg_ratings
 end
 
 class Platform < ActiveRecord::Base
-  has_and_belongs_to_many :games
+  has_many :games
 end
 
 class Developer < ActiveRecord::Base
-  has_and_belongs_to_many :games
-end
-
-class PgRating < ActiveRecord::Base
   has_and_belongs_to_many :games
 end
 
@@ -66,29 +61,17 @@ def from_json_response(hash)
   g.description = hash.description || "No description"
   g.api_detail_url = hash.api_detail_url || ""
 
+  platforms = ["PC", "Xbox", "PlayStation", "Nintendo"]
+  platform_name = platforms[Random.new.rand(platforms.length)]
+  g.platform = Platform.where(name: platform_name).first ||
+      Platform.create(name: platform_name)
+
   img = Image.new
   unless hash.image.nil?
     img.tiny_url = hash.image.tiny_url || ""
     img.medium_url = hash.image.thumb_url || ""
     img.large_url = hash.image.small_url || ""
     g.image = img
-  end
-
-
-  unless hash.original_game_rating.nil?
-    hash.original_game_rating.each do |r|
-      rating = PgRating.find_by(name: r.name) || PgRating.new
-      rating.name = r.name
-      g.pg_ratings << rating
-    end
-  end
-
-  unless hash.platforms.nil?
-    hash.platforms.each do |p|
-      platform = Platform.find_by(name: p.name) || Platform.new
-      platform.name = p.name
-      g.platforms << platform
-    end
   end
 
   hash.developers.each do |d|
@@ -99,6 +82,8 @@ def from_json_response(hash)
 
   g.save
   g.image_id = g.image.id
+  g.save
+  g.last_modified_date = Time.now
   g.save
 end
 

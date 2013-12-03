@@ -1,8 +1,7 @@
-
+.*
 .settings/*
 WebContent/
 .idea/*
 target/
 classes/
 .DS_Store
-out

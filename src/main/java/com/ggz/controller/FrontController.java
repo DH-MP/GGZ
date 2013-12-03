@@ -4,6 +4,8 @@ import com.ggz.model.Console;
 import com.ggz.model.ShoppingCart;
 import com.ggz.model.Game;
 import com.ggz.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +17,8 @@ import java.util.*;
 
 public class FrontController extends HttpServlet
 {
+  static final Logger logger = LoggerFactory.getLogger(FrontController.class);
+
   public static int NUMBER_OF_RESULT_SHOWN = 9; // Adjustable
   public static int NUMBER_OF_TOP_GAME_SHOWN = 5; // Adjustable
 
@@ -37,11 +41,7 @@ public class FrontController extends HttpServlet
       session.setAttribute("cart",cart);
       System.out.println("From Non-Login: "+cart);
     }
-//    Map<String, Object> map =  new HashMap<String, Object>();
-//    map.put("cartId", cart.getId());
-//    List<Game> games = new Game().findAll(map);
 
-    System.out.println("adadss");
     List<Game> games = cart.getGames();
     System.out.println("cartIDDD"+cart.getId());
     System.out.println("game :"+games);
@@ -53,10 +53,13 @@ public class FrontController extends HttpServlet
     List<Game> recentAddedGames = new ArrayList<Game>();
     List<Game> topGamesOfTheWeek = new ArrayList<Game>();
 
-    for (int i = 0; i < NUMBER_OF_RESULT_SHOWN; i++)
-      recentAddedGames.add(allGames.get(rand.nextInt(allGames.size())));
-    for (int i = 0; i < NUMBER_OF_TOP_GAME_SHOWN; i++)
-      topGamesOfTheWeek.add(allGames.get(rand.nextInt(allGames.size())));
+    if (allGames.size() > 0)
+    {
+      for (int i = 0; i < NUMBER_OF_RESULT_SHOWN; i++)
+        recentAddedGames.add(allGames.get(rand.nextInt(allGames.size())));
+      for (int i = 0; i < NUMBER_OF_TOP_GAME_SHOWN; i++)
+        topGamesOfTheWeek.add(allGames.get(rand.nextInt(allGames.size())));
+    }
 
     req.setAttribute("recentAddedGames", recentAddedGames);
     req.setAttribute("topGamesOfTheWeek", topGamesOfTheWeek);
