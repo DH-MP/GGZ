@@ -14,7 +14,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div class="container">
+<div class="container content">
     <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-7">
             <div class="row">

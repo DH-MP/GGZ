@@ -1,20 +1,18 @@
 <%@ page import="com.ggz.model.Game" %>
-<%@ page import="com.ggz.model.ShoppingCart" %>
-<%@ page import="java.util.List" %>
 <%@ page import="com.ggz.model.Platform" %>
+<%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-  $(document).ready(function() {
-    $('#submit').click(function(event)
-    {
+  $(document).ready(function () {
+    $('#submit').click(function (event) {
       var e = $('#submit').val();
       $.post('cart.do', {
-        email : e
-      }, function(responseText) {
+        email: e
+      }, function (responseText) {
         var e = $('#cart').val();
         $('#cart').text(responseText);
       });
@@ -25,25 +23,25 @@
 //      deleteRow(this);
 //    });
 //  });
-  <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
-  $('#test').click(function (){
-    $("ul.dropdown-menu").on("click", "[data-Delete]", function(e) {
-      e.stopPropagation();
+    <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
+    $('#test').click(function () {
+      $("ul.dropdown-menu").on("click", "[data-Delete]", function (e) {
+        e.stopPropagation();
+      });
+      document.getElementById("tester").submit();
+      return false;
     });
-    document.getElementById("tester").submit();
-    return false;
-  });
-  <% }%>
+    <% }%>
   });
 
 </script>
 <%
-   ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
+  ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
   int i = 0;
 %>
 <div class="navbar-wrapper">
   <div class="container">
-    <div class="col-md-10">
+    <div class="col-md-8">
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
           <a href="/" class="navbar-brand">Gravity Game Zone</a>
@@ -51,86 +49,108 @@
 
         <ul class="nav navbar-nav">
           <li><a href="" class="item active">News</a></li>
-          <li><a href="">PC</a></li>
-          <li><a href="">Xbox</a></li>
-          <li><a href="">PlayStation</a></li>
-          <li><a href="">Nintendo</a></li>
+          <%--<li><a href="">PC</a></li>--%>
+          <%--<li><a href="">Xbox</a></li>--%>
+          <%--<li><a href="">PlayStation</a></li>--%>
+          <%--<li><a href="">Nintendo</a></li>--%>
           <li>
-            <a id="cart-box" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span><%if( cart.getQuantity() != null | cart.getQuantity() != 0){%> <span class="badge"><%=cart.getQuantity()%></span><%}%></a>
+            <a href="logout.do">Logout</a>
+          </li>
+          <li>
+            <a href="userOrder.do">My Order</a>
+          </li>
+          <li>
+            <a id="cart-box" data-toggle="dropdown" href="#">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              <% if (cart.getQuantity() != null | cart.getQuantity() != 0) { %>
+              <span class="badge"><%= cart.getQuantity() %></span>
+              <% } %>
+            </a>
             <ul class="dropdown-menu">
               <li>
                 <div>
-                    <table id="POITable" class="table table-striped" style="width:500px;">
-                     <thead>
-                      <tr>
-                        <td>Item</td>
-                        <td>Item name</td>
-                        <td>Price</td>
-                        <td></td>
-                      </tr>
-                      </thead>
-                          <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
-                      <tbody>
-                      <tr>
-                        <td><%=g.getId() == null ? "" : ++i%></td>
-                        <td><p><%=g.getName() == null? "" : g.getName()%></p></td>
-                        <td><p><%=g.getPrice() == null? "" : g.getPrice()%></p></td>
-                        <td>
-                          <form action="/cartremove.do" method="post">
-                            <input type="hidden" name="game_id" value="<%=g.getId()%>" />
-                            <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
-                            <a href="" onclick="get_form(this).submit(); return false"><span class="glyphicon glyphicon-remove"></span></a>
-                          </form>
+                  <table id="POITable" class="table table-striped"
+                         style="width:500px;">
+                    <thead>
+                    <tr>
+                      <td>Item</td>
+                      <td>Item name</td>
+                      <td>Price</td>
+                      <td></td>
+                    </tr>
+                    </thead>
+                    <% for (Game g : (List<Game>) request.getAttribute("g"))
+                    { %>
+                    <tbody>
+                    <tr>
+                      <td><%=g.getId() == null ? "" : ++i%>
+                      </td>
+                      <td><p><%=g.getName() == null ? "" : g.getName()%>
+                      </p></td>
+                      <td><p><%=g.getPrice() == null ? "" : g.getPrice()%>
+                      </p></td>
+                      <td>
+                        <form action="/cartremove.do" method="post">
+                          <input type="hidden" name="game_id"
+                                 value="<%=g.getId()%>"/>
+                          <input type="hidden" name="cart_id"
+                                 value="<%=cart.getId()%>"/>
+                          <a href=""
+                             onclick="get_form(this).submit(); return false"><span
+                              class="glyphicon glyphicon-remove"></span></a>
+                        </form>
 
-                        </td>
-                      </tr>
-                      </tbody>
-                      <% }%>
-                    </table>
-                    <div class="col-md-offset-8">
-                      <p>Total: <%=cart.getTotalPrice() == null ? "": cart.getTotalPrice()%></p>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <% }%>
+                  </table>
+                  <div class="col-md-offset-8">
+                    <p>
+                      Total: <%=cart.getTotalPrice() == null ? "" : cart.getTotalPrice()%>
+                    </p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 col-md-offset-8">
+                      <button
+                            <%if (cart.getTotalPrice()==null | cart.getTotalPrice()==0.0){ %>style="visibility:hidden;" <%}%>
+                            type="button" class="btn btn-default btn-success"
+                            onClick="parent.location='checkout'">
+                        Checkout
+                        <span class="badge"><span
+                            class="glyphicon glyphicon-chevron-right"></span></span>
+                      </button>
                     </div>
-                        <div class="row">
-                          <div class="col-md-3 col-md-offset-8">
-                            <button <%if (cart.getTotalPrice()==null | cart.getTotalPrice()==0.0){ %>style="visibility:hidden;" <%}%> type="button" class="btn btn-default btn-success" onClick="parent.location='checkout'">
-                              Checkout
-                            <span class="badge"><span class="glyphicon glyphicon-chevron-right"></span></span>
-                            </button>
-                          </div>
-                        </div>
+                  </div>
                 </div>
               </li>
             </ul>
           </li>
-            <li>
-            <a href="logout.do">Logout</a>
-            </li>
-            <li>
-                <a href="userOrder.do">My Order</a>
-            </li>
         </ul>
       </nav>
     </div>
-    <% for (Game g : (List<Game>)request.getAttribute("g")) { %>
+    <% for (Game g : (List<Game>) request.getAttribute("g"))
+    { %>
     <form action="/cartremove.do" method="post">
-      <input type="hidden" name="game_id" value="<%=g.getId()%>" />
-      <input type="hidden" name="cart_id" value="<%=cart.getId()%>" />
+      <input type="hidden" name="game_id" value="<%=g.getId()%>"/>
+      <input type="hidden" name="cart_id" value="<%=cart.getId()%>"/>
     </form>
     <% } %>
-    <div class="col-md-2">
-        <form action="/search.do" method="post">
-      <div id="primary-search" class="input-group input-group-lg">
+    <div class="col-md-4">
+      <form action="/search.do" method="post">
+        <div id="primary-search" class="input-group input-group-lg">
 
-            <input type="text" class="form-control" name="name" placeholder="Search" />
+          <input type="text" class="form-control" name="name"
+                 placeholder="Search"/>
 
-            <div class="input-group-btn">
-                <button type="submit" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </div>
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-warning">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </div>
 
-      </div>
-         </form>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -147,38 +167,43 @@
   <div class="carousel-inner">
     <div class="item active">
       <div class="carousel-imageholder">
-        <img src="/assets/images/front/ghosts.jpg" alt="Call of Duty: Ghost" />
+        <img src="/assets/images/front/ghosts.jpg" alt="Call of Duty: Ghost"/>
       </div>
 
       <div class="container">
         <div class="carousel-caption">
           <h1>Call of Duty: Ghosts</h1>
-          <p>The 2013 installment in the long-running military FPS series, developed by Infinity Ward and an assortment of other studios.</p>
+
+          <p>The 2013 installment in the long-running military FPS series,
+            developed by Infinity Ward and an assortment of other studios.</p>
         </div>
       </div>
     </div>
     <div class="item">
       <div class="carousel-imageholder">
-        <img src="/assets/images/front/hearthstone.jpg" alt="Hearthstone beta" />
+        <img src="/assets/images/front/hearthstone.jpg" alt="Hearthstone beta"/>
       </div>
 
       <div class="container">
         <div class="carousel-caption">
           <h1>Hearthstone: Heroes of Warcraft</h1>
 
-          <p>A Free-to-Play card collection/strategy game by Blizzard Entertainment set in the Warcraft universe.</p>
+          <p>A Free-to-Play card collection/strategy game by Blizzard
+            Entertainment set in the Warcraft universe.</p>
         </div>
       </div>
     </div>
     <div class="item">
       <div class="carousel-imageholder">
-        <img src="/assets/images/front/nfs.jpg" alt="Need for Speed: Rivals" />
+        <img src="/assets/images/front/nfs.jpg" alt="Need for Speed: Rivals"/>
       </div>
 
       <div class="container">
         <div class="carousel-caption">
           <h1>Need for Speeds: Rivals</h1>
-          <p>A cross-gen open-world driving game set in a fictional Redview County.</p>
+
+          <p>A cross-gen open-world driving game set in a fictional Redview
+            County.</p>
         </div>
       </div>
     </div>
@@ -195,11 +220,16 @@
   <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-7">
       <div class="row">
-      <% for (Game game : (List<Game>)request.getAttribute("recentAddedGames")) { %>
-        <div class="col-6 col-sm-6 col-lg-4 flippable" data-id="<%= game.getId() %>">
-          <h2><%= game.getName() %></h2>
+        <% for (Game game : (List<Game>) request.getAttribute("recentAddedGames"))
+        { %>
+        <div class="col-6 col-sm-6 col-lg-4 flippable"
+             data-id="<%= game.getId() %>">
+          <h2><%= game.getName() %>
+          </h2>
+
           <div class="box-art-container">
-            <img src="<%= game.getImage().getMediumUrl() %>" class="img-rounded box-art"/>
+            <img src="<%= game.getImage().getMediumUrl() %>"
+                 class="img-rounded box-art"/>
           </div>
           <div>
             <form action="/cart.do" method="post">
@@ -208,29 +238,46 @@
                 boolean playstation = false;
                 boolean pc = false;
                 boolean mobile = false;
-˜                Platform p = game.getPlatform();
+                Platform p = game.getPlatform();
                 if (p != null)
                 {
-                if (StringUtils.containsIgnoreCase(p.getName(), "xbox") && !xbox) { %>
-                  <span class="label label-success">Xbox</span>
-                <% xbox = true;
-                } else if (StringUtils.containsIgnoreCase(p.getName(), "playstation") && !playstation) { %>
-                  <span class="label label-primary">PlayStation</span>
-                <% playstation = true;
-                } else if (StringUtils.containsIgnoreCase(p.getName(), "pc") && !pc) { %>
-                  <span class="label label-warning">PC</span>
-                <% pc = true;
-                } else if (!mobile) { %>
-                  <span class="label label-danger">Mobile</span>
-              <% mobile = true; }} %>
-              <%List<Game> games = (List<Game>)request.getAttribute("g"); %>
-              <input type="hidden" name="game_id" value="<%= game.getId() %>" />
-              <input type="hidden" name="cart_id" value="<%= cart.getId() %>" />
-              <input type="hidden" name="games" value="<%=games%>" />
-              <% if(game.getQuantity()>0){ %>
-              <button type="submit" class="btn btn-xs btn-success" >Add to Cart</button>
-              <%}else{%>
-              <button type="submit" class="btn btn-xs btn-danger" disabled>Out of Stock</button>
+                  if (StringUtils.containsIgnoreCase(p.getName(), "xbox") && !xbox)
+                  { %>
+              <span class="label label-success">Xbox</span>
+              <% xbox = true;
+              }
+              else if (StringUtils.containsIgnoreCase(p.getName(), "playstation") && !playstation)
+              { %>
+              <span class="label label-primary">PlayStation</span>
+              <% playstation = true;
+              }
+              else if (StringUtils.containsIgnoreCase(p.getName(), "pc") && !pc)
+              { %>
+              <span class="label label-warning">PC</span>
+              <% pc = true;
+              }
+              else if (!mobile)
+              { %>
+              <span class="label label-danger">Mobile</span>
+              <% mobile = true;
+              }
+              } %>
+              <%List<Game> games = (List<Game>) request.getAttribute("g"); %>
+              <input type="hidden" name="game_id" value="<%= game.getId() %>"/>
+              <input type="hidden" name="cart_id" value="<%= cart.getId() %>"/>
+              <input type="hidden" name="games" value="<%=games%>"/>
+              <% if (game.getQuantity() > 0)
+              { %>
+              <button type="submit" class="btn btn-xs btn-success">Add to Cart
+              </button>
+              <%
+              }
+              else
+              {
+              %>
+              <button type="submit" class="btn btn-xs btn-danger" disabled>Out
+                of Stock
+              </button>
               <%}%>
             </form>
           </div>
@@ -243,17 +290,22 @@
       <h2>Top Game of the Week</h2>
 
       <div class="list-group">
-        <% for (Game game : (List<Game>)request.getAttribute("topGamesOfTheWeek")) { %>
-        <a href="/game.do?id=<%= game.getId() %>" class="list-group-item">
+        <% for (Game game : (List<Game>) request.getAttribute("topGamesOfTheWeek"))
+        { %>
+        <a href="/game.do?id=<%= game.getId() %>"
+           class="list-group-item flippable" data-id="<%= game.getId() %>">
           <div class="pull-left">
             <img src="<%= game.getImage().getTinyUrl() %>" alt=""/>
           </div>
-          <h4><%= game.getName() %></h4>
+          <h4><%= game.getName() %>
+          </h4>
           <h6>
             <span class="label label-primary">PC</span>
             <span class="label label-warning">PlayStation</span>
           </h6>
-          <p><%= game.getDeck() %></p>
+
+          <p><%= game.getDeck() %>
+          </p>
         </a>
         <% } %>
       </div>
@@ -264,19 +316,16 @@
   2013 Sunny Delight
 </footer>
 
-  <script type="text/javascript">
-    function get_form( element )
-    {
-      while( element )
-      {
-        element = element.parentNode
-        if( element.tagName.toLowerCase() == "form" )
-        {
-          //alert( element ) //debug/test
-          return element
-        }
+<script type="text/javascript">
+  function get_form(element) {
+    while (element) {
+      element = element.parentNode
+      if (element.tagName.toLowerCase() == "form") {
+        //alert( element ) //debug/test
+        return element
       }
-      return 0; //error: no form found in ancestors
     }
-  </script>
+    return 0; //error: no form found in ancestors
+  }
+</script>
 <%@ include file="/view/includes/static/footer.jsp" %>

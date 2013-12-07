@@ -43,8 +43,6 @@
           </locations>
         </configuration>
       </plugin>
-
-
     </plugins>
   </build>
 

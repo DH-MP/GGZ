@@ -1,13 +1,10 @@
 <%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ page import="com.ggz.model.ShoppingCart" %>
-<br>
-<br>
-<br>
-<br>
+
 <% if(session.getAttribute("cart") != null){ ShoppingCart cart = (ShoppingCart)session.getAttribute("cart"); %>
 <%if(cart.getId()==1){%>
-<h2>You need to Register to make a Purchase</h2>
+
 <%}}%>
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -17,10 +14,9 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container content">
+  <div class="page-header"><h2>You need to Register to make a Purchase</h2></div>
   <form id="register" action="/register.do" method="post" class="form-horizontal" >
-
-
     <div class="form-group">
       <label for="first_name" class="col-sm-3">First Name</label>
       <div class="col-sm-6">

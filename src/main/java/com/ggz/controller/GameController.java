@@ -20,7 +20,7 @@ public class GameController extends HttpServlet
       String id = req.getParameter("id");
       if (id != null)
       {
-        Game game = new Game().find(Integer.valueOf(id));
+        Game game = new Game().find(Integer.parseInt(id));
         if (game != null)
         {
           StringBuilder sb = new StringBuilder();

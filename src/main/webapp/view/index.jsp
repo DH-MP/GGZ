@@ -25,7 +25,7 @@
 
 <div class="parallax">
   <div class="section one" data-stellar-background-ratio="0.5">
-    <div class="container">
+    <div class="container content">
       <div class="row">
         <div class="col-md-7" id="hero-1"></div>
         <div class="col-md-5">

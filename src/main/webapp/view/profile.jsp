@@ -20,7 +20,7 @@
   {
 %>
 <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
+  <div class="container content">
     <div class="navbar-header">
       <a class="navbar-brand">Gravity Game Zone</a>
     </div>

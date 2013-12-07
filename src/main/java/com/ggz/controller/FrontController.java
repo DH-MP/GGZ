@@ -19,7 +19,7 @@ public class FrontController extends HttpServlet
 {
   static final Logger logger = LoggerFactory.getLogger(FrontController.class);
 
-  public static int NUMBER_OF_RESULT_SHOWN = 9; // Adjustable
+  public static int NUMBER_OF_RESULT_SHOWN = 10; // Adjustable
   public static int NUMBER_OF_TOP_GAME_SHOWN = 5; // Adjustable
 
   @Override

@@ -24,10 +24,15 @@ puts query_url
 
 ActiveRecord::Base.establish_connection(
   :adapter => "mysql",
-  :host => "localhost",
-  :database => "soen387",
-  :user => "root",
-  :password => "root"
+  # :port => 3307,
+  # :host => "127.0.0.1",
+  # :database => "soen387l",
+  # :user => "soen387l",
+  # :password => "h82j76"
+  host: "localhost",
+  database: "soen387",
+  user: "root",
+  password: "root"
 )
 
 class Game < ActiveRecord::Base
@@ -52,8 +57,9 @@ def from_json_response(hash)
   puts "Saving to database #{hash.id} #{hash.name}"
   return if hash.id.nil?
   g = Game.new
-  g.price = 59.99
   g.rating = 0
+  g.quantity = rand(60)
+  g.price = 10 + rand(50) + 0.99
   g.api_id = hash.id || 0
   g.name = hash.name || "Unknown"
   g.release_date = hash.original_release_date || Time.now

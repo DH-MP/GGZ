@@ -15,7 +15,6 @@
                    out.println("<td>"+game.getName()+"</td>");
                    out.println("<td>"+game.getRating()+"</td>");
                    out.println("<td>"+game.getDeck()+"</td>");
-                   out.println("<td>"+game.getDescription()+"</td>");
 
                    Double price = game.getPrice() == null ? 0 : game.getPrice();
                    out.println("<td><input name='"+game.getId()+":price' value="+ price +"></td>");
