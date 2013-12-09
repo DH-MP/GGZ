@@ -21,7 +21,8 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class UserOrderController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request,
+        HttpServletResponse response) throws ServletException, IOException {
 
         Integer orderId = Integer.parseInt(request.getParameter("id"));
         String status = request.getParameter("name");
