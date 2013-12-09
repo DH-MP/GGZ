@@ -15,7 +15,7 @@
 <div class="container content">
   <div class="page-header">
     <h2>
-      Your search for <%= request.getAttribute("queryString") %> successfully
+      Your search for "<%= request.getAttribute("queryString") %>" successfully
       yielded <%= ((List<?>)request.getAttribute("matches")).size() %> results.
     </h2>
   </div>

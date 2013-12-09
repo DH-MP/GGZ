@@ -1,5 +1,7 @@
 package com.ggz.controller;
 
+import com.ggz.model.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,10 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
-
-import com.ggz.model.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +21,7 @@ import com.ggz.model.*;
 
 public class CheckoutController extends HttpServlet
 {
+
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
     String name = request.getParameter("name");
@@ -36,16 +36,17 @@ public class CheckoutController extends HttpServlet
     String expiration_date = request.getParameter("expirationdate");
 
     HttpSession session = request.getSession();
-    ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
-    User user = (User)session.getAttribute("user");
+    ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+    User user = (User) session.getAttribute("user");
 
     CreditCard cc = new CreditCard();
-    List<CreditCard> creditCardList = new ArrayList<>();
+    //    List<CreditCard> creditCardList = new ArrayList<>();
     cc.setCcNumber(credit_card_number);//11 characters max
-    creditCardList.add(cc);
-
+    cc.setUser(user);
+    cc.save();
+    //    creditCardList.add(cc);
     user.setAddress(address);
-    user.setCreditCards(creditCardList);
+    //    user.setCreditCards(creditCardList);
     user.update();
 
     ShoppingCart shoppingCart = user.getShoppingCart();
@@ -56,16 +57,16 @@ public class CheckoutController extends HttpServlet
     DecimalFormat df = new DecimalFormat();
     df.setMaximumFractionDigits(2);
 
-//    Double net = 0.0;
-//    for (Game game : games) {
-//      net =+ game.getPrice();
-//    }
+    //    Double net = 0.0;
+    //    for (Game game : games) {
+    //      net =+ game.getPrice();
+    //    }
     Double gst = p * .05;
     Double qst = p * .0975;
-    Double tp =  5 + p + gst + qst;
+    Double tp = 5 + p + gst + qst;
 
-//    shoppingCart.setTotalPrice(tp);
-//    shoppingCart.update();
+    //    shoppingCart.setTotalPrice(tp);
+    //    shoppingCart.update();
 
     request.setAttribute("games", games);
     request.setAttribute("sh", df.format(5));
@@ -78,10 +79,10 @@ public class CheckoutController extends HttpServlet
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
     String status = request.getParameter("status");
-    if(status.contentEquals("true"))
+    if (status.contentEquals("true"))
     {
       HttpSession session = request.getSession();
-      User user = (User)session.getAttribute("user");
+      User user = (User) session.getAttribute("user");
 
       Order order = new Order();
       order.setStatus("creation");
@@ -93,20 +94,23 @@ public class CheckoutController extends HttpServlet
       shoppingCart.setUserId(null);
       ShoppingCart newCart = new ShoppingCart();
       newCart.setQuantity(0);
-      newCart.setTotalPrice((double)0.00);
+      newCart.setTotalPrice(0.00);
       newCart.setUser(user);
-      if(newCart.save()){
-
-
-          shoppingCart.update();
-          user.setShoppingCart(newCart);
-          user.update();
-      }  else{
-          response.sendRedirect("/error");
+      if (newCart.save())
+      {
+        shoppingCart.update();
+        user.setShoppingCart(newCart);
+        user.update();
+      }
+      else
+      {
+        response.sendRedirect("/error");
       }
       response.sendRedirect("/success");
     }
-    else response.sendRedirect("/error");
-
+    else
+    {
+      response.sendRedirect("/error");
+    }
   }
 }
