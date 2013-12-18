@@ -101,6 +101,11 @@ public class CheckoutController extends HttpServlet
         shoppingCart.update();
         user.setShoppingCart(newCart);
         user.update();
+        session.removeAttribute("cart");
+        session.removeAttribute("user");
+        session.setAttribute("user", user);
+        session.setAttribute("cart", newCart);
+
       }
       else
       {
