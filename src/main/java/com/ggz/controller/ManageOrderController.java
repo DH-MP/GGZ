@@ -58,6 +58,7 @@ public class ManageOrderController extends HttpServlet
 
         Order o = new Order().find(id);
         o.setStatus(statusValue);
+        o.update();
 
         System.out.println(status);
         resp.sendRedirect("/MO.do"); // redirect to homepage
