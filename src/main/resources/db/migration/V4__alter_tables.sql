@@ -1,0 +1,1 @@
+ALTER TABLE orders MODIFY COLUMN order_date date default '0000-00-00 00:00:00';
