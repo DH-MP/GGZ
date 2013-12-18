@@ -23,7 +23,7 @@
             <%}else{%>
                 <a href="#">
                     <img class="profile2"
-                         src="http://png-2.findicons.com/files/icons/2380/android_style_icons_r1/512/gallery.png""%>>
+                         src="http://png-2.findicons.com/files/icons/2380/android_style_icons_r1/512/gallery.png">
                 </a>
             <%}%>
         </div>
@@ -117,14 +117,14 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">Description</span>
-                                <textarea name="description" style="resize:none; width:100%;"  rows="6" ><%= g.getDescription() == null ? "" : g.getDescription()%></textarea>
-                            </div>
-                        </td>
-                    </tr>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<div class="input-group input-group-sm">--%>
+                                <%--<span class="input-group-addon">Description</span>--%>
+                                <%--<textarea name="description" style="resize:none; width:100%;"  rows="6" ><%= g.getDescription() == null ? "" : g.getDescription()%></textarea>--%>
+                            <%--</div>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
                     <tr>
                         <td>
                             <div class="input-group input-group-sm">
@@ -190,7 +190,7 @@
                     <tr>
                         <td>
                             <div class="input-group input-group-sm">
-                                <span class="input-group-addon">Name</span>
+                                <span class="input-group-addon">Rating</span>
                                 <select class="form-control" name="pgRatingId">
                                     <option value="">N/A</option>
                                     <% Object[] pr = new PgRating().findAll(null).toArray();
@@ -207,7 +207,7 @@
                     <tr>
                         <td>
                             <div class="input-group input-group-sm">
-                                <span class="input-group-addon">Name</span>
+                                <span class="input-group-addon">Platform</span>
                                 <select class="form-control" name="platformId">
                                     <option value="">N/A</option>
                                     <% Object[] ps = new Platform().findAll(null).toArray();
@@ -238,14 +238,14 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">Description</span>
-                                <textarea name="description" style="resize:none; width:100%;"  rows="6" > </textarea>
-                            </div>
-                        </td>
-                    </tr>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--<div class="input-group input-group-sm">--%>
+                                <%--<span class="input-group-addon">Description</span>--%>
+                                <%--<textarea name="description" style="resize:none; width:100%;"  rows="6" > </textarea>--%>
+                            <%--</div>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
 
                     <tr>
                         <td>

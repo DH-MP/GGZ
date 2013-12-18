@@ -4,6 +4,7 @@
 <%@ include file="/view/includes/static/header.jsp" %>
 <a href="/MG.do" class="btn btn-default btn-lg" role="button">Create Game</a>
 <a href="/MC.do" class="btn btn-default btn-lg" role="button">Create Console</a>
+<a href="/MO.do" class="btn btn-default btn-lg" role="button">ManageInventory</a>
 <div class="GameInventoryTableContainer">
 
     <form method="post" action="/MI.do">

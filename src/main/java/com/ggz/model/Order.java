@@ -22,7 +22,7 @@ public class Order  extends Base implements IModel {
     private String status;
 
     @ActiveRecordField
-    private Date orderDate = new Date();
+    private Date orderDate;
 
     @ActiveRecordField
     private Integer userId;

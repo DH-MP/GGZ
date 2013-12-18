@@ -218,7 +218,7 @@
         <url-pattern>/MC.do</url-pattern>
     </servlet-mapping>
 
-    <!--Manage Inventory -->
+
     <servlet>
         <display-name>userOrder.do</display-name>
         <servlet-name>userOrder.do</servlet-name>
@@ -229,6 +229,18 @@
         <url-pattern>/userOrder.do</url-pattern>
     </servlet-mapping>
 
+
+
+    <!--Manage Console -->
+    <servlet>
+        <display-name>MO.do</display-name>
+        <servlet-name>MO.do</servlet-name>
+        <servlet-class>com.ggz.controller.ManageOrderController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MO.do</servlet-name>
+        <url-pattern>/MO.do</url-pattern>
+    </servlet-mapping>
 
     <session-config>
         <session-timeout>72</session-timeout>
