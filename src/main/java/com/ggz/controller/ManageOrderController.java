@@ -52,15 +52,16 @@ public class ManageOrderController extends HttpServlet
     {
 
         String status = req.getParameter("status");
-        String[] split = status.split(":");
-        Integer id = Integer.parseInt(split[0]);
-        String statusValue = split[1];
-
-        Order o = new Order().find(id);
-        o.setStatus(statusValue);
-        o.update();
-
-        System.out.println(status);
+        if(status != ""){
+            String[] split = status.split(":");
+            Integer id = Integer.parseInt(split[0]);
+            String statusValue = split[1];
+            Order o = new Order().find(id);
+            System.out.println("IDIDID"+o.getId());
+            System.out.println("IDIDID"+statusValue);
+            o.setStatus(statusValue);
+            o.update();
+        }
         resp.sendRedirect("/MO.do"); // redirect to homepage
     }
 

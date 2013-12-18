@@ -5,6 +5,8 @@
 <%@ include file="/view/includes/static/header.jsp" %>
 <a href="/MI.do" class="btn btn-default btn-lg" role="button"><--Inventory</a>
 
+
+
 <% Object[] orders = null; %>
 
 <h3>creation</h3>
@@ -23,13 +25,16 @@
             %>
             <td>
                 <select class="" name="status">
-                    <option value=<%=order.getId().toString()+":creation"%> <%= order.getStatus().contentEquals("creation") ? "selected=\"selected\"" : "" %>>creation</option>
-                    <option value=<%=order.getId().toString()+":processing"%> <%= order.getStatus().contentEquals("processing") ? "selected=\"selected\"" : "" %>>processing</option>
-                    <option value=<%=order.getId().toString()+":shipped"%> <%= order.getStatus().contentEquals("shipped") ? "selected=\"selected\"" : "" %>>shipped</option>
-                    <option value=<%=order.getId().toString()+":cancelled"%> <%= order.getStatus().contentEquals("cancelled") ? "selected=\"selected\"" : ""%>>canceled</option>
+                    <option value=""> >Change STATUS</option>
+                    <option value=<%=order.getId().toString()+":creation"%> >creation</option>
+                    <option value=<%=order.getId().toString()+":processing"%> >processing</option>
+                    <option value=<%=order.getId().toString()+":shipped"%> >shipped</option>
+                    <option value=<%=order.getId().toString()+":cancelled"%>>canceled</option>
                 </select>
             </td>
             <%
+
+
                     out.println("<td>"+order.getOrderDate().toString()+"</td>");
                     out.println("<td>"+order.getUser().getFirstName()+", "+order.getUser().getLastName()+"</td>");
                     out.println("<td>"+links+"</td>");
@@ -58,10 +63,11 @@
             %>
             <td>
                 <select class="" name="status">
-                    <option value=<%=order.getId().toString()+":creation"%> <%= order.getStatus().contentEquals("creation") ? "selected=\"selected\"" : "" %>>creation</option>
-                    <option value=<%=order.getId().toString()+":processing"%> <%= order.getStatus().contentEquals("processing") ? "selected=\"selected\"" : "" %>>processing</option>
-                    <option value=<%=order.getId().toString()+":shipped"%> <%= order.getStatus().contentEquals("shipped") ? "selected=\"selected\"" : "" %>>shipped</option>
-                    <option value=<%=order.getId().toString()+":cancelled"%> <%= order.getStatus().contentEquals("cancelled") ? "selected=\"selected\"" : ""%>>canceled</option>
+                    <option value=""> >Change STATUS</option>
+                    <option value=<%=order.getId().toString()+":creation"%> >creation</option>
+                    <option value=<%=order.getId().toString()+":processing"%> >processing</option>
+                    <option value=<%=order.getId().toString()+":shipped"%> >shipped</option>
+                    <option value=<%=order.getId().toString()+":cancelled"%>>canceled</option>
                 </select>
             </td>
             <%
@@ -97,10 +103,11 @@
             %>
             <td>
                 <select class="" name="status">
-                    <option value=<%=order.getId().toString()+":creation"%> <%= order.getStatus().contentEquals("creation") ? "selected=\"selected\"" : "" %>>creation</option>
-                    <option value=<%=order.getId().toString()+":processing"%> <%= order.getStatus().contentEquals("processing") ? "selected=\"selected\"" : "" %>>processing</option>
-                    <option value=<%=order.getId().toString()+":shipped"%> <%= order.getStatus().contentEquals("shipped") ? "selected=\"selected\"" : "" %>>shipped</option>
-                    <option value=<%=order.getId().toString()+":cancelled"%> <%= order.getStatus().contentEquals("cancelled") ? "selected=\"selected\"" : ""%>>canceled</option>
+                    <option value=""> >Change STATUS</option>
+                    <option value=<%=order.getId().toString()+":creation"%> >creation</option>
+                    <option value=<%=order.getId().toString()+":processing"%> >processing</option>
+                    <option value=<%=order.getId().toString()+":shipped"%> >shipped</option>
+                    <option value=<%=order.getId().toString()+":cancelled"%>>canceled</option>
                 </select>
             </td>
             <%
@@ -135,10 +142,11 @@
             %>
             <td>
                 <select class="" name="status">
-                    <option value=<%=order.getId().toString()+":creation"%> <%= order.getStatus().contentEquals("creation") ? "selected=\"selected\"" : "" %>>creation</option>
-                    <option value=<%=order.getId().toString()+":processing"%> <%= order.getStatus().contentEquals("processing") ? "selected=\"selected\"" : "" %>>processing</option>
-                    <option value=<%=order.getId().toString()+":shipped"%> <%= order.getStatus().contentEquals("shipped") ? "selected=\"selected\"" : "" %>>shipped</option>
-                    <option value=<%=order.getId().toString()+":cancelled"%> <%= order.getStatus().contentEquals("cancelled") ? "selected=\"selected\"" : ""%>>canceled</option>
+                    <option value=""> >Change STATUS</option>
+                    <option value=<%=order.getId().toString()+":creation"%> >creation</option>
+                    <option value=<%=order.getId().toString()+":processing"%> >processing</option>
+                    <option value=<%=order.getId().toString()+":shipped"%> >shipped</option>
+                    <option value=<%=order.getId().toString()+":cancelled"%>>canceled</option>
                 </select>
             </td>
             <%
