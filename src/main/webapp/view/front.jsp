@@ -3,6 +3,7 @@
 <%@ page import="com.ggz.model.ShoppingCart" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.ggz.model.User" %>
 <%@ include file="/view/includes/static/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -37,6 +38,7 @@
 </script>
 <%
   ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+  User user = (User) session.getAttribute("user");
   int i = 0;
 %>
 <div class="navbar-wrapper">
@@ -53,9 +55,6 @@
           <%--<li><a href="">Xbox</a></li>--%>
           <%--<li><a href="">PlayStation</a></li>--%>
           <%--<li><a href="">Nintendo</a></li>--%>
-          <li>
-            <a href="logout.do">Logout</a>
-          </li>
           <li>
             <a href="userOrder.do">My Order</a>
           </li>
@@ -126,6 +125,14 @@
               </li>
             </ul>
           </li>
+        <% if(user !=null){ %>
+            <li>
+                <a href=""> HELLO! <%= user.getFirstName() == null ? "":  user.getFirstName() %></a>
+            </li>
+            <li>
+                <a href="logout.do">Logout</a>
+            </li>
+        <% } %>
         </ul>
       </nav>
     </div>
