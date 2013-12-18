@@ -45,13 +45,11 @@
                 <div class="caption">
                     <h4><%= u.getFirstName() %> <%= u.getLastName() %></h4>
                     <form action="/userOrder.do" method="post">
-
                         <table>
                             <tr><td>id</td><td><input type="text" class="orderId" name="id" value="<%= order.getId().toString() %>" readonly></td></tr>
-                            <tr><td>Status</td><td><input type="text" class="orderProperties" name="status" value="<%= order.getStatus().toString() %>" readonly></td></tr>
-                            <tr><td>OrderDate</td><td><input type="text" class="orderDate" name="order_date" value="<%= order.getOrderDate().toString() %>" readonly></td></tr>
+                            <tr><td>Status</td><td><input type="text" class="orderProperties" name="status" value"<%= order.getStatus().toString() %>" readonly></td></tr>
+                            <tr><td>OrderDate</td><td><input type="text" class="orderDate" name="order_date" value="<%= order.getOrderDate() == null? "error" : order.getOrderDate().toString()  %>" readonly></td></tr>
                         </table>
-
                         <input type="submit" value="Cancel Order" />
                     </form>
                 </div>
