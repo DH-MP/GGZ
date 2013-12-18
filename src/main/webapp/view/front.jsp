@@ -132,6 +132,10 @@
             <li>
                 <a href="logout.do">Logout</a>
             </li>
+        <% }else{ %>
+            <li>
+                <a href="/">Sign In</a>
+            </li>
         <% } %>
         </ul>
       </nav>
