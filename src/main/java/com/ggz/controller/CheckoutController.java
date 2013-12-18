@@ -24,49 +24,42 @@ public class CheckoutController extends HttpServlet
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
   {
-    String name = request.getParameter("name");
+//    String name = request.getParameter("name");
     String address = request.getParameter("address");
-    String postal_code = request.getParameter("postal");
-    String province = request.getParameter("province");
-    String country = request.getParameter("country");
-    String credit_card = request.getParameter("creditcard");
+//    String postal_code = request.getParameter("postal");
+//    String province = request.getParameter("province");
+//    String country = request.getParameter("country");
+//    String credit_card = request.getParameter("creditcard");
     String credit_card_number = request.getParameter("cardnumber");
-    String security_pin_number = request.getParameter("sec");
-    String cc_name = request.getParameter("ccname");
-    String expiration_date = request.getParameter("expirationdate");
+//    String security_pin_number = request.getParameter("sec");
+//    String cc_name = request.getParameter("ccname");
+//    String expiration_date = request.getParameter("expirationdate");
 
     HttpSession session = request.getSession();
     ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
     User user = (User) session.getAttribute("user");
 
     CreditCard cc = new CreditCard();
-    //    List<CreditCard> creditCardList = new ArrayList<>();
     cc.setCcNumber(credit_card_number);//11 characters max
     cc.setUser(user);
     cc.save();
-    //    creditCardList.add(cc);
     user.setAddress(address);
-    //    user.setCreditCards(creditCardList);
     user.update();
 
     ShoppingCart shoppingCart = user.getShoppingCart();
     List<Game> games = shoppingCart.getGames();
 
     Double p = shoppingCart.getTotalPrice();
-
     DecimalFormat df = new DecimalFormat();
     df.setMaximumFractionDigits(2);
 
-    //    Double net = 0.0;
-    //    for (Game game : games) {
-    //      net =+ game.getPrice();
-    //    }
+    for (Game game : games) {
+      game.setQuantity(game.getQuantity()-1);
+      game.update();
+    }
     Double gst = p * .05;
     Double qst = p * .0975;
     Double tp = 5 + p + gst + qst;
-
-    //    shoppingCart.setTotalPrice(tp);
-    //    shoppingCart.update();
 
     request.setAttribute("games", games);
     request.setAttribute("sh", df.format(5));
